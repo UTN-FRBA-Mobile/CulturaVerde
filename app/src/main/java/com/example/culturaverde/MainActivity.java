@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //val host = NavHostFragment.create(R.navigation.nav_graph);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,NavHostFragment.create(R.navigation.nav_graph)).setPrimaryNavigationFragment(NavHostFragment.create(R.navigation.nav_graph)).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,NavHostFragment.create(R.navigation.nav_graph)).setPrimaryNavigationFragment(NavHostFragment.create(R.navigation.nav_graph)).commit();
 
     }
  }
