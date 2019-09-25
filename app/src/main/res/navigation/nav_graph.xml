@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/login_main">
+    app:startDestination="@id/loginmainfragment">
 
     <fragment
-        android:id="@+id/login_main"
-        android:name="com.example.culturaverde.login_main"
+        android:id="@+id/loginmainfragment"
+        android:name="com.example.culturaverde.LoginMainFragment"
         android:label="fragment_login_main"
         tools:layout="@layout/fragment_login_main" >
         <action
-            android:id="@+id/action_login_main_to_principalconsumidores"
-            app:destination="@id/principalconsumidores" />
+            android:id="@+id/action_loginmainfragment_to_principalconsumidoresFragment"
+            app:destination="@id/principalconsumidoresFragment" />
         <action
-            android:id="@+id/action_login_main_to_principalproductores"
-            app:destination="@id/principalproductores" />
+            android:id="@+id/action_loginmainfragment_to_principalproductoresFragment"
+            app:destination="@id/principalproductoresFragment" />
     </fragment>
     <fragment
-        android:id="@+id/principalconsumidores"
-        android:name="com.example.culturaverde.principalconsumidores"
-        android:label="fragment_principalconsumidores"
-        tools:layout="@layout/fragment_principalconsumidores" />
-    <fragment
-        android:id="@+id/principalproductores"
-        android:name="com.example.culturaverde.principalproductores"
+        android:id="@+id/principalproductoresFragment"
+        android:name="com.example.culturaverde.principalproductoresFragment"
         android:label="fragment_principalproductores"
         tools:layout="@layout/fragment_principalproductores" />
+    <fragment
+        android:id="@+id/principalconsumidoresFragment"
+        android:name="com.example.culturaverde.principalconsumidoresFragment"
+        android:label="fragment_principalconsumidores"
+        tools:layout="@layout/fragment_principalconsumidores" />
 </navigation>

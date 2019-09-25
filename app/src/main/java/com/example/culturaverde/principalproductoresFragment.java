@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link principalproductores.OnFragmentInteractionListener} interface
+ * {@link principalproductoresFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link principalproductores#newInstance} factory method to
+ * Use the {@link principalproductoresFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class principalproductores extends Fragment {
+public class principalproductoresFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +31,7 @@ public class principalproductores extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public principalproductores() {
+    public principalproductoresFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,11 @@ public class principalproductores extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment principalproductores.
+     * @return A new instance of fragment principalproductoresFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static principalproductores newInstance(String param1, String param2) {
-        principalproductores fragment = new principalproductores();
+    public static principalproductoresFragment newInstance(String param1, String param2) {
+        principalproductoresFragment fragment = new principalproductoresFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
