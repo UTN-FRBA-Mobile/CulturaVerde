@@ -63,28 +63,7 @@
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
         android:layout_marginBottom="150dp"
-        android:text="Consumidores"
-        android:textColor="@android:color/background_light"
-        android:textColorHighlight="@color/colorAccent"
-        android:textColorLink="@color/colorPrimary"
-        android:textIsSelectable="true"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/botonPlayProductores"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginLeft="161dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginRight="162dp"
-        android:layout_marginBottom="80dp"
-        android:text="Productores"
+        android:text="Ingresar"
         android:textColor="@android:color/background_light"
         android:textColorHighlight="@color/colorAccent"
         android:textColorLink="@color/colorPrimary"
@@ -108,8 +87,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="217dp"
+        android:layout_height="191dp"
         android:layout_marginBottom="25dp"
         android:src="@drawable/cultura_verde"
         app:layout_constraintBottom_toTopOf="@+id/textView4"

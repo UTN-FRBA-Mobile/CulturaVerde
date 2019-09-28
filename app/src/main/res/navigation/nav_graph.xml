@@ -22,10 +22,18 @@
         android:id="@+id/principalproductoresFragment"
         android:name="com.example.culturaverde.principalproductoresFragment"
         android:label="fragment_principalproductores"
-        tools:layout="@layout/fragment_principalproductores" />
+        tools:layout="@layout/fragment_principalproductores" >
+        <action
+            android:id="@+id/action_principalproductoresFragment_to_loginmainfragment"
+            app:destination="@id/loginmainfragment" />
+    </fragment>
     <fragment
         android:id="@+id/principalconsumidoresFragment"
         android:name="com.example.culturaverde.principalconsumidoresFragment"
         android:label="fragment_principalconsumidores"
-        tools:layout="@layout/fragment_principalconsumidores" />
+        tools:layout="@layout/fragment_principalconsumidores" >
+        <action
+            android:id="@+id/action_principalconsumidoresFragment_to_loginmainfragment"
+            app:destination="@id/loginmainfragment" />
+    </fragment>
 </navigation>

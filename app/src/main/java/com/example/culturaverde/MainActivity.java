@@ -15,10 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Declaramos un objeto tipo Toolbar y lo instanciamos
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         NavHostFragment finalHost = NavHostFragment.create(R.navigation.nav_graph);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, finalHost)
