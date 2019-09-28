@@ -35,5 +35,13 @@
         <action
             android:id="@+id/action_principalconsumidoresFragment_to_loginmainfragment"
             app:destination="@id/loginmainfragment" />
+        <action
+            android:id="@+id/action_principalconsumidoresFragment_to_menu_desplegable_cons"
+            app:destination="@id/menu_desplegable_cons" />
     </fragment>
+    <fragment
+        android:id="@+id/menu_desplegable_cons"
+        android:name="com.example.culturaverde.menu_desplegable_cons"
+        android:label="fragment_menu_desplegable_cons"
+        tools:layout="@layout/fragment_menu_desplegable_cons" />
 </navigation>
