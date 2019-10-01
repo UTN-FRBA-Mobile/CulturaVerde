@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginmainfragment">
 
+    <fragment
+        android:id="@+id/loginmainfragment"
+        android:name="com.example.culturaverde.loginmainfragment"
+        android:label="fragment_loginmain"
+        tools:layout="@layout/fragment_loginmain" >
+        <action
+            android:id="@+id/action_loginmainfragment_to_principalconsumidoresFragment"
+            app:destination="@id/principalconsumidoresFragment" />
+        <action
+            android:id="@+id/action_loginmainfragment_to_principalproductoresfragment"
+            app:destination="@id/principalproductoresfragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/principalconsumidoresFragment"
+        android:name="com.example.culturaverde.principalconsumidoresFragment"
+        android:label="fragment_principalconsumidores"
+        tools:layout="@layout/fragment_principalconsumidores" />
+    <fragment
+        android:id="@+id/principalproductoresfragment"
+        android:name="com.example.culturaverde.principalproductoresfragment"
+        android:label="fragment_principalproductoresfragment"
+        tools:layout="@layout/fragment_principalproductores" />
 </navigation>

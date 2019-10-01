@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Cultura Verde</string>
+
+    <string name="app_name">CulturaVerde</string>
+
+    <!-- Menu desplegable -->
+    <string name="nav_header_title">Corbo Cecilia</string>
+    <string name="nav_header_subtitle">corbocecilia@gmail..com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_editardatos">Editar Datos</string>
+
 </resources>
