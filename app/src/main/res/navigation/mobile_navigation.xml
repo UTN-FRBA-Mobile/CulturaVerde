@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_alertas">
+
+    <fragment
+        android:id="@+id/nav_alertas"
+        android:name="com.example.culturaverde.ui.Alertas.AlertasFragment"
+        tools:layout="@layout/fragment_alertas" />
+
+    <fragment
+        android:id="@+id/nav_editardatos"
+        android:name="com.example.culturaverde.ui.Editardatos.EditardatosFragment"
+        tools:layout="@layout/fragment_editardatos" />
+
+</navigation>

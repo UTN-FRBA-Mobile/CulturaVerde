@@ -11,20 +11,20 @@
         android:label="fragment_loginmain"
         tools:layout="@layout/fragment_loginmain" >
         <action
-            android:id="@+id/action_loginmainfragment_to_principalconsumidoresFragment"
-            app:destination="@id/principalconsumidoresFragment" />
+            android:id="@+id/action_loginmainfragment_to_menudesplegable_consumidores"
+            app:destination="@id/menudesplegable_consumidores" />
         <action
-            android:id="@+id/action_loginmainfragment_to_principalproductoresfragment"
-            app:destination="@id/principalproductoresfragment" />
+            android:id="@+id/action_loginmainfragment_to_menu_desplegableproductores"
+            app:destination="@id/menu_desplegableproductores" />
     </fragment>
-    <fragment
-        android:id="@+id/principalconsumidoresFragment"
-        android:name="com.example.culturaverde.principalconsumidoresFragment"
-        android:label="fragment_principalconsumidores"
-        tools:layout="@layout/fragment_principalconsumidores" />
-    <fragment
-        android:id="@+id/principalproductoresfragment"
-        android:name="com.example.culturaverde.principalproductoresfragment"
-        android:label="fragment_principalproductoresfragment"
-        tools:layout="@layout/fragment_principalproductores" />
+    <activity
+        android:id="@+id/menudesplegable_consumidores"
+        android:name="com.example.culturaverde.menudesplegable_consumidores"
+        android:label="app_bar_menudesplegable_consumidores"
+        tools:layout="@layout/app_bar_menudesplegable_consumidores" />
+    <activity
+        android:id="@+id/menu_desplegableproductores"
+        android:name="com.example.culturaverde.menudesplegable_productores"
+        android:label="app_bar_menu_desplegableproductores"
+        tools:layout="@layout/app_bar_menudesplegable_productores" />
 </navigation>
