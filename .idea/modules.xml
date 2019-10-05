@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ceci-Desktop-CulturaVerde-Cultura Verde.iml" filepath="$PROJECT_DIR$/Ceci-Desktop-CulturaVerde-Cultura Verde.iml" />
       <module fileurl="file://$PROJECT_DIR$/Cultura Verde.iml" filepath="$PROJECT_DIR$/Cultura Verde.iml" />
       <module fileurl="file://$PROJECT_DIR$/CulturaVerde-Cultura Verde.iml" filepath="$PROJECT_DIR$/CulturaVerde-Cultura Verde.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/CulturaVerde-app.iml" filepath="$PROJECT_DIR$/app/CulturaVerde-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Desktop-CulturaVerde-Cultura Verde.iml" filepath="$PROJECT_DIR$/Desktop-CulturaVerde-Cultura Verde.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Desktop-CulturaVerde-app.iml" filepath="$PROJECT_DIR$/app/Desktop-CulturaVerde-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

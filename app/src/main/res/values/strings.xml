@@ -12,10 +12,14 @@
     <string name="nav_header_title">Corbo Cecilia</string>
     <string name="nav_header_subtitle">corbocecilia@gmail..com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_principalconsumidores">Pantalla Principal</string>
     <string name="menu_alertas">Alertas</string>
     <string name="menu_editardatos">Editar Datos</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -13,18 +13,10 @@
         <action
             android:id="@+id/action_loginmainfragment_to_menudesplegable_consumidores"
             app:destination="@id/menudesplegable_consumidores" />
-        <action
-            android:id="@+id/action_loginmainfragment_to_menu_desplegableproductores"
-            app:destination="@id/menu_desplegableproductores" />
     </fragment>
     <activity
         android:id="@+id/menudesplegable_consumidores"
         android:name="com.example.culturaverde.menudesplegable_consumidores"
         android:label="app_bar_menudesplegable_consumidores"
         tools:layout="@layout/app_bar_menudesplegable_consumidores" />
-    <activity
-        android:id="@+id/menu_desplegableproductores"
-        android:name="com.example.culturaverde.menudesplegable_productores"
-        android:label="app_bar_menu_desplegableproductores"
-        tools:layout="@layout/app_bar_menudesplegable_productores" />
 </navigation>

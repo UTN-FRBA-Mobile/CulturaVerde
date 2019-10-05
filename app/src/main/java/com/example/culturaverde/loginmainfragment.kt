@@ -28,13 +28,6 @@ class loginmainfragment : Fragment() {
 
         }
 
-        botonPlayProductores.setOnClickListener{
-
-            val action = loginmainfragmentDirections.actionLoginmainfragmentToMenuDesplegableproductores()
-            findNavController().navigate(action)
-
-        }
-
     }
 
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.culturaverde.R
+import com.example.culturaverde.ui.Principalconsumidores.AlertasViewModel
 
 class AlertasFragment : Fragment() {
 
@@ -22,7 +23,7 @@ class AlertasFragment : Fragment() {
         alertasViewModel =
             ViewModelProviders.of(this).get(AlertasViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_alertas, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+        val textView: TextView = root.findViewById(R.id.text_alertas)
         alertasViewModel.text.observe(this, Observer {
             textView.text = it
         })

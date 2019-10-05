@@ -22,7 +22,7 @@ class EditardatosFragment : Fragment() {
         editardatosViewModel =
             ViewModelProviders.of(this).get(EditardatosViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_editardatos, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
+        val textView: TextView = root.findViewById(R.id.text_editardatos)
         editardatosViewModel.text.observe(this, Observer {
             textView.text = it
         })
