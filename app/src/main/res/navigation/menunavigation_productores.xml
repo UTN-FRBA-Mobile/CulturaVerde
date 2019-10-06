@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menunavigation_productores"
+    app:startDestination="@id/nav_principalproductores">
+
+    <fragment
+        android:id="@+id/nav_principalproductores"
+        android:name="com.example.culturaverde.ui.PrincipalProductor.PrincipalproductorFragment"
+        tools:layout="@layout/fragment_principalproductores" />
+
+    <fragment
+        android:id="@+id/nav_alertasproductores"
+        android:name="com.example.culturaverde.ui.Alertasproductor.AlertasproductorFragment"
+        tools:layout="@layout/fragment_alertasproductores" />
+
+    <fragment
+        android:id="@+id/nav_editardatosproductores"
+        android:name="com.example.culturaverde.ui.Editardatosproductor.EditardatosproductorFragment"
+        tools:layout="@layout/fragment_editardatosproductores" />
+
+</navigation>

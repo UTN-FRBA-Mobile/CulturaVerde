@@ -14,25 +14,29 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 
-class menudesplegable_consumidores : AppCompatActivity() {
+class menudesplegable_productores : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menudesplegable_consumidores)
+        setContentView(R.layout.activity_menudesplegable_productores)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        val fab: FloatingActionButton = findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_principalconsumidores, R.id.nav_alertasconsumidores, R.id.nav_editardatosconsumidores
+                R.id.nav_principalproductores, R.id.nav_alertasproductores, R.id.nav_editardatosproductores
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -41,7 +45,7 @@ class menudesplegable_consumidores : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menudesplegable_consumidores, menu)
+        menuInflater.inflate(R.menu.menudesplegable_productores, menu)
         return true
     }
 

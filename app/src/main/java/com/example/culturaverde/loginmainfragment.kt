@@ -28,6 +28,12 @@ class loginmainfragment : Fragment() {
 
         }
 
+        botonPlayProductores.setOnClickListener{
+
+            val action = loginmainfragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+            findNavController().navigate(action)
+        }
+
     }
 
 }

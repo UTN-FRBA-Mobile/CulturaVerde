@@ -16,7 +16,7 @@
         android:id="@+id/imageView"
         android:layout_width="141dp"
         android:layout_height="66dp"
-        android:contentDescription="@string/nav_header_desc_consumidor"
+        android:contentDescription="@string/nav_header_desc_productores"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@drawable/cultura_verde" />
 
@@ -24,13 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/nav_header_title_consumidor"
+        android:text="@string/nav_header_title_productores"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_header_subtitle_consumidor" />
+        android:text="@string/nav_header_subtitle_productores" />
 
 </LinearLayout>

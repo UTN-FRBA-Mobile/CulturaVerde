@@ -1,13 +1,13 @@
-package com.example.culturaverde.ui.Principalconsumidores
+package com.example.culturaverde.ui.PrincipalProductor
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AlertasViewModel : ViewModel() {
+class PrincipalproductorViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Alertas"
+        value = "Principal productores"
     }
     val text: LiveData<String> = _text
 }

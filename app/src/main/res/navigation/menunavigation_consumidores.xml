@@ -7,17 +7,14 @@
 
     <fragment
         android:id="@+id/nav_principalconsumidores"
-        android:name="com.example.culturaverde.ui.Principalconsumidores.PrincipalConsumidoresFragment"
-        tools:layout="@layout/fragment_principalconsumidores" />
+        android:name="com.example.culturaverde.ui.Principalconsumidores.PrincipalConsumidoresFragment" />
 
     <fragment
-        android:id="@+id/nav_alertas"
-        android:name="com.example.culturaverde.ui.Alertas.AlertasFragment"
-        tools:layout="@layout/fragment_alertas" />
+        android:id="@+id/nav_alertasconsumidores"
+        android:name="com.example.culturaverde.ui.Alertasconsumidor.AlertasconsumidorFragment" />
 
     <fragment
-        android:id="@+id/nav_editardatos"
-        android:name="com.example.culturaverde.ui.Editardatos.EditardatosFragment"
-        tools:layout="@layout/fragment_editardatos" />
+        android:id="@+id/nav_editardatosconsumidores"
+        android:name="com.example.culturaverde.ui.Editardatosconsumidor.EditardatosconsumidorFragment" />
 
 </navigation>

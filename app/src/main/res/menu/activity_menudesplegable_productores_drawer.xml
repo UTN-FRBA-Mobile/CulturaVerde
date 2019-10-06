@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_principalproductores"
+            android:icon="@drawable/ic_cuenta"
+            android:title="@string/menu_principalproductores" />
+        <item
+            android:id="@+id/nav_alertasproductores"
+            android:icon="@drawable/ic_alertas"
+            android:title="@string/menu_alertas_productores" />
+        <item
+            android:id="@+id/nav_editardatosproductores"
+            android:icon="@drawable/ic_editardatos"
+            android:title="@string/menu_editardatos_productores" />
+    </group>
+
+</menu>

@@ -1,25 +1,25 @@
 <resources>
 
     <string name="app_name">CulturaVerde</string>
-
-    <!-- Pantalla principal consumidores -->
-    <string name="title_activity_menudesplegable_consumidores"></string>
-
-    <!-- Pantalla principal productores -->
-    <string name="title_activity_menu_desplegableproductores"></string>
-
-    <!-- Menu desplegable -->
-    <string name="nav_header_title">Corbo Cecilia</string>
-    <string name="nav_header_subtitle">corbocecilia@gmail..com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="menu_principalconsumidores">Pantalla Principal</string>
-    <string name="menu_alertas">Alertas</string>
-    <string name="menu_editardatos">Editar Datos</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Menu desplegable --><!-- Pantalla principal consumidores -->
+    <string name="title_activity_menudesplegable_consumidores"></string>
+    <string name="nav_header_title_consumidor">Consumidor A</string>
+    <string name="nav_header_subtitle_consumidor">consumidorA@gmail.com</string>
+    <string name="nav_header_desc_consumidor">Navigation header</string>
+    <string name="menu_principalconsumidores">Pantalla Principal</string>
+    <string name="menu_alertas_consumidor">Alertas</string>
+    <string name="menu_editardatos_consumidor">Editar Datos</string>
+
+    <!-- Menu desplegable --><!-- Pantalla principal productores -->
+    <string name="title_activity_menunavigation_productores"></string>
+    <string name="nav_header_title_productores">Productor A</string>
+    <string name="nav_header_subtitle_productores">productora@gmail.com</string>
+    <string name="nav_header_desc_productores">Navigation header</string>
+    <string name="menu_principalproductores">Pantalla Principal</string>
+    <string name="menu_alertas_productores">Alertas</string>
+    <string name="menu_editardatos_productores">Editar Datos</string>
 
 </resources>
