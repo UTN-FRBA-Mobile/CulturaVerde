@@ -1,8 +1,8 @@
 package com.example.culturaverde
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -42,6 +42,12 @@ class menudesplegable_consumidores : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menudesplegable_consumidores, menu)
+
+        //Associate searchable configuration with the SearchView
+        //val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        //(menu.findItem(R.id.search).actionView as SearchView).apply {
+        //setSearchableInfo(searchManager.getSearchableInfo(componentName))}
+
         return true
     }
 
@@ -49,4 +55,6 @@ class menudesplegable_consumidores : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }
