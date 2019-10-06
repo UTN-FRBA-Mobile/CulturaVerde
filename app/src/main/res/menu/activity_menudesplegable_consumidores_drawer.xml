@@ -9,11 +9,11 @@
             android:icon="@drawable/ic_cuenta"
             android:title="Mi cuenta" />
         <item
-            android:id="@+id/nav_alertas"
+            android:id="@+id/nav_alertasconsumidores"
             android:icon="@drawable/ic_alertas"
             android:title="Alertas" />
         <item
-            android:id="@+id/nav_editardatos"
+            android:id="@+id/nav_editardatosconsumidores"
             android:icon="@drawable/ic_editardatos"
             android:title="Editar datos" />
     </group>
