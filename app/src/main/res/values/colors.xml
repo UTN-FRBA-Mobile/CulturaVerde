@@ -3,4 +3,9 @@
     <color name="colorPrimary">#128500</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#078500</color>
+
+    <!-- Botones -->
+    <color name="color_verde">#078500</color>
+
+    <!-- Switchs -->
 </resources>

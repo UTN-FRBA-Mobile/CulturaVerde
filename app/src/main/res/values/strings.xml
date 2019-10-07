@@ -9,7 +9,7 @@
     <string name="nav_header_title_consumidor">Consumidor A</string>
     <string name="nav_header_subtitle_consumidor">consumidorA@gmail.com</string>
     <string name="nav_header_desc_consumidor">Navigation header</string>
-    <string name="menu_principalconsumidores">Pantalla Principal</string>
+    <string name="menu_principalconsumidores">Mi cuenta</string>
     <string name="menu_alertas_consumidor">Alertas</string>
     <string name="menu_editardatos_consumidor">Editar Datos</string>
 
@@ -18,8 +18,16 @@
     <string name="nav_header_title_productores">Productor A</string>
     <string name="nav_header_subtitle_productores">productora@gmail.com</string>
     <string name="nav_header_desc_productores">Navigation header</string>
-    <string name="menu_principalproductores">Pantalla Principal</string>
+    <string name="menu_principalproductores">Mi cuenta</string>
     <string name="menu_alertas_productores">Alertas</string>
     <string name="menu_editardatos_productores">Editar Datos</string>
+
+    <!-- Pantalla alertas -->
+    <string name="texto_pantalla_alertas">Administrá tus notificaciones a continuación.</string>
+    <string name="alerta_modificacion_reservas">Modificaciones en reservas</string>
+    <string name="alerta_productos_interes">Productos de interés</string>
+
+    <!-- Botones -->
+    <string name="boton_guardar">Guardar</string>
 
 </resources>

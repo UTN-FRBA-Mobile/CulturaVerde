@@ -18,8 +18,7 @@
         android:layout_height="66dp"
         android:contentDescription="@string/nav_header_desc_consumidor"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/cultura_verde" />
-
+        app:srcCompat="@drawable/cultura_verde2"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
