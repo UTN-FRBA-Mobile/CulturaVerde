@@ -11,7 +11,7 @@
     <string name="nav_header_desc_consumidor">Navigation header</string>
     <string name="menu_principalconsumidores">Mi cuenta</string>
     <string name="menu_alertas_consumidor">Alertas</string>
-    <string name="menu_editardatos_consumidor">Editar Datos</string>
+    <string name="menu_editardatos_consumidor">Editar Datos Usuario</string>
 
     <!-- Menu desplegable --><!-- Pantalla principal productores -->
     <string name="title_activity_menunavigation_productores"></string>
@@ -29,5 +29,14 @@
 
     <!-- Botones -->
     <string name="boton_guardar">Guardar</string>
+    <string name="nombreUsuarioTitulo">Nombre</string>
+    <string name="IngreseNombreUsuario">Ingrese nombre</string>
+    <string name="apellidoUsuarioTitulo">Apellido</string>
+    <string name="ingreseApellidoUsuario">Ingrese apellido</string>
+    <string name="fechaNacTitulo">Fecha de nacimiento</string>
+    <string name="fechaNacimiento">Ingrese fecha nacimiento</string>
+    <string name="telefonoTitulo">Teléfono</string>
+    <string name="telefono">Ingrese teléfono</string>
+    <string name="botonLmpiar">Limpiar</string>
 
 </resources>
