@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginmainfragment"
-        android:name="com.example.culturaverde.loginmainfragment"
+        android:name="com.example.culturaverde.ui.Login.LoginFragment"
         android:label="fragment_loginmain"
         tools:layout="@layout/fragment_loginmain" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <activity
         android:id="@+id/menudesplegable_consumidores"
-        android:name="com.example.culturaverde.menudesplegable_consumidores"
+        android:name="com.example.culturaverde.ui.MenuDesplegable.menudesplegable_consumidores"
         android:label="app_bar_menudesplegable_consumidores"
         tools:layout="@layout/app_bar_menudesplegable_consumidores" />
     <activity
         android:id="@+id/menudesplegable_productores"
-        android:name="com.example.culturaverde.menudesplegable_productores"
+        android:name="com.example.culturaverde.ui.MenuDesplegable.menudesplegable_productores"
         android:label="app_bar_menudesplegable_productores"
         tools:layout="@layout/app_bar_menudesplegable_productores" />
 </navigation>

@@ -6,8 +6,5 @@ import androidx.lifecycle.ViewModel
 
 class AlertasproductorViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "Alertas productores"
-    }
-    val text: LiveData<String> = _text
+
 }

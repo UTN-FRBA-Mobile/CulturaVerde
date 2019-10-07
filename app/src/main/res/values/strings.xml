@@ -26,6 +26,14 @@
     <string name="texto_pantalla_alertas">Administrá tus notificaciones a continuación.</string>
     <string name="alerta_modificacion_reservas">Modificaciones en reservas</string>
     <string name="alerta_productos_interes">Productos de interés</string>
+    <string name="alerta_nuevas_reservas">Nuevas reservas</string>
+
+    <!-- Pantalla preferencias -->
+    <string name="texto_pantalla_preferencias">Seleccioná tus productos de interés.</string>
+    <string name="texto_titulo_preferencias">Preferencias</string>
+    <string name="texto_verduras">Verduras</string>
+    <string name="texto_frutas">Frutas</string>
+    <string name="texto_otros">Otros</string>
 
     <!-- Botones -->
     <string name="boton_guardar">Guardar</string>
