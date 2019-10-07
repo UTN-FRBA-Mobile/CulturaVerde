@@ -22,10 +22,7 @@ class AlertasproductorFragment : Fragment() {
         alertasproductorViewModel =
             ViewModelProviders.of(this).get(AlertasproductorViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_alertasproductores, container, false)
-        val textView: TextView = root.findViewById(R.id.text_alertasproductor)
-        alertasproductorViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }

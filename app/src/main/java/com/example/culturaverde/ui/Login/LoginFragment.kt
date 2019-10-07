@@ -1,4 +1,4 @@
-package com.example.culturaverde
+package com.example.culturaverde.ui.Login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.R
+import com.example.culturaverde.ui.Login.LoginFragmentDirections
 import kotlinx.android.synthetic.main.fragment_loginmain.*
 
-class loginmainfragment : Fragment() {
+class LoginFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,14 +25,16 @@ class loginmainfragment : Fragment() {
 
         botonPlayConsumidores.setOnClickListener{
 
-            val action = loginmainfragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
+            val action =
+                LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
             findNavController().navigate(action)
 
         }
 
         botonPlayProductores.setOnClickListener{
 
-            val action = loginmainfragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+            val action =
+                LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
             findNavController().navigate(action)
         }
 

@@ -22,10 +22,7 @@ class AlertasconsumidorFragment : Fragment() {
         alertasconsumidorViewModel =
             ViewModelProviders.of(this).get(AlertasconsumidorViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_alertasconsumidores, container, false)
-        val textView: TextView = root.findViewById(R.id.textViewAlertasConsumidor)
-        alertasconsumidorViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }

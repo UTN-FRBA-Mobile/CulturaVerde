@@ -2,11 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.PreferenciasConsumidor.PreferenciasFragment">
+
 
     <TextView
-        android:id="@+id/textViewAlertasConsumidor"
+        android:id="@+id/textViewPreferenciasConsumidor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
@@ -14,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="161dp"
         android:layout_marginRight="161dp"
-        android:text="@string/menu_alertas_consumidor"
+        android:text="@string/texto_titulo_preferencias"
         android:textColor="@android:color/background_dark"
         android:textColorHint="#00000000"
         android:textSize="24sp"
@@ -31,40 +34,44 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="139dp"
         android:layout_marginRight="139dp"
-        android:text="@string/texto_pantalla_alertas"
+        android:text="@string/texto_pantalla_preferencias"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAlertasConsumidor" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPreferenciasConsumidor" />
 
-    <Switch
-        android:id="@+id/switch1"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="60dp"
-        android:checked="false"
-        android:textSize="16sp"
-        android:text="@string/alerta_modificacion_reservas"
+        android:text="@string/texto_verduras"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-
-    <Switch
-        android:id="@+id/switch2"
+    <CheckBox
+        android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:checked="false"
-        android:textSize="16sp"
-        android:text="@string/alerta_productos_interes"
+        android:text="@string/texto_frutas"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/texto_otros"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
     <Button
         android:id="@+id/button"

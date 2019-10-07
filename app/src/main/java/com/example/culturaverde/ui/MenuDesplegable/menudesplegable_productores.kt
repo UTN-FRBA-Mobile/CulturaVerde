@@ -1,7 +1,5 @@
-package com.example.culturaverde
+package com.example.culturaverde.ui.MenuDesplegable
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,14 +11,15 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import com.example.culturaverde.R
 
-class menudesplegable_consumidores : AppCompatActivity() {
+class menudesplegable_productores : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menudesplegable_consumidores)
+        setContentView(R.layout.activity_menudesplegable_productores)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -29,10 +28,11 @@ class menudesplegable_consumidores : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_principalconsumidores, R.id.nav_alertasconsumidores, R.id.nav_editardatosconsumidores
+                R.id.nav_principalproductores,
+                R.id.nav_alertasproductores,
+                R.id.nav_editardatosproductores
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -41,13 +41,7 @@ class menudesplegable_consumidores : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menudesplegable_consumidores, menu)
-
-        //Associate searchable configuration with the SearchView
-        //val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        //(menu.findItem(R.id.search).actionView as SearchView).apply {
-        //setSearchableInfo(searchManager.getSearchableInfo(componentName))}
-
+        menuInflater.inflate(R.menu.menudesplegable_productores, menu)
         return true
     }
 
@@ -55,6 +49,4 @@ class menudesplegable_consumidores : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-
 }
