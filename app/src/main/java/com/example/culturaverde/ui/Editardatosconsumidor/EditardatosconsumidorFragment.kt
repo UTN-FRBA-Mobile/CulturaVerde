@@ -22,10 +22,7 @@ class EditardatosconsumidorFragment : Fragment() {
         editardatosconsumidorViewModel =
             ViewModelProviders.of(this).get(EditardatosconsumidorViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_editardatosconsumidores, container, false)
-        val textView: TextView = root.findViewById(R.id.text_editardatosconsumidor)
-        editardatosconsumidorViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
