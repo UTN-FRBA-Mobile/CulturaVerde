@@ -33,7 +33,8 @@ class menudesplegable_consumidores : AppCompatActivity() {
             setOf(
                 R.id.nav_principalconsumidores,
                 R.id.nav_alertasconsumidores,
-                R.id.nav_editardatosconsumidores
+                R.id.nav_editardatosconsumidores,
+                R.id.nav_preferenciasConsumidor
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
