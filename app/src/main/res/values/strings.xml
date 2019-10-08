@@ -4,6 +4,15 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- Pantalla principal consumidores -->
+    <string name="texto_categorias">Buscá tus productos por categorias</string>
+    <string name="categorias">Categorias</string>
+    <string name="texto_geo">Encontrá productores cercanos</string>
+    <string name="geolocalizacion">Geolocalización</string>
+    <string name="texto_reservas">Accedé a todas tus reservas</string>
+    <string name="reservas">Reservas</string>
+
+
     <!-- Menu desplegable --><!-- Pantalla principal consumidores -->
     <string name="title_activity_menudesplegable_consumidores"></string>
     <string name="nav_header_title_consumidor">Consumidor A</string>

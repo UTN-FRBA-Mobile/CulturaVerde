@@ -22,10 +22,7 @@ class PrincipalConsumidoresFragment : Fragment() {
         principalConsumidoresViewModel =
             ViewModelProviders.of(this).get(PrincipalConsumidoresViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_principalconsumidores, container, false)
-        val textView: TextView = root.findViewById(R.id.text_principalconsumidores)
-        principalConsumidoresViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
