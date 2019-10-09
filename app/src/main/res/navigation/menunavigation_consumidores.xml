@@ -36,7 +36,7 @@
         tools:layout="@layout/reservas_fragment" />
     <fragment
         android:id="@+id/nav_categoriasFragment"
-        android:name="com.example.culturaverde.ui.Categorias.CategoriasFragment"
+        android:name="com.example.culturaverde.ui.Principalconsumidores.Categorias.CategoriasFragment"
         tools:layout="@layout/categorias_fragment" />
 
 </navigation>

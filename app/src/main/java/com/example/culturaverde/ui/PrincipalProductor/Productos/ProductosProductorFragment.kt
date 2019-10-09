@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.Categorias
+package com.example.culturaverde.ui.PrincipalProductor.Productos
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,24 +9,24 @@ import android.view.ViewGroup
 
 import com.example.culturaverde.R
 
-class CategoriasFragment : Fragment() {
+class ProductosProductorFragment : Fragment() {
 
     companion object {
-        fun newInstance() = CategoriasFragment()
+        fun newInstance() = ProductosProductorFragment()
     }
 
-    private lateinit var viewModel: CategoriasViewModel
+    private lateinit var viewModel: ProductosProductorViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.categorias_fragment, container, false)
+        return inflater.inflate(R.layout.productos_productor_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(CategoriasViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ProductosProductorViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

@@ -9,10 +9,13 @@
     <string name="categorias">Categorias</string>
     <string name="texto_geo">Encontrá productores cercanos</string>
     <string name="geolocalizacion">Geolocalización</string>
-    <string name="texto_reservas">Accedé a todas tus reservas</string>
+    <string name="texto_reservas">Accedé a tus reservas</string>
     <string name="reservas">Reservas</string>
     <string name="metodo_acceso_categorias">mostrarCategorias</string>
 
+    <!-- Pantalla principal productores-->
+    <string name="texto_productos">Gestioná tus productos</string>
+    <string name="productos">Productos</string>
 
     <!-- Menu desplegable --><!-- Pantalla principal consumidores -->
     <string name="title_activity_menudesplegable_consumidores"></string>

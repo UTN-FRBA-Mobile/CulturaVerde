@@ -111,7 +111,7 @@
         android:layout_marginBottom="60dp"
         android:text="@string/boton_guardar"
         android:textColor="@android:color/background_light"
-        android:background="@color/colorAccent"
+        android:background="@color/color_verde"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.Categorias
+package com.example.culturaverde.ui.Principalconsumidores.Categorias
 
 import androidx.lifecycle.ViewModel
 

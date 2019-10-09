@@ -8,7 +8,14 @@
     <fragment
         android:id="@+id/nav_principalproductores"
         android:name="com.example.culturaverde.ui.PrincipalProductor.PrincipalproductorFragment"
-        tools:layout="@layout/fragment_principalproductores" />
+        tools:layout="@layout/fragment_principalproductores" >
+        <action
+            android:id="@+id/action_nav_principalproductores_to_reservasFragment"
+            app:destination="@id/nav_reservasFragment" />
+        <action
+            android:id="@+id/action_nav_principalproductores_to_productosProductorFragment"
+            app:destination="@id/nav_productosProductorFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_alertasproductores"
@@ -19,5 +26,13 @@
         android:id="@+id/nav_editardatosproductores"
         android:name="com.example.culturaverde.ui.Editardatosproductor.EditardatosproductorFragment"
         tools:layout="@layout/fragment_editardatosproductores" />
+    <fragment
+        android:id="@+id/nav_reservasFragment"
+        android:name="com.example.culturaverde.ui.Reservas.ReservasFragment"
+        tools:layout="@layout/reservas_fragment" />
+    <fragment
+        android:id="@+id/nav_productosProductorFragment"
+        android:name="com.example.culturaverde.ui.PrincipalProductor.Productos.ProductosProductorFragment"
+        tools:layout="@layout/productos_productor_fragment" />
 
 </navigation>

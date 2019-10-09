@@ -27,7 +27,6 @@
                 android:layout_width="160dp"
                 android:layout_height="190dp"
                 android:layout_margin="10dp"
-                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
 
@@ -42,8 +41,6 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/shapeverde"
-                        android:clickable="true"
-                        android:onClick="@string/metodo_acceso_categorias"
                         android:padding="10dp"
                         android:src="@drawable/fruit" />
 
@@ -75,7 +72,6 @@
                 android:layout_width="160dp"
                 android:layout_height="190dp"
                 android:layout_margin="10dp"
-                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
@@ -128,7 +124,6 @@
                 android:layout_width="160dp"
                 android:layout_height="190dp"
                 android:layout_margin="10dp"
-                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
