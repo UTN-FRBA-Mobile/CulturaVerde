@@ -11,6 +11,8 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.R
 
 class menudesplegable_consumidores : AppCompatActivity() {
@@ -34,7 +36,9 @@ class menudesplegable_consumidores : AppCompatActivity() {
                 R.id.nav_principalconsumidores,
                 R.id.nav_alertasconsumidores,
                 R.id.nav_editardatosconsumidores,
-                R.id.nav_preferenciasConsumidor
+                R.id.nav_preferenciasConsumidor,
+                R.id.nav_categoriasFragment,
+                R.id.nav_reservasFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

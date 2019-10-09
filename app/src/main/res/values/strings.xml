@@ -11,6 +11,7 @@
     <string name="geolocalizacion">Geolocalización</string>
     <string name="texto_reservas">Accedé a todas tus reservas</string>
     <string name="reservas">Reservas</string>
+    <string name="metodo_acceso_categorias">mostrarCategorias</string>
 
 
     <!-- Menu desplegable --><!-- Pantalla principal consumidores -->
@@ -55,5 +56,8 @@
     <string name="telefonoTitulo">Teléfono</string>
     <string name="telefono">Ingrese teléfono</string>
     <string name="botonLmpiar">Limpiar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

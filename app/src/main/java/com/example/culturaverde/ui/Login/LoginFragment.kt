@@ -10,6 +10,7 @@ import com.example.culturaverde.R
 import com.example.culturaverde.ui.Login.LoginFragmentDirections
 import kotlinx.android.synthetic.main.fragment_loginmain.*
 
+
 class LoginFragment : Fragment() {
 
     override fun onCreateView(

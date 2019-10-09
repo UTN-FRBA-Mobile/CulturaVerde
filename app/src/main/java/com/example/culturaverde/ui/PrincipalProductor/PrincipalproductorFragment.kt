@@ -22,10 +22,7 @@ class PrincipalproductorFragment : Fragment() {
         principalproductorViewModel =
             ViewModelProviders.of(this).get(PrincipalproductorViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_principalproductores, container, false)
-        val textView: TextView = root.findViewById(R.id.text_principalproductor)
-        principalproductorViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
