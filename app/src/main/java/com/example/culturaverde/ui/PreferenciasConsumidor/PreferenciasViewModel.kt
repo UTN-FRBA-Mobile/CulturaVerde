@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.PreferenciasConsumidor
+package com.example.culturaverde.Ui.PreferenciasConsumidor
 
 import androidx.lifecycle.ViewModel
 

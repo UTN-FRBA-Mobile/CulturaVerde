@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.Reservas
+package com.example.culturaverde.Ui.Reservas
 
 import androidx.lifecycle.ViewModel
 

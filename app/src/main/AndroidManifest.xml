@@ -33,12 +33,13 @@
             android:name=".ui.Geolocalizacion.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <activity android:name=".ui.Principalconsumidores.Categorias.CategoriasActivity" />
+        <activity android:name=".Ui.Busqueda_productos.ResultadoBusqueda"></activity>
         <activity
-            android:name=".ui.MenuDesplegable.menudesplegable_productores"
+            android:name=".Ui.MenuDesplegable.menudesplegable_productores"
             android:label="@string/title_activity_menunavigation_productores"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.MenuDesplegable.menudesplegable_consumidores"
+            android:name=".Ui.MenuDesplegable.menudesplegable_consumidores"
             android:label="@string/title_activity_menudesplegable_consumidores"
             android:theme="@style/AppTheme" />
         <activity android:name=".MainActivity">

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_principalproductores"
-        android:name="com.example.culturaverde.ui.PrincipalProductor.PrincipalproductorFragment"
+        android:name="com.example.culturaverde.Ui.PrincipalProductor.PrincipalproductorFragment"
         tools:layout="@layout/fragment_principalproductores" >
         <action
             android:id="@+id/action_nav_principalproductores_to_reservasFragment"
@@ -19,20 +19,20 @@
 
     <fragment
         android:id="@+id/nav_alertasproductores"
-        android:name="com.example.culturaverde.ui.Alertasproductor.AlertasproductorFragment"
+        android:name="com.example.culturaverde.Ui.Alertasproductor.AlertasproductorFragment"
         tools:layout="@layout/fragment_alertasproductores" />
 
     <fragment
         android:id="@+id/nav_editardatosproductores"
-        android:name="com.example.culturaverde.ui.Editardatosproductor.EditardatosproductorFragment"
+        android:name="com.example.culturaverde.Ui.Editardatosproductor.EditardatosproductorFragment"
         tools:layout="@layout/fragment_editardatosproductores" />
     <fragment
         android:id="@+id/nav_reservasFragment"
-        android:name="com.example.culturaverde.ui.Reservas.ReservasFragment"
+        android:name="com.example.culturaverde.Ui.Reservas.ReservasFragment"
         tools:layout="@layout/reservas_fragment" />
     <fragment
         android:id="@+id/nav_productosProductorFragment"
-        android:name="com.example.culturaverde.ui.PrincipalProductor.Productos.ProductosProductorFragment"
+        android:name="com.example.culturaverde.Ui.PrincipalProductor.Productos.ProductosProductorFragment"
         tools:layout="@layout/productos_productor_fragment" />
 
 </navigation>

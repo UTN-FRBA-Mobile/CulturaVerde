@@ -121,7 +121,7 @@
 
             <fragment
                 android:id="@+id/lista_preferencias_fragment"
-                android:name="com.example.culturaverde.ui.PreferenciasConsumidor.ListadoPreferenciasFragment"
+                android:name="com.example.culturaverde.Ui.PreferenciasConsumidor.ListadoPreferenciasFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/search"
-        android:icon="@drawable/search"
+        android:icon="@drawable/search36"
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="android.widget.SearchView" />
 
     <item android:id="@+id/campana"
-        android:icon="@drawable/notification"
+        android:icon="@drawable/bell36"
         app:showAsAction="always"
         />
 
