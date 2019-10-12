@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.MenuDesplegable
+package com.example.culturaverde.Ui.MenuDesplegable
 
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -11,8 +11,6 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import android.view.View
-import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.R
 
 class menudesplegable_consumidores : AppCompatActivity() {

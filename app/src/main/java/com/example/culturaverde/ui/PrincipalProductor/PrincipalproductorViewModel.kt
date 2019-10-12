@@ -1,7 +1,5 @@
-package com.example.culturaverde.ui.PrincipalProductor
+package com.example.culturaverde.Ui.PrincipalProductor
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class PrincipalproductorViewModel : ViewModel() {

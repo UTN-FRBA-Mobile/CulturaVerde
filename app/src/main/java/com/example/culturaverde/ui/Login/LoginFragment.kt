@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.Login
+package com.example.culturaverde.Ui.Login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.R
-import com.example.culturaverde.ui.Login.LoginFragmentDirections
 import kotlinx.android.synthetic.main.fragment_loginmain.*
 
 

@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.PrincipalProductor.Productos
+package com.example.culturaverde.Ui.PrincipalProductor.Productos
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle

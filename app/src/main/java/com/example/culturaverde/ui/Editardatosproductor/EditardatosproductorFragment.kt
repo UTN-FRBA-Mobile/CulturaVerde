@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.Editardatosproductor
+package com.example.culturaverde.Ui.Editardatosproductor
 
 import android.os.Bundle
 import android.view.LayoutInflater

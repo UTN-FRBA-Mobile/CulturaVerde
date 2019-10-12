@@ -1,7 +1,5 @@
-package com.example.culturaverde.ui.Alertasconsumidor
+package com.example.culturaverde.Ui.Alertasconsumidor
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class AlertasconsumidorViewModel : ViewModel() {

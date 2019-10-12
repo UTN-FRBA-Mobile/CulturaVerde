@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_principalconsumidores"
-        android:name="com.example.culturaverde.ui.Principalconsumidores.PrincipalConsumidoresFragment"
+        android:name="com.example.culturaverde.Ui.Principalconsumidores.PrincipalConsumidoresFragment"
         tools:layout="@layout/fragment_principalconsumidores">
         <action
             android:id="@+id/action_nav_principalconsumidores_to_nav_categoriasFragment2"
@@ -19,24 +19,24 @@
 
     <fragment
         android:id="@+id/nav_alertasconsumidores"
-        android:name="com.example.culturaverde.ui.Alertasconsumidor.AlertasconsumidorFragment"
+        android:name="com.example.culturaverde.Ui.Alertasconsumidor.AlertasconsumidorFragment"
         tools:layout="@layout/fragment_alertasconsumidores"/>
 
     <fragment
         android:id="@+id/nav_editardatosconsumidores"
-        android:name="com.example.culturaverde.ui.Editardatosconsumidor.EditardatosconsumidorFragment"
+        android:name="com.example.culturaverde.Ui.Editardatosconsumidor.EditardatosconsumidorFragment"
         tools:layout="@layout/fragment_editardatosconsumidores"/>
     <fragment
         android:id="@+id/nav_preferenciasConsumidor"
-        android:name="com.example.culturaverde.ui.PreferenciasConsumidor.PreferenciasFragment"
+        android:name="com.example.culturaverde.Ui.PreferenciasConsumidor.PreferenciasFragment"
         tools:layout="@layout/preferencias_fragment" />
     <fragment
         android:id="@+id/nav_reservasFragment"
-        android:name="com.example.culturaverde.ui.Reservas.ReservasFragment"
+        android:name="com.example.culturaverde.Ui.Reservas.ReservasFragment"
         tools:layout="@layout/reservas_fragment" />
     <fragment
         android:id="@+id/nav_categoriasFragment"
-        android:name="com.example.culturaverde.ui.Principalconsumidores.Categorias.CategoriasFragment"
+        android:name="com.example.culturaverde.Ui.Principalconsumidores.Categorias.CategoriasFragment"
         tools:layout="@layout/categorias_fragment" />
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.culturaverde.ui.MenuDesplegable
+package com.example.culturaverde.Ui.MenuDesplegable
 
 import android.os.Bundle
 import androidx.navigation.findNavController
