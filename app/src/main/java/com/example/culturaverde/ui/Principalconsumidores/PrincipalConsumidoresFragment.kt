@@ -40,6 +40,9 @@ class PrincipalConsumidoresFragment : Fragment() {
             view.findNavController().navigate(R.id.action_nav_principalconsumidores_to_nav_reservasFragment)
         }
 
+        imagenGeolocalizacion.setOnClickListener{ view ->
+            view.findNavController().navigate(R.id.action_nav_principalconsumidores_to_nav_geolocalizacion)
+        }
 
     }
 
