@@ -16,7 +16,7 @@
             android:id="@+id/action_nav_principalconsumidores_to_nav_reservasFragment"
             app:destination="@id/nav_reservasFragment" />
         <action
-            android:id="@+id/action_nav_principalconsumidores_to_nav_geolocalizacion"
+            android:id="@+id/action_nav_principalconsumidores_to_nav_geolocalizacionFragment"
             app:destination="@id/nav_geolocalizacionFragment" />
     </fragment>
 
@@ -41,8 +41,9 @@
         android:id="@+id/nav_categoriasFragment"
         android:name="com.example.culturaverde.Ui.Principalconsumidores.Categorias.CategoriasFragment"
         tools:layout="@layout/categorias_fragment" />
-    <fragment
+    <activity
         android:id="@+id/nav_geolocalizacionFragment"
-        android:name="com.example.culturaverde.Fragments.GeoFragment" />
+        android:name="com.example.culturaverde.Activities.MapsActivity"
+        tools:layout="@layout/activity_maps" />
 
 </navigation>

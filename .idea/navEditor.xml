@@ -49,8 +49,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-170" />
-                            <option name="y" value="197" />
+                            <option name="x" value="-168" />
+                            <option name="y" value="189" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -84,7 +84,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_principalconsumidores_to_nav_geolocalizacion">
+                            <entry key="action_nav_principalconsumidores_to_nav_geolocalizacionFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
