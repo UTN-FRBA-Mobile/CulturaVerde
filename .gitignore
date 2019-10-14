@@ -67,3 +67,6 @@ fastlane/readme.md
 .idea/codeStyles/Project.xml
 .idea/codeStyles/Project.xml
 .idea/modules.xml
+.idea/modules.xml
+build.gradle
+build.gradle
