@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_nav_principalconsumidores_to_nav_geolocalizacionFragment"
             app:destination="@id/nav_geolocalizacionFragment" />
+        <action
+            android:id="@+id/action_nav_principalconsumidores_to_resultadoBusqueda"
+            app:destination="@id/nav_resultadoBusqueda" />
     </fragment>
 
     <fragment
@@ -45,5 +48,10 @@
         android:id="@+id/nav_geolocalizacionFragment"
         android:name="com.example.culturaverde.Activities.MapsActivity"
         tools:layout="@layout/activity_maps" />
+    <activity
+        android:id="@+id/nav_resultadoBusqueda"
+        android:name="com.example.culturaverde.Activities.ResultadoBusqueda"
+        android:label="activity_resultado_busqueda"
+        tools:layout="@layout/activity_resultado_busqueda" />
 
 </navigation>
