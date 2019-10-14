@@ -14,6 +14,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -42,41 +43,41 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
-        map.getUiSettings().setZoomControlsEnabled(true)
         map.setOnMarkerClickListener(this)
+        map.getUiSettings().setZoomControlsEnabled(true)
 
         setUpMap()
 
     }
 
-
+    //Icono rojo de ubicacion
+    private fun placeMarker (location: LatLng) {
+        val markerOptions = MarkerOptions().position(location)
+        map.addMarker(markerOptions)
+    }
 
     private fun setUpMap() {
-
         //pide permiso para acceder a la ubicacion
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                LOCATION_PERMISSION_REQUEST_CODE
-            )
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
             return
         }
 
-
         //encuentra nuestra ubicacion
-
         map.isMyLocationEnabled = true
 
-        fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
+        //estilo de mapa que muestra.
+        map.mapType = GoogleMap.MAP_TYPE_TERRAIN
+
+        //si no encuentra nuestra ubicacion toma la ultima.
+        fusedLocationClient.lastLocation.addOnSuccessListener(this){ location ->
             if (location != null) {
+
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+                placeMarker(currentLatLng)
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+
             }
         }
     }
