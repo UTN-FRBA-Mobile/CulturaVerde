@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/Desktop-CulturaVerde-Cultura Verde.iml" filepath="$PROJECT_DIR$/Desktop-CulturaVerde-Cultura Verde.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/Desktop-CulturaVerde-app.iml" filepath="$PROJECT_DIR$/app/Desktop-CulturaVerde-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/null.iml" filepath="$PROJECT_DIR$/app/null.iml" />
     </modules>
   </component>
 </project>

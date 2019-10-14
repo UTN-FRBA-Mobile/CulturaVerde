@@ -33,7 +33,7 @@ class PrincipalConsumidoresFragment : Fragment() {
 
 
         imagenCategorias.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_nav_principalconsumidores_to_nav_categoriasFragment2)
+            view.findNavController().navigate(R.id.action_nav_principalconsumidores_to_resultadoBusqueda)
         }
 
         imagenReservas.setOnClickListener { view ->
