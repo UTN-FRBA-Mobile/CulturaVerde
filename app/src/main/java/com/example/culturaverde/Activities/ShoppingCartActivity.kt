@@ -36,7 +36,7 @@ class ShoppingCartActivity : AppCompatActivity() {
         shopping_cart_recyclerView.layoutManager = LinearLayoutManager(this)
 
         var totalPrice = ShoppingCart.getCart()
-            .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.price!!.toDouble()) }
+            .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.precio!!.toDouble()) }
 
         total_price.text = "$${totalPrice}"
     }

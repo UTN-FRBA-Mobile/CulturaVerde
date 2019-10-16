@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import com.example.culturaverde.Activities.ResultadoBusqueda
 import com.example.culturaverde.R
 import com.example.culturaverde.ViewModels.PrincipalConsumidoresViewModel
 import kotlinx.android.synthetic.main.fragment_principalconsumidores.*
@@ -33,6 +34,7 @@ class PrincipalConsumidoresFragment : Fragment() {
 
 
         imagenCategorias.setOnClickListener { view ->
+
             view.findNavController().navigate(R.id.action_nav_principalconsumidores_to_resultadoBusqueda)
         }
 

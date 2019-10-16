@@ -17,6 +17,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:navigationIcon="@drawable/abc_ic_ab_back_material"
             app:titleTextColor="@android:color/white"
             app:title="Listado de productos"
             android:background="@color/color_verde"

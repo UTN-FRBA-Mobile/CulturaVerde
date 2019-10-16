@@ -15,19 +15,19 @@
         android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:weightSum="1.5"
-        android:layout_height="match_parent">
+        android:layout_height="160dp">
 
 
         <ImageView
             android:layout_weight=".5"
             android:scaleType="fitXY"
-            android:id="@+id/product_image"
+            android:id="@+id/product_image2"
             android:layout_width="170dp"
-            android:layout_height="135dp"/>
+            android:layout_height="match_parent"/>
 
 
         <LinearLayout
-            android:layout_weight=".5"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:layout_marginRight="8dp"
             android:padding="8dp"
@@ -50,27 +50,26 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:id="@+id/product_price"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+            <TextView
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp"
+                android:textColor="@android:color/background_light"
+                android:textSize="16sp"
+                android:background="@drawable/round_background"
+                android:id="@+id/product_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
 
         </LinearLayout>
-
-
-        <TextView
-            android:textStyle="bold"
-            android:layout_marginEnd="12dp"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_vertical"
-            android:padding="8dp"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:background="@drawable/round_background"
-            android:id="@+id/product_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

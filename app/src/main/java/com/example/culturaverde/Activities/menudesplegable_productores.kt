@@ -30,9 +30,7 @@ class menudesplegable_productores : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_principalproductores,
-                R.id.nav_alertasproductores,
-                R.id.nav_editardatosproductores
+                R.id.nav_principalproductores
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

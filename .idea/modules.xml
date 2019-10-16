@@ -13,6 +13,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/CulturaVerde-app.iml" filepath="$PROJECT_DIR$/app/CulturaVerde-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desktop-CulturaVerde-Cultura Verde.iml" filepath="$PROJECT_DIR$/Desktop-CulturaVerde-Cultura Verde.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/Desktop-CulturaVerde-app.iml" filepath="$PROJECT_DIR$/app/Desktop-CulturaVerde-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mobile-CulturaVerde-Cultura Verde.iml" filepath="$PROJECT_DIR$/Mobile-CulturaVerde-Cultura Verde.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Mobile-CulturaVerde-app.iml" filepath="$PROJECT_DIR$/app/Mobile-CulturaVerde-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

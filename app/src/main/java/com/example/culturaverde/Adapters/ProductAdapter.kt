@@ -1,7 +1,8 @@
 package com.example.culturaverde.Adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,16 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.culturaverde.Activities.ResultadoBusqueda
 import com.example.culturaverde.Classes.ShoppingCart
 import com.example.culturaverde.Models.CartItem
-import com.example.culturaverde.Models.Product
+import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
 import com.squareup.picasso.Picasso
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
+import kotlinx.android.synthetic.main.cart_list_item.view.*
 import kotlinx.android.synthetic.main.product_row_item.view.*
+import kotlinx.android.synthetic.main.product_row_item.view.product_name
+import kotlinx.android.synthetic.main.product_row_item.view.product_price
+import java.io.ByteArrayInputStream
+import java.util.*
 
 
-class ProductAdapter(var context: Context, var products: List<Product> = arrayListOf()) :
+class ProductAdapter(var context: Context, var products: List<ProductoProductor> = arrayListOf()) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductAdapter.ViewHolder {
         // The layout design used for each list item
@@ -39,11 +45,15 @@ class ProductAdapter(var context: Context, var products: List<Product> = arrayLi
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         // This displays the product information for each item
-        fun bindProduct(product: Product) {
+        fun bindProduct(product: ProductoProductor) {
 
-            itemView.product_name.text = product.name
-            itemView.product_price.text = "$${product.price.toString()}"
-            Picasso.get().load(product.photos[0].filename).fit().into(itemView.product_image)
+            itemView.product_name.text = product.titulo
+            itemView.product_price.text = "$${product.precio.toString()}"
+
+            val imageBytes = Base64.decode(product.imagenes[0].image, 0)
+            val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+
+            itemView.product_image.setImageBitmap(image)
 
             Observable.create(ObservableOnSubscribe<MutableList<CartItem>> {
 
@@ -55,7 +65,7 @@ class ProductAdapter(var context: Context, var products: List<Product> = arrayLi
                     //notify users
                     Snackbar.make(
                         (itemView.context as ResultadoBusqueda).coordinator,
-                        "${product.name} added to your cart",
+                        "${product.titulo} se agregó a tu carrito",
                         Snackbar.LENGTH_LONG
                     ).show()
 
@@ -71,7 +81,7 @@ class ProductAdapter(var context: Context, var products: List<Product> = arrayLi
 
                     Snackbar.make(
                         (itemView.context as ResultadoBusqueda).coordinator,
-                        "${product.name} removed from your cart",
+                        "${product.titulo} se removió de tu carrito",
                         Snackbar.LENGTH_LONG
                     ).show()
 
@@ -87,7 +97,7 @@ class ProductAdapter(var context: Context, var products: List<Product> = arrayLi
                 }
 
                 (itemView.context as ResultadoBusqueda).cart_size.text = quantity.toString()
-                Toast.makeText(itemView.context, "Cart size $quantity", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Productos en carrito: $quantity", Toast.LENGTH_SHORT).show()
             }
 
 

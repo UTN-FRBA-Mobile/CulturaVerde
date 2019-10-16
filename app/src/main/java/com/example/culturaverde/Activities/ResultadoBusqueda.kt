@@ -1,33 +1,33 @@
 package com.example.culturaverde.Activities
 
-import android.content.Context
 import android.content.Intent
+import android.graphics.PorterDuff
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.ProductAdapter
 import com.example.culturaverde.Classes.ShoppingCart
-import com.example.culturaverde.Models.Product
+import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
 import com.example.culturaverde.Servicios.APIConfig
-import com.example.culturaverde.Servicios.APIService
+import com.example.culturaverde.Controllers.ProductosControlador
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import retrofit2.Call
 import io.paperdb.Paper
 import retrofit2.Response
+import android.view.View
+
 
 class ResultadoBusqueda : AppCompatActivity() {
 
-    private lateinit var apiService: APIService
+    private lateinit var productosControlador: ProductosControlador
     private lateinit var productAdapter: ProductAdapter
 
-    private var products = listOf<Product>()
+    private var products = listOf<ProductoProductor>()
 //    val APIConfig = APIConfig.
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,18 @@ class ResultadoBusqueda : AppCompatActivity() {
         setContentView(R.layout.activity_resultado_busqueda)
 
         setSupportActionBar(toolbar)
-        apiService = APIConfig.getRetrofitClient(this).create(APIService::class.java)
+
+        toolbar.navigationIcon?.setColorFilter(ContextCompat.getColor(this, R.color.common_google_signin_btn_text_dark_default), PorterDuff.Mode.SRC_ATOP)
+
+        toolbar.setNavigationOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                finish()
+
+
+            }
+        })
+
+        productosControlador = APIConfig.getRetrofitClient(this).create(ProductosControlador::class.java)
 
 
         swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.color_verde))
@@ -61,8 +72,8 @@ class ResultadoBusqueda : AppCompatActivity() {
     }
 
     fun getProducts() {
-        apiService.getProducts().enqueue(object : retrofit2.Callback<List<Product>> {
-            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+        productosControlador.getProducts().enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+            override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
                 print(t.message)
                 Log.d("Data error", t.message)
@@ -70,7 +81,7 @@ class ResultadoBusqueda : AppCompatActivity() {
 
             }
 
-            override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
+            override fun onResponse(call: Call<List<ProductoProductor>>, response: Response<List<ProductoProductor>>) {
 
                 swipeRefreshLayout.isRefreshing = false
                 swipeRefreshLayout.isEnabled = false

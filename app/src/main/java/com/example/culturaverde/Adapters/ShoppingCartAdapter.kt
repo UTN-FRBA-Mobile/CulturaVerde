@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.culturaverde.Models.CartItem
 import com.example.culturaverde.R
 import com.squareup.picasso.Picasso
+import android.graphics.BitmapFactory
+import android.util.Base64
 import kotlinx.android.synthetic.main.cart_list_item.view.*
 
 class ShoppingCartAdapter(var context: Context, var cartItems: List<CartItem>) :
@@ -33,11 +35,16 @@ class ShoppingCartAdapter(var context: Context, var cartItems: List<CartItem>) :
         fun bindItem(cartItem: CartItem) {
 
             // This displays the cart item information for each item
-            Picasso.get().load(cartItem.product.photos[0].filename).fit().into(itemView.product_image)
+           // Picasso.get().load(cartItem.product.imagenes[0].nombre).fit().into(itemView.product_image2)
 
-            itemView.product_name.text = cartItem.product.name
+            val imageBytes = Base64.decode(cartItem.product.imagenes[0].image, 0)
+            val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 
-            itemView.product_price.text = "$${cartItem.product.price}"
+            itemView.product_image2.setImageBitmap(image)
+
+            itemView.product_name.text = cartItem.product.titulo
+
+            itemView.product_price.text = "$${cartItem.product.precio}"
 
             itemView.product_quantity.text = cartItem.quantity.toString()
 
