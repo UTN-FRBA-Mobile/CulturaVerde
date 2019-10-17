@@ -325,6 +325,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_loginmainfragment_to_registrar">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -349,6 +354,18 @@
                           <Point>
                             <option name="x" value="256" />
                             <option name="y" value="368" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="registrar">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-247" />
+                            <option name="y" value="57" />
                           </Point>
                         </option>
                       </LayoutPositions>

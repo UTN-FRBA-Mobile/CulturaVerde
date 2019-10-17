@@ -38,6 +38,12 @@ class LoginFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        botonPlayRegistrar.setOnClickListener{
+
+            val action = LoginFragmentDirections.actionLoginmainfragmentToRegistrar()
+            findNavController().navigate(action)
+        }
+
     }
 
 }

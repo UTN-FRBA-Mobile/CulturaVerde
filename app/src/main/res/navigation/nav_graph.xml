@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginmainfragment_to_menudesplegable_productores"
             app:destination="@id/menudesplegable_productores" />
+        <action
+            android:id="@+id/action_loginmainfragment_to_registrar"
+            app:destination="@+id/registrar" />
     </fragment>
     <activity
         android:id="@+id/menudesplegable_consumidores"
@@ -27,4 +30,9 @@
         android:name="com.example.culturaverde.Ui.MenuDesplegable.menudesplegable_productores"
         android:label="app_bar_menudesplegable_productores"
         tools:layout="@layout/app_bar_menudesplegable_productores" />
+    <fragment
+        android:id="@+id/registrar"
+        android:name="com.example.culturaverde.Fragments.RegistrarFragment"
+        android:label="fragment_registrar"
+        tools:layout="@layout/fragment_registrar" />
 </navigation>
