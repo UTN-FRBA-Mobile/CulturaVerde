@@ -6,10 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class RegistrarViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "Crea tu cuenta en Cultura Verde"
-    }
 
-    val text: LiveData<String> = _text
+
 
 }

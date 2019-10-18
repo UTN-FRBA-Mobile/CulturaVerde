@@ -23,10 +23,7 @@ class RegistrarFragment : Fragment() {
         registrarViewModel =
             ViewModelProviders.of(this).get(RegistrarViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_registrar, container, false)
-        val textView: TextView = root.findViewById(R.id.text_registrar)
-        registrarViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }

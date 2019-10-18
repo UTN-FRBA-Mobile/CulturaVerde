@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/IngreseNombreUsuario"
+        android:hint="@string/texto_usuario"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:textSize="24sp"
@@ -24,30 +24,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
-        android:id="@+id/botonIngreso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="55dp"
-        android:background="@color/color_verde"
-        android:padding="5sp"
-        android:text="@string/texto_ingresar"
-        android:textColor="@android:color/background_light"
-        android:textIsSelectable="true"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contrasena"
-        tools:targetApi="m" />
-
     <EditText
         android:id="@+id/contrasena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="@string/ingreseContraseña"
+        android:hint="@string/texto_contraseña"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:textSize="24sp"
@@ -60,7 +43,7 @@
         android:id="@+id/imageView2"
         android:layout_width="217dp"
         android:layout_height="191dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="65dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/imagenCultura"
         android:src="@drawable/cultura_verde"
@@ -85,6 +68,22 @@
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/botonIngreso"
+        app:layout_constraintTop_toBottomOf="@+id/contrasena" />
+
+    <Button
+        android:id="@+id/botonIngreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/color_verde"
+        android:padding="5sp"
+        android:text="@string/texto_ingresar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contrasena" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

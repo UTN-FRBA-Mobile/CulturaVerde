@@ -23,10 +23,7 @@ class EditardatosproductorFragment : Fragment() {
         editardatosproductorViewModel =
             ViewModelProviders.of(this).get(EditardatosproductorViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_editardatosproductores, container, false)
-        val textView: TextView = root.findViewById(R.id.text_editarproductor)
-        editardatosproductorViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
