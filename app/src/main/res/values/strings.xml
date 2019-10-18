@@ -67,6 +67,9 @@
     <!-- Ingresar Consumidor -->
     <string name="IngresarNombre">Nombre</string>
     <string name="IngreseApellido">Apellido</string>
+    <string name="IngreseTelefono">Telefono</string>
+    <string name="IngreseEmail">Email</string>
+    <string name="IngresePassword">Password</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
