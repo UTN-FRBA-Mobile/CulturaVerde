@@ -5,6 +5,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Pantalla principal consumidores -->
+    <string name="texto_ingresar">Ingresar</string>
+    <string name="texto_registrar">Registrar</string>
+
+    <!-- Pantalla principal consumidores -->
     <string name="texto_categorias">Buscá tus productos por categorias</string>
     <string name="categorias">Categorias</string>
     <string name="texto_geo">Encontrá productores cercanos</string>

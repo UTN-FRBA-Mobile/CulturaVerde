@@ -1,4 +1,4 @@
-package com.example.culturaverde.Servicios
+package com.example.culturaverde.Services
 
 import android.content.Context
 import okhttp3.OkHttpClient
@@ -9,7 +9,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object APIConfig {
 
-    val BASE_URL = "http://192.168.0.133:8080/redAgro/"
+    val BASE_URL = "http://192.168.3.37:8080/redAgro/"
 
     private var retrofit: Retrofit? = null
 

@@ -9,5 +9,5 @@ class RegistrarViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
         value = "Registrar"
     }
-    val text: LiveData<String> = _text
+
 }

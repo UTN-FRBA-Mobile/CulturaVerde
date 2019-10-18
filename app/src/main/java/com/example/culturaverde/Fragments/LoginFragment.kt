@@ -23,22 +23,25 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        botonPlayConsumidores.setOnClickListener{
+        botonIngreso.setOnClickListener{
+
+            if(nombreUsuario.text.toString()=="Productor") {
+                val action =
+                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+                findNavController().navigate(action)
+            }
+
+            if(nombreUsuario.text.toString()=="Consumidor"){
 
             val action =
-                LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
-            findNavController().navigate(action)
+                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
+                findNavController().navigate(action)
+
+            }
 
         }
 
-        botonPlayProductores.setOnClickListener{
-
-            val action =
-                LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
-            findNavController().navigate(action)
-        }
-
-        botonPlayRegistrar.setOnClickListener{
+        botonRegistrar.setOnClickListener{
 
             val action = LoginFragmentDirections.actionLoginmainfragmentToRegistrar()
             findNavController().navigate(action)

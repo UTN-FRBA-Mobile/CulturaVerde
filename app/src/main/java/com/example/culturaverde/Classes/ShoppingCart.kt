@@ -27,8 +27,9 @@ class ShoppingCart {
             if (targetItem != null) {
                 if (targetItem.quantity > 0) {
                     targetItem.quantity--
-                } else {
-                    cart.remove(targetItem)
+                    if(targetItem.quantity==0){
+                        cart.remove(targetItem)
+                    }
                 }
             }
 

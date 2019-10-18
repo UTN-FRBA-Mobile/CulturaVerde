@@ -60,16 +60,26 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
                 itemView.addToCart.setOnClickListener { view ->
 
                     val item = CartItem(product)
+                    if(product.stock!! >0) {
+                        ShoppingCart.addItem(item)
+                        //notify users
+                        Snackbar.make(
+                            (itemView.context as ResultadoBusqueda).coordinator,
+                            "${product.titulo} se agregó a tu carrito",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }else{
 
-                    ShoppingCart.addItem(item)
-                    //notify users
-                    Snackbar.make(
-                        (itemView.context as ResultadoBusqueda).coordinator,
-                        "${product.titulo} se agregó a tu carrito",
-                        Snackbar.LENGTH_LONG
-                    ).show()
+                        Snackbar.make(
+                            (itemView.context as ResultadoBusqueda).coordinator,
+                            "No hay más stock de ese producto",
+                            Snackbar.LENGTH_LONG
+                        ).show()
 
-                    it.onNext(ShoppingCart.getCart())
+                    }
+                        it.onNext(ShoppingCart.getCart())
+
+
 
                 }
 

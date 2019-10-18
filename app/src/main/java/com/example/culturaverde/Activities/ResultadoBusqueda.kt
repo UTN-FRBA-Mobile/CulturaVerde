@@ -13,7 +13,7 @@ import com.example.culturaverde.Adapters.ProductAdapter
 import com.example.culturaverde.Classes.ShoppingCart
 import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
-import com.example.culturaverde.Servicios.APIConfig
+import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.Controllers.ProductosControlador
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import retrofit2.Call
