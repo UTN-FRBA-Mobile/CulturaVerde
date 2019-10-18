@@ -7,15 +7,16 @@ import com.example.culturaverde.Models.Usuario.User
 
 interface UsuarioControlador {
 
-        @POST("users")
+        /*@POST("users")
         fun create(@Body user: User): Observable<User>
-
-        @GET("users/{username}")
-        fun read(@Path("username") username: String): Observable<User>
+        */
+        @POST("redAgro/usuario_consumidor/")
+        fun registrar(@Body user: User): Observable<User>
 
         @PUT("users/{username}")
         fun update(@Path("username") username: String, @Body user: User): Observable<User>
 
-        @DELETE("users/{username}")
+        /*@DELETE("users/{username}")
         fun delete(@Path("username") username: String): Observable<Response<Void>>
+        */
     }
