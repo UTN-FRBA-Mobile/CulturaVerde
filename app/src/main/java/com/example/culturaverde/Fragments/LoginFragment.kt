@@ -23,6 +23,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         botonIngreso.setOnClickListener{
 
             if(nombreUsuario.text.toString()=="Productor") {

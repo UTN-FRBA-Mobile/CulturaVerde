@@ -5,6 +5,8 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginmainfragment">
 
+    <!-- manejo del login -->
+
     <fragment
         android:id="@+id/loginmainfragment"
         android:name="com.example.culturaverde.Ui.Login.LoginFragment"
@@ -18,21 +20,50 @@
             app:destination="@id/menudesplegable_productores" />
         <action
             android:id="@+id/action_loginmainfragment_to_registrar"
-            app:destination="@+id/registrar" />
+            app:destination="@+id/creartipousuario" />
     </fragment>
+
+    <!-- manejo del menu desplegable consumidores -->
+
     <activity
         android:id="@+id/menudesplegable_consumidores"
         android:name="com.example.culturaverde.Ui.MenuDesplegable.menudesplegable_consumidores"
         android:label="app_bar_menudesplegable_consumidores"
         tools:layout="@layout/app_bar_menudesplegable_consumidores" />
+
+    <!-- manejo del menu desplegable productores -->
+
     <activity
         android:id="@+id/menudesplegable_productores"
         android:name="com.example.culturaverde.Ui.MenuDesplegable.menudesplegable_productores"
         android:label="app_bar_menudesplegable_productores"
         tools:layout="@layout/app_bar_menudesplegable_productores" />
+
+    <!-- manejo de creacion tipo usuario -->
+
     <fragment
-        android:id="@+id/registrar"
-        android:name="com.example.culturaverde.Fragments.RegistrarFragment"
-        android:label="fragment_registrar"
-        tools:layout="@layout/fragment_registrar" />
+        android:id="@+id/creartipousuario"
+        android:name="com.example.culturaverde.Fragments.CreartipousuarioFragment"
+        android:label="fragment_creartipousuario"
+        tools:layout="@layout/fragment_creartipousuario" >
+        <action
+            android:id="@+id/action_creartipousuario_to_crearConsumidorFragment"
+            app:destination="@id/crearConsumidorFragment" />
+        <action
+            android:id="@+id/action_creartipousuario_to_crearProductorFragment"
+            app:destination="@id/crearProductorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/crearConsumidorFragment"
+        android:name="com.example.culturaverde.Fragments.CrearConsumidorFragment"
+        android:label="CrearConsumidorFragment"
+        tools:layout="@layout/fragment_crearusuarioconsumidor"/>
+
+    <fragment
+        android:id="@+id/crearProductorFragment"
+        android:name="com.example.culturaverde.Fragments.CrearProductorFragment"
+        android:label="CrearProductorFragment"
+        tools:layout="@layout/fragment_crearusuarioproductor"/>
+
 </navigation>

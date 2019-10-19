@@ -42,7 +42,15 @@
     <string name="menu_editardatos_productores">Editar Datos</string>
 
     <!-- Pantalla registrar -->
-    <string name="texto_creacion">Creá tu cuenta en culturaVerde</string>
+    <string name="texto_creacion">Creá tu cuenta en CulturaVerde</string>
+    <string name="texto_tipocreacion">Selecciona un tipo de usuario</string>
+    <string name="IngresarNombre">Nombre</string>
+    <string name="IngreseApellido">Apellido</string>
+    <string name="Ingresefechanac">Fecha de nacimiento</string>
+    <string name="IngreseTelefono">Telefono</string>
+    <string name="IngreseRazonsocial">Razon social</string>
+    <string name="IngreseEmail">Email</string>
+    <string name="IngresePassword">Password</string>
 
     <!-- Pantalla alertas -->
     <string name="texto_pantalla_alertas">Administrá tus notificaciones a continuación.</string>
@@ -68,13 +76,6 @@
     <string name="telefonoTitulo">Teléfono</string>
     <string name="telefono">Ingrese teléfono</string>
     <string name="botonLmpiar">Limpiar</string>
-
-    <!-- Ingresar Consumidor -->
-    <string name="IngresarNombre">Nombre</string>
-    <string name="IngreseApellido">Apellido</string>
-    <string name="IngreseTelefono">Telefono</string>
-    <string name="IngreseEmail">Email</string>
-    <string name="IngresePassword">Password</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

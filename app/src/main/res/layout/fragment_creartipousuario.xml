@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/texto_tipocreacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginLeft="161dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginRight="161dp"
+        android:text="@string/texto_tipocreacion"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tipoproductor"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/color_verde"
+        android:text="Productor"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toStartOf="@+id/texto_tipocreacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_tipocreacion"
+        tools:targetApi="m" />
+
+    <Button
+        android:id="@+id/tipoconsumidor"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/color_verde"
+        android:padding="5sp"
+        android:text="Consumidor"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintStart_toEndOf="@+id/tipoproductor"
+        app:layout_constraintTop_toBottomOf="@+id/texto_tipocreacion"
+        tools:targetApi="m" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
