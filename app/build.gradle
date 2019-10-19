@@ -11,6 +11,7 @@ android {
     buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId "com.example.culturaverde"
+        multiDexEnabled true
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -67,6 +68,7 @@ dependencies {
     implementation 'io.paperdb:paperdb:2.6'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    implementation 'com.android.support:multidex:1.0.3'
 
 
 
