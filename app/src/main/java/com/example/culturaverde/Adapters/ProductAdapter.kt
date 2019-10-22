@@ -19,6 +19,7 @@ import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import kotlinx.android.synthetic.main.cart_list_item.view.*
+import kotlinx.android.synthetic.main.product_row_item.*
 import kotlinx.android.synthetic.main.product_row_item.view.*
 import kotlinx.android.synthetic.main.product_row_item.view.product_name
 import kotlinx.android.synthetic.main.product_row_item.view.product_price
@@ -48,6 +49,7 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
         fun bindProduct(product: ProductoProductor) {
 
             itemView.product_name.text = product.titulo
+            itemView.product_stock.text = "Cantidad: "+product.stock.toString()+" "+"/"+" "+product.unidad_venta
             itemView.product_price.text = "$${product.precio.toString()}"
 
             val imageBytes = Base64.decode(product.imagenes[0].image, 0)
@@ -60,29 +62,33 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
                 itemView.addToCart.setOnClickListener { view ->
 
                     val item = CartItem(product)
-                    if(product.stock!! >0) {
-                        ShoppingCart.addItem(item)
-                        //notify users
-                        Snackbar.make(
-                            (itemView.context as ResultadoBusqueda).coordinator,
-                            "${product.titulo} se agregó a tu carrito",
-                            Snackbar.LENGTH_LONG
-                        ).show()
-                    }else{
 
-                        Snackbar.make(
-                            (itemView.context as ResultadoBusqueda).coordinator,
-                            "No hay más stock de ese producto",
-                            Snackbar.LENGTH_LONG
-                        ).show()
+                        if(ShoppingCart.addItem(item)) {
 
-                    }
-                        it.onNext(ShoppingCart.getCart())
+                            //notify users
+                            Snackbar.make(
+                                (itemView.context as ResultadoBusqueda).coordinator,
+                                "${product.titulo} se agregó a tu carrito",
+                                Snackbar.LENGTH_LONG
+                            ).show()
 
+                            it.onNext(ShoppingCart.getCart())
+
+                        }
+
+                    else{
+
+                            Snackbar.make(
+                                (itemView.context as ResultadoBusqueda).coordinator,
+                                "No hay mas stock de ese producto",
+                                Snackbar.LENGTH_LONG
+                            ).show()
+
+                        }
 
 
                 }
-
+/*
                 itemView.removeItem.setOnClickListener { view ->
 
                     val item = CartItem(product)
@@ -98,7 +104,7 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
                     it.onNext(ShoppingCart.getCart())
                 }
 
-
+*/
             }).subscribe { cart ->
                 var quantity = 0
 

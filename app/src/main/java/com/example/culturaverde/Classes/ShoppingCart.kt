@@ -7,33 +7,49 @@ import io.paperdb.Paper
 class ShoppingCart {
 
     companion object {
-        fun addItem(cartItem: CartItem) {
+        fun addItem(cartItem: CartItem): Boolean {
             val cart = ShoppingCart.getCart()
 
             val targetItem = cart.singleOrNull { it.product.id == cartItem.product.id }
             if (targetItem == null) {
-                cartItem.quantity++
-                cart.add(cartItem)
-            } else {
-                targetItem.quantity++
+
+                    cartItem.quantity++
+                    cart.add(cartItem)
+                    ShoppingCart.saveCart(cart)
+                    return true
+
+                } else {
+
+                if(targetItem.product.stock!!>targetItem.quantity) {
+                    targetItem.quantity++
+                    ShoppingCart.saveCart(cart)
+                    return true
+                }else{
+
+                    return false
+                }
             }
-            ShoppingCart.saveCart(cart)
         }
 
-        fun removeItem(cartItem: CartItem, context: Context) {
+        fun removeItem(cartItem: CartItem,context: Context):Boolean {
             val cart = ShoppingCart.getCart()
 
             val targetItem = cart.singleOrNull { it.product.id == cartItem.product.id }
             if (targetItem != null) {
                 if (targetItem.quantity > 0) {
                     targetItem.quantity--
-                    if(targetItem.quantity==0){
+
+                    if (targetItem.quantity == 0) {
                         cart.remove(targetItem)
+                        ShoppingCart.saveCart(cart)
+                        return false
                     }
+                    ShoppingCart.saveCart(cart)
+                    return true
                 }
             }
 
-            ShoppingCart.saveCart(cart)
+            return false
         }
 
         fun saveCart(cart: MutableList<CartItem>) {
@@ -52,5 +68,6 @@ class ShoppingCart {
 
             return cartSize
         }
+
     }
 }

@@ -21,7 +21,6 @@ import io.paperdb.Paper
 import retrofit2.Response
 import android.view.View
 
-
 class ResultadoBusqueda : AppCompatActivity() {
 
     private lateinit var productosControlador: ProductosControlador
@@ -59,7 +58,6 @@ class ResultadoBusqueda : AppCompatActivity() {
 
         products_recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-
         cart_size.text = ShoppingCart.getShoppingCartSize().toString()
 
         getProducts()
@@ -69,6 +67,13 @@ class ResultadoBusqueda : AppCompatActivity() {
 
             startActivity(Intent(this, ShoppingCartActivity::class.java))
         }
+    }
+
+    public override fun onResume() {
+        super.onResume()
+
+        cart_size.text = ShoppingCart.getShoppingCartSize().toString()
+
     }
 
     fun getProducts() {

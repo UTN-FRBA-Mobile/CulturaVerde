@@ -9,7 +9,9 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
+import kotlinx.android.synthetic.main.activity_shopping_cart.toolbar
 
 class ShoppingCartActivity : AppCompatActivity() {
 
@@ -35,10 +37,17 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         shopping_cart_recyclerView.layoutManager = LinearLayoutManager(this)
 
+        actualizarPrecioTotal()
+    }
+
+    fun actualizarPrecioTotal(){
+
         var totalPrice = ShoppingCart.getCart()
             .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.precio!!.toDouble()) }
 
         total_price.text = "$${totalPrice}"
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
