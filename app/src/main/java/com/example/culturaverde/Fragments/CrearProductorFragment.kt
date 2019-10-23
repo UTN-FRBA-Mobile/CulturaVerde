@@ -4,25 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.culturaverde.R
-import com.example.culturaverde.ViewModels.RegistrarViewModel
-import androidx.lifecycle.Observer
+import com.example.culturaverde.ViewModels.CrearProductorViewModel
 
-class RegistrarFragment : Fragment() {
+class CrearProductorFragment : Fragment() {
 
-    private lateinit var registrarViewModel: RegistrarViewModel
+    private lateinit var crearProductorViewModel: CrearProductorViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        registrarViewModel =
-            ViewModelProviders.of(this).get(RegistrarViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_registrar, container, false)
+        crearProductorViewModel =
+            ViewModelProviders.of(this).get(CrearProductorViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_crearusuarioproductor, container, false)
 
         return root
     }

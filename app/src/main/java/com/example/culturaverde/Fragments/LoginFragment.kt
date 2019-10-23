@@ -50,6 +50,7 @@ class LoginFragment : Fragment() {
 
             login()
 
+
             if (usuario?.rol == "Productor") {
                 val action =
                     LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
