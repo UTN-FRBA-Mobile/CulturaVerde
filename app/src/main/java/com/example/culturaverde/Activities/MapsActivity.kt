@@ -3,8 +3,14 @@ package com.example.culturaverde.Activities
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.example.culturaverde.Adapters.ProductAdapter
+import com.example.culturaverde.Controllers.PuntosentregaControlador
+import com.example.culturaverde.Models.ProductoProductor
+import com.example.culturaverde.Models.PuntosEntrega
 import com.example.culturaverde.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -15,6 +21,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
+import retrofit2.Call
+import retrofit2.Response
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -28,6 +37,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
     val zoommaps = 10f
+    private lateinit var puntosentregacontrolador: PuntosentregaControlador
+    private var puntosentrega = listOf<PuntosEntrega>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,4 +121,33 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
         }
     }
+
+    fun getPuntosEntrega() {
+
+        puntosentregacontrolador.getPuntosentrega().enqueue(object : retrofit2.Callback<List<PuntosEntrega>> {
+
+            override fun onFailure(call: Call<List<PuntosEntrega>>, t: Throwable) {
+
+                print(t.message)
+                Log.d("Data error", t.message)
+                //Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
+
+            }
+            override fun onResponse(call: Call<List<PuntosEntrega>>, response: Response<List<PuntosEntrega>>) {
+
+                swipeRefreshLayout.isRefreshing = false
+                swipeRefreshLayout.isEnabled = false
+
+                puntosentrega = response.body()!!
+
+                //productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
+
+                //products_recyclerview.adapter = productAdapter
+                //productAdapter.notifyDataSetChanged()
+
+            }
+
+        })
+    }
+
 }
