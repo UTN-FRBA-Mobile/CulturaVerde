@@ -1,14 +1,31 @@
 package com.example.culturaverde.Models
 
 import java.util.*
+import com.google.gson.annotations.SerializedName
 
-object Usuario {
-    data class User(val id: Int,
-                    val nombre: String,
-                    val apellido: String,
-                    val usuario: String,
-                    val contraseña: String,
-                    val fecha_nacimiento: Date,
-                    val rol: String,
-                    val telefono: String)
-                }
+    class Usuario {
+
+        @SerializedName("id")
+        var id: Long? = null
+
+        @SerializedName("nombre")
+        var nombre: String? =null
+
+        @SerializedName("apellido")
+        var apellido: String? =null
+
+        @SerializedName("usuario")
+        var usuario: String? =null
+
+        @SerializedName("contraseña")
+        var contraseña: String? =null
+
+        @SerializedName("fecha_nacimiento")
+        var fecha_nacimiento: Date?=null
+
+        @SerializedName("rol")
+        var rol: String? =null
+
+        @SerializedName("telefono")
+        val telefono: String? =null
+    }

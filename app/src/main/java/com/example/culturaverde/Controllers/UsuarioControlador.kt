@@ -1,20 +1,28 @@
 package com.example.culturaverde.Controllers
 
+import com.example.culturaverde.Models.Usuario
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
-import com.example.culturaverde.Models.Usuario.User
+import retrofit2.Call
+
 
 interface UsuarioControlador {
 
-        /*@POST("users")
-        fun create(@Body user: User): Observable<User>
-        */
+        @Headers("Content-Type: application/json", "Accept: application/json")
+        @GET("login")
+        fun login(@Query("u") username: String, @Query("c") contraseña: String): Call<Usuario>
+
+        //fun login(@Query("u") username: String?): Call<Usuario>
+        //@GET("login/{u}{c}")
+        //        fun login(@Path("u") username: String, @Path("c") contraseña: String): Call<Usuario>
+
         @POST("redAgro/usuario_consumidor/")
-        fun registrar(@Body user: User): Observable<User>
+        fun registrar(@Body user: Usuario): Observable<Usuario>
 
         @PUT("users/{username}")
-        fun update(@Path("username") username: String, @Body user: User): Observable<User>
+        fun update(@Path("username") username: String, @Body user: Usuario): Observable<Usuario>
+
 
         /*@DELETE("users/{username}")
         fun delete(@Path("username") username: String): Observable<Response<Void>>
