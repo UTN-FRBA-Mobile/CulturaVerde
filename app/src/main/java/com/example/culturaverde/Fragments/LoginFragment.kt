@@ -28,7 +28,6 @@ import java.util.*
 class LoginFragment : Fragment() {
 
     private lateinit var usuarioControlador: UsuarioControlador
-    //private lateinit var loginViewModel: LoginViewModel
     private var usuario: Usuario? = null
 
 

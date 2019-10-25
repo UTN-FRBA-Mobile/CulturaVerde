@@ -13,10 +13,6 @@ interface UsuarioControlador {
         @GET("login")
         fun login(@Query("u") username: String, @Query("c") contraseña: String): Call<Usuario>
 
-        //fun login(@Query("u") username: String?): Call<Usuario>
-        //@GET("login/{u}{c}")
-        //        fun login(@Path("u") username: String, @Path("c") contraseña: String): Call<Usuario>
-
         @POST("redAgro/usuario_consumidor/")
         fun registrar(@Body user: Usuario): Observable<Usuario>
 

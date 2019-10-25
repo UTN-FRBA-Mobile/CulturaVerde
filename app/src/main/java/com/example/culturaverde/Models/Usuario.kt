@@ -27,5 +27,5 @@ import com.google.gson.annotations.SerializedName
         var rol: String? =null
 
         @SerializedName("telefono")
-        val telefono: String? =null
+        var telefono: String? =null
     }
