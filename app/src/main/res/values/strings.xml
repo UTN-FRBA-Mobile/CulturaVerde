@@ -65,6 +65,19 @@
     <string name="texto_frutas">Frutas</string>
     <string name="texto_otros">Otros</string>
 
+    <!-- Pantalla productos productor -->
+    <string name="texto_productos_productor">Mis productos</string>
+    <string name="texto_editar_producto">Modificar</string>
+    <string name="texto_eliminar_producto">Eliminar</string>
+    <string name="texto_crear_oferta">Crear oferta</string>
+
+    <!-- Pantalla reservas -->
+    <string name="texto_mis_reservas">Mis reservas</string>
+    <string name="texto_estado">Estado</string>
+    <string name="texto_fecha_creacion">Fecha creación</string>
+    <string name="texto_reserva">Reserva</string>
+    <string name="texto_total">Total</string>
+
     <!-- Botones -->
     <string name="boton_guardar">Guardar</string>
     <string name="nombreUsuarioTitulo">Nombre</string>
@@ -83,6 +96,5 @@
     <string name="google_maps_key">AIzaSyA0Z6lbH46TvbqPzkqYS5MLo2ci8Vr-dYw</string>
     <string name="imagenCultura" />
     <string name="CrearUsuario">Crear</string>
-
 
 </resources>

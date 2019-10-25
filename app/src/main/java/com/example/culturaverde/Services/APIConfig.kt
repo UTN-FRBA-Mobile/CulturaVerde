@@ -13,6 +13,7 @@ object APIConfig {
     val BASE_URL = "http://192.168.0.107:8080/redAgro/"
 
 
+
     private var retrofit: Retrofit? = null
 
     var gson = GsonBuilder()
