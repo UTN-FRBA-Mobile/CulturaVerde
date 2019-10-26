@@ -4,14 +4,13 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.example.culturaverde.Adapters.ProductAdapter
+import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Controllers.PuntosentregaControlador
-import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.Models.PuntosEntrega
 import com.example.culturaverde.R
+import com.example.culturaverde.Services.APIConfig
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -49,7 +48,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -60,32 +58,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         setUpMap()
 
-        val location1 = LatLng(-34.5076863,-58.5273582)
-        val razonsocial1 = "Unicenter"
-        marketplace(location1, razonsocial1)
+        puntosentregacontrolador = APIConfig.getRetrofitClient(this).create(PuntosentregaControlador::class.java)
 
-        val location2 = LatLng(-34.6339474,-58.6316745)
-        val razonsocia2 = "Plaza Oeste"
-        marketplace(location2, razonsocia2)
-
-        val location3 = LatLng(-34.5959403,-58.4849074)
-        val razonsocia3 = "Facultad UBA Parternal"
-        marketplace(location3, razonsocia3)
-
-        val location4 = LatLng(-34.6596738,-58.4702676)
-        val razonsocia4 = "Facultad UTN Lugano"
-        marketplace(location4, razonsocia4)
-
-        val location5 = LatLng(-34.5986018,-58.4220881)
-        val razonsocia5 = "Facultad UTN Medrano"
-        marketplace(location5, razonsocia5)
+        getPuntosEntrega()
 
     }
 
     //donde estan los productores
-    private fun marketplace (locationproductor: LatLng, razonsocial: String){
+    private fun marketplace (locationproductor: LatLng, razonsocial: String, direccion: String, localidad: String ){
 
         map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial))
+        map.addMarker(MarkerOptions().position(locationproductor).title(direccion))
+        map.addMarker(MarkerOptions().position(locationproductor).title(localidad))
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationproductor, zoommaps))
 
     }
@@ -97,6 +81,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     private fun setUpMap() {
+
         //pide permiso para acceder a la ubicacion
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
@@ -130,20 +115,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
                 print(t.message)
                 Log.d("Data error", t.message)
-                //Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
 
             }
             override fun onResponse(call: Call<List<PuntosEntrega>>, response: Response<List<PuntosEntrega>>) {
 
-                swipeRefreshLayout.isRefreshing = false
-                swipeRefreshLayout.isEnabled = false
-
                 puntosentrega = response.body()!!
 
-                //productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
 
-                //products_recyclerview.adapter = productAdapter
-                //productAdapter.notifyDataSetChanged()
+                for (puntosEntrega in puntosentrega) {
+                    var location = LatLng(puntosEntrega.latitud,puntosEntrega.longitud)
+                    var razonsocial = puntosEntrega.productor.razon_social.toString()
+                    var direccion = puntosEntrega.direccion
+                    var localidad = puntosEntrega.localidad
+                    marketplace(location, razonsocial, direccion, localidad)
+                }
 
             }
 
