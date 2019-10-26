@@ -2,13 +2,24 @@ package com.example.culturaverde.Ui.Reservas
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.culturaverde.Adapters.ReservasAdapter
+import com.example.culturaverde.Controllers.ReservasControlador
+import com.example.culturaverde.Models.Reserva
 
 import com.example.culturaverde.R
+import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.ReservasViewModel
+import kotlinx.android.synthetic.main.reservas_fragment.*
+import retrofit2.Call
+import retrofit2.Response
 
 class ReservasFragment : Fragment() {
 
@@ -16,6 +27,9 @@ class ReservasFragment : Fragment() {
         fun newInstance() = ReservasFragment()
     }
 
+    private lateinit var reservasControlador: ReservasControlador
+    private lateinit var reservasAdapter: ReservasAdapter
+    private var reservas = listOf<Reserva>()
     private lateinit var viewModel: ReservasViewModel
 
     override fun onCreateView(
@@ -29,6 +43,48 @@ class ReservasFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ReservasViewModel::class.java)
         // TODO: Use the ViewModel
+
+        reservasControlador =
+            APIConfig.getRetrofitClient(requireContext()).create(ReservasControlador::class.java)
+
+        swipeRefreshLayout3.setColorSchemeColors(ContextCompat.getColor(requireContext(), R.color.color_verde))
+
+        swipeRefreshLayout3.isRefreshing = true
+
+        recycler_reservas.layoutManager = LinearLayoutManager(requireContext())
+
+        getReservas()
     }
 
+
+    fun getReservas() {
+        reservasControlador.getReservas()
+            .enqueue(object : retrofit2.Callback<List<Reserva>> {
+                override fun onFailure(call: Call<List<Reserva>>, t: Throwable) {
+
+                    print(t.message)
+                    Log.d("Data error", t.message)
+                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+
+                }
+
+                override fun onResponse(
+                    call: Call<List<Reserva>>,
+                    response: Response<List<Reserva>>
+                ) {
+
+                    swipeRefreshLayout3.isRefreshing = false
+                    swipeRefreshLayout3.isEnabled = false
+
+                    reservas = response.body()!!
+
+                    reservasAdapter = ReservasAdapter(requireContext(), reservas)
+
+                    recycler_reservas.adapter = reservasAdapter
+                    reservasAdapter.notifyDataSetChanged()
+
+                }
+
+            })
+    }
 }

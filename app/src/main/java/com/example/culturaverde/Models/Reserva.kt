@@ -1,48 +1,62 @@
 package com.example.culturaverde.Models
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-class Reserva {
+data class Reserva (
 
+    @Expose
     @SerializedName("id")
-    var id: Long? = null
+    val id: Long,
 
-    @SerializedName("productor_id")
-    var productor: Productor? = null
+    @Expose
+    @SerializedName("productor")
+    val productor: Productor,
 
-    @SerializedName("consumidor_id")
-    var consumidor: Consumidor? = null
+    @Expose
+    @SerializedName("consumidor")
+    val consumidor: Consumidor,
 
-    @SerializedName("punto_entrega_id")
-    var puntoEntrega: PuntosEntrega? = null
+    @Expose
+    @SerializedName("punto_entrega")
+    val punto_entrega: PuntosEntrega,
 
-    @SerializedName("estado_id")
-    var estado_reserva: EstadoReserva? = null
+    @Expose
+    @SerializedName("estado_reserva")
+    val estado_reserva: EstadoReserva,
 
+    @Expose
     @SerializedName("fecha")
-    var fecha: Date? = null
+    val fecha: Date,
 
+    @Expose
     @SerializedName("fecha_creacion")
-    var fecha_creacion: Date?=null
+    val fecha_creacion: Date,
 
+    @Expose
     @SerializedName("total_reserva")
-    var total_reserva: Float? = null
+    val total_reserva:Float,
 
+    @Expose
     @SerializedName("forma_retiro")
-    var forma_retiro: String? = null
+    val forma_retiro: String,
 
+    @Expose
     @SerializedName("persona_retiro")
-    var persona_retiro: String? = null
+    val persona_retiro: String,
 
-    @SerializedName("unidad_venta")
-    var detallesReserva: List<DetalleReserva>? = arrayListOf()
+    @Expose
+    @SerializedName("detallesReserva")
+    val detallesReserva: List<DetalleReserva>,
 
+    @Expose
     @SerializedName("contenido")
-    var contenido: String? = null
+    val contenido: String,
 
+    @Expose
     @SerializedName("fecha_vencimiento")
-    var fecha_vencimiento: Date? = null
+    val fecha_vencimiento: Date
 
 
-}
+)

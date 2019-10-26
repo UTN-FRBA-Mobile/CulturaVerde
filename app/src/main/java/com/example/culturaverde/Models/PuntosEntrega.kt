@@ -1,37 +1,56 @@
 package com.example.culturaverde.Models
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class PuntosEntrega {
+data class PuntosEntrega (
 
+    @Expose
     @SerializedName("id")
-    var id: Long? = null
+    val id: Long,
 
+    @Expose
+    @SerializedName("reservas")
+    val reservas: List<Reserva>,
+
+    @Expose
+    @SerializedName("fechas_entrega")
+    val fechas_entrega: List<FechaEntrega>,
+
+    @Expose
     @SerializedName("cod_postal")
-    var codpostal: Int? = null
+    val cod_postal: String,
 
+    @Expose
     @SerializedName("direccion")
-    var direccion: Char? = null
+    val direccion: String,
 
+    @Expose
     @SerializedName("latitud")
-    var latitud: Float? = null
+    val latitud: Double,
 
+    @Expose
     @SerializedName("localidad")
-    var localidad: Char? = null
+    val localidad: String,
 
+    @Expose
     @SerializedName("longitud")
-    var longitud: Float? = null
+    val longitud:Double,
 
+    @Expose
     @SerializedName("pais")
-    var pais: Char? = null
+    val pais: String,
 
+    @Expose
     @SerializedName("provincia")
-    var provincia: Char? = null
+    val provincia: String,
 
-    @SerializedName("productor_id")
-    var productorid: Long? = null
+    @Expose
+    @SerializedName("productor")
+    val productor: Productor,
 
+    @Expose
     @SerializedName("activo")
-    var activo: Long? = null
+    val activo: Boolean
 
-}
+    )
