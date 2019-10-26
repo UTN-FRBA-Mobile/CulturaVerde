@@ -1,4 +1,9 @@
 package com.example.culturaverde.Models
 
-class Consumidor {
-}
+import com.google.gson.annotations.SerializedName
+
+data class Consumidor (
+
+    @SerializedName("id")
+    var id: Long
+)

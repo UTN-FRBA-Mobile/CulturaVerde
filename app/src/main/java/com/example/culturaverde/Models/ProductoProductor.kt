@@ -8,10 +8,10 @@ class ProductoProductor {
     @SerializedName("id")
     var id: Long? = null
 
-    @SerializedName("productor_id")
+    @SerializedName("productor")
     var productor: Productor? = null
 
-    @SerializedName("producto_id")
+    @SerializedName("producto")
     var producto: Producto? = null
 
     @SerializedName("titulo")
