@@ -17,7 +17,7 @@ interface UsuarioControlador {
 
         @Headers("Content-Type: application/json", "Accept: application/json")
         @POST("usuario_productor")
-        fun registrar(@Body body:String, @Query("razon_social") razon_social: String): Call<Usuario>
+        fun registrar(@Body body:String, @Query("razon_social") razon_social: String): Call<Void>
 
         @PUT("users/{username}")
         fun update(@Path("username") username: String, @Body user: Usuario): Observable<Usuario>
