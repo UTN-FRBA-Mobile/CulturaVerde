@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -13,7 +14,6 @@ import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.CrearProductorViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_crearusuarioproductor.*
@@ -21,6 +21,13 @@ import kotlinx.android.synthetic.main.fragment_loginmain.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import org.json.JSONObject
+import java.time.LocalDate
+import java.time.Month
+import com.google.gson.GsonBuilder
+import java.sql.Date
 
 
 class CrearProductorFragment : Fragment() {
@@ -46,8 +53,6 @@ class CrearProductorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         botonCrearUsuario.setOnClickListener {
-            usuarioControlador =
-                APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
             registrarUsuario()
 
@@ -56,47 +61,37 @@ class CrearProductorFragment : Fragment() {
 
     private var disposable: Disposable? = null
 
+    fun registrarUsuario() {
 
-    private fun showResult(message: String) {
-    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-        fun registrarUsuario() {
+            usuarioControlador =
+                APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-            var usuario: Usuario? = null
+        //val newDate = DatePicker.AUTOFILL_TYPE_DATE
+        //val date = SimpleDateFormat("DD/MM/YYYY").format(newDate)
 
-            usuario?.nombre = nombreingresante.text.toString()
-            usuario?.apellido = ingreseapellido.text.toString()
-            usuario?.telefono = ingresetelefono.text.toString()
-            usuario?.rol = "Productor"
-            usuario?.usuario = ingreseemail.text.toString()
-            usuario?.contraseña = ingresepassword.text.toString()
+        val paramObject = JSONObject()
+        paramObject.put("nombre", nombreingresante.text.toString())
+        paramObject.put("apellido", ingreseapellido.text.toString())
+        paramObject.put("usuario", ingreseemail.text.toString())
+        paramObject.put("contraseña", ingresepassword.text.toString())
+        //paramObject.put("fecha_nacimiento",date)
+        paramObject.put("rol", "Productor")
+        paramObject.put("telefono", ingresetelefono.text.toString())
 
-
-          /*  usuarioControlador.registrar(usuario)
-                .enqueue(object : Callback<Usuario?> {
+            usuarioControlador.registrar(paramObject.toString(), razonsocial.text.toString())
+                .enqueue(object : Callback<Usuario> {
                   override fun onFailure(call: Call<Usuario>, t: Throwable) {
                         print(t.message)
-                        Log.d("Login error", t.message)
-                        Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                        Log.d("Registro erroneo", t.message)
+                        Toast.makeText(requireContext(), t.message + "Registro Erroneo!!", Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                        usuario = response.body()!!
+
+                        Toast.makeText(requireContext(), "Registro exitoso!", Toast.LENGTH_SHORT).show()
 
                     }
 
                 })
-
-               ++++++++++++++++++++++
-
-               this.disposable = usuario?.let {
-                    this. usuarioControlador.registrar(it)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ showResult("Successfully created the new user ${usuario}") },
-                            { showResult("Failed to create the new user!") })
-
-                }*/
-
         }
 }
