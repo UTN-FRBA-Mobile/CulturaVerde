@@ -119,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ingreseemail" />
 
     <Button
-        android:id="@+id/crear"
+        android:id="@+id/botonCrearUsuario"
         style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
