@@ -13,7 +13,6 @@ import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.CrearProductorViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_crearusuarioproductor.*
@@ -21,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_loginmain.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class CrearProductorFragment : Fragment() {
@@ -46,8 +47,6 @@ class CrearProductorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         botonCrearUsuario.setOnClickListener {
-            usuarioControlador =
-                APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
             registrarUsuario()
 
@@ -62,18 +61,16 @@ class CrearProductorFragment : Fragment() {
     }
         fun registrarUsuario() {
 
-            var usuario: Usuario? = null
+            usuarioControlador =
+                APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-            usuario?.nombre = nombreingresante.text.toString()
-            usuario?.apellido = ingreseapellido.text.toString()
-            usuario?.telefono = ingresetelefono.text.toString()
-            usuario?.rol = "Productor"
-            usuario?.usuario = ingreseemail.text.toString()
-            usuario?.contraseña = ingresepassword.text.toString()
+            var date = Date();
+            val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
+            val answer: String = formatter.format(date)
 
-
-          /*  usuarioControlador.registrar(usuario)
-                .enqueue(object : Callback<Usuario?> {
+            usuarioControlador.registrar(nombreingresante.text.toString(), ingreseapellido.text.toString(), ingreseemail.text.toString(),
+                ingresepassword.text.toString(), date,"Productor", ingresetelefono.text.toString(), razonsocial.text.toString())
+                .enqueue(object : Callback<Usuario> {
                   override fun onFailure(call: Call<Usuario>, t: Throwable) {
                         print(t.message)
                         Log.d("Login error", t.message)
@@ -81,12 +78,13 @@ class CrearProductorFragment : Fragment() {
                     }
 
                     override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                        usuario = response.body()!!
+
+                        Toast.makeText(requireContext(), "Todo bien", Toast.LENGTH_SHORT).show()
 
                     }
 
                 })
-
+/*
                ++++++++++++++++++++++
 
                this.disposable = usuario?.let {
