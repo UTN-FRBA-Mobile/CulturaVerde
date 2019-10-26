@@ -1,6 +1,7 @@
 package com.example.culturaverde.Fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,14 +17,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_crearusuarioproductor.*
-
+import kotlinx.android.synthetic.main.fragment_loginmain.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class CrearProductorFragment : Fragment() {
 
     private lateinit var crearProductorViewModel: CrearProductorViewModel
     private lateinit var usuarioControlador: UsuarioControlador
-    private lateinit var usuario: Usuario
 
 
     override fun onCreateView(
@@ -49,20 +52,6 @@ class CrearProductorFragment : Fragment() {
             registrarUsuario()
 
         }
-        /* if (usuario?.rol == "Productor") {
-                val action =
-                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
-                findNavController().navigate(action)
-            }
-
-            if (usuario?.rol == "Consumidor") {
-
-                val action =
-                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
-                findNavController().navigate(action)
-            }
-        }*/
-
     }
 
     private var disposable: Disposable? = null
@@ -73,18 +62,41 @@ class CrearProductorFragment : Fragment() {
     }
         fun registrarUsuario() {
 
+            var usuario: Usuario? = null
 
-            usuario.nombre = nombreingresante.text.toString()
-            usuario.apellido = ingreseapellido.text.toString()
-            usuario.telefono = ingresetelefono.text.toString()
-            usuario.rol = "Productor"
-            usuario.usuario = ingreseemail.text.toString()
-            usuario.contraseña = ingresepassword.text.toString()
+            usuario?.nombre = nombreingresante.text.toString()
+            usuario?.apellido = ingreseapellido.text.toString()
+            usuario?.telefono = ingresetelefono.text.toString()
+            usuario?.rol = "Productor"
+            usuario?.usuario = ingreseemail.text.toString()
+            usuario?.contraseña = ingresepassword.text.toString()
 
-                this.disposable = this. usuarioControlador.registrar(usuario)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ showResult("Successfully created the new user ${usuario}") },
-                { showResult("Failed to create the new user!") })
+
+          /*  usuarioControlador.registrar(usuario)
+                .enqueue(object : Callback<Usuario?> {
+                  override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                        print(t.message)
+                        Log.d("Login error", t.message)
+                        Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                        usuario = response.body()!!
+
+                    }
+
+                })
+
+               ++++++++++++++++++++++
+
+               this.disposable = usuario?.let {
+                    this. usuarioControlador.registrar(it)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ showResult("Successfully created the new user ${usuario}") },
+                            { showResult("Failed to create the new user!") })
+
+                }*/
+
         }
 }

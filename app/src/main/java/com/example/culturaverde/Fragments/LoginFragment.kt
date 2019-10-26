@@ -1,6 +1,5 @@
 package com.example.culturaverde.Ui.Login
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,20 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.culturaverde.Activities.MainActivity
 import com.example.culturaverde.Controllers.UsuarioControlador
-import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
-import com.example.culturaverde.ViewModels.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_loginmain.*
 import com.example.culturaverde.Services.APIConfig
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 
 class LoginFragment : Fragment() {

@@ -14,7 +14,7 @@ interface UsuarioControlador {
         fun login(@Query("u") username: String, @Query("c") contraseña: String): Call<Usuario>
 
         @POST("redAgro/usuario_consumidor/")
-        fun registrar(@Body user: Usuario): Observable<Usuario>
+        fun registrar(@Body user: Usuario?): Call<Usuario?>
 
         @PUT("users/{username}")
         fun update(@Path("username") username: String, @Body user: Usuario): Observable<Usuario>

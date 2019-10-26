@@ -33,7 +33,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/IngresarNombre"
+        android:inputType="textPersonName"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textregistrar" />
@@ -49,7 +51,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/IngreseApellido"
+        android:inputType="textPersonName"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreingresante" />
@@ -65,7 +69,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/Ingresefechanac"
+        android:inputType="date"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingreseapellido" />
@@ -81,7 +87,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/IngreseRazonsocial"
+        android:inputType="textEmailAddress"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fechadenacimiento" />
@@ -97,7 +105,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/IngreseTelefono"
+        android:inputType="phone"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/razonsocial" />
@@ -113,7 +123,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/IngreseEmail"
+        android:inputType="textEmailAddress"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingresetelefono" />
@@ -129,7 +141,9 @@
         android:layout_marginRight="50dp"
         android:ems="15"
         android:hint="@string/IngresePassword"
+        android:inputType="textPassword"
         android:importantForAutofill="no"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingreseemail" />
