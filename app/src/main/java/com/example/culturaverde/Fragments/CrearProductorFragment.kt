@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -22,6 +23,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import org.json.JSONObject
+import java.time.LocalDate
+import java.time.Month
+import com.google.gson.GsonBuilder
+import java.sql.Date
 
 
 class CrearProductorFragment : Fragment() {
@@ -55,46 +61,37 @@ class CrearProductorFragment : Fragment() {
 
     private var disposable: Disposable? = null
 
-
-    private fun showResult(message: String) {
-    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-        fun registrarUsuario() {
+    fun registrarUsuario() {
 
             usuarioControlador =
                 APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-            var date = Date();
-            val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
-            val answer: String = formatter.format(date)
+        //val newDate = DatePicker.AUTOFILL_TYPE_DATE
+        //val date = SimpleDateFormat("DD/MM/YYYY").format(newDate)
 
-            usuarioControlador.registrar(nombreingresante.text.toString(), ingreseapellido.text.toString(), ingreseemail.text.toString(),
-                ingresepassword.text.toString(), date,"Productor", ingresetelefono.text.toString(), razonsocial.text.toString())
+        val paramObject = JSONObject()
+        paramObject.put("nombre", nombreingresante.text.toString())
+        paramObject.put("apellido", ingreseapellido.text.toString())
+        paramObject.put("usuario", ingreseemail.text.toString())
+        paramObject.put("contraseña", ingresepassword.text.toString())
+        //paramObject.put("fecha_nacimiento",date)
+        paramObject.put("rol", "Productor")
+        paramObject.put("telefono", ingresetelefono.text.toString())
+
+            usuarioControlador.registrar(paramObject.toString(), razonsocial.text.toString())
                 .enqueue(object : Callback<Usuario> {
                   override fun onFailure(call: Call<Usuario>, t: Throwable) {
                         print(t.message)
-                        Log.d("Login error", t.message)
-                        Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                        Log.d("Registro erroneo", t.message)
+                        Toast.makeText(requireContext(), t.message + "Registro Erroneo!!", Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
 
-                        Toast.makeText(requireContext(), "Todo bien", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Registro exitoso!", Toast.LENGTH_SHORT).show()
 
                     }
 
                 })
-/*
-               ++++++++++++++++++++++
-
-               this.disposable = usuario?.let {
-                    this. usuarioControlador.registrar(it)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ showResult("Successfully created the new user ${usuario}") },
-                            { showResult("Failed to create the new user!") })
-
-                }*/
-
         }
 }
