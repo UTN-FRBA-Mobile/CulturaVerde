@@ -27,7 +27,8 @@ import org.json.JSONObject
 import java.time.LocalDate
 import java.time.Month
 import com.google.gson.GsonBuilder
-import java.sql.Date
+import java.sql.DatabaseMetaData
+import java.text.DateFormat
 
 
 class CrearProductorFragment : Fragment() {
@@ -66,17 +67,18 @@ class CrearProductorFragment : Fragment() {
             usuarioControlador =
                 APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-        //val newDate = DatePicker.AUTOFILL_TYPE_DATE
-        //val date = SimpleDateFormat("DD/MM/YYYY").format(newDate)
+       var date:Date = Date()
 
         val paramObject = JSONObject()
+
         paramObject.put("nombre", nombreingresante.text.toString())
         paramObject.put("apellido", ingreseapellido.text.toString())
         paramObject.put("usuario", ingreseemail.text.toString())
         paramObject.put("contraseña", ingresepassword.text.toString())
-        //paramObject.put("fecha_nacimiento",date)
+        paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
         paramObject.put("rol", "Productor")
         paramObject.put("telefono", ingresetelefono.text.toString())
+
 
             usuarioControlador.registrar(paramObject.toString(), razonsocial.text.toString())
                 .enqueue(object : Callback<Void> {
