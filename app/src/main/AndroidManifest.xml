@@ -19,7 +19,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Activities.ShoppingCartActivity"></activity>
+        <activity android:name=".Activities.FinalizarReservaActivity"></activity>
         <activity android:name=".Activities.ResultadoBusqueda" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,6 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activities.SearchResultsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
