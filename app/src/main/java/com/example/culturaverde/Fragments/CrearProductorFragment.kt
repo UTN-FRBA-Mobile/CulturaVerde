@@ -27,7 +27,8 @@ import org.json.JSONObject
 import java.time.LocalDate
 import java.time.Month
 import com.google.gson.GsonBuilder
-import java.sql.Date
+import java.sql.DatabaseMetaData
+import java.text.DateFormat
 
 
 class CrearProductorFragment : Fragment() {
@@ -66,27 +67,28 @@ class CrearProductorFragment : Fragment() {
             usuarioControlador =
                 APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-        //val newDate = DatePicker.AUTOFILL_TYPE_DATE
-        //val date = SimpleDateFormat("DD/MM/YYYY").format(newDate)
+       var date:Date = Date()
 
         val paramObject = JSONObject()
+
         paramObject.put("nombre", nombreingresante.text.toString())
         paramObject.put("apellido", ingreseapellido.text.toString())
         paramObject.put("usuario", ingreseemail.text.toString())
         paramObject.put("contraseña", ingresepassword.text.toString())
-        //paramObject.put("fecha_nacimiento",date)
+        paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
         paramObject.put("rol", "Productor")
         paramObject.put("telefono", ingresetelefono.text.toString())
 
+
             usuarioControlador.registrar(paramObject.toString(), razonsocial.text.toString())
-                .enqueue(object : Callback<Usuario> {
-                  override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                .enqueue(object : Callback<Void> {
+                  override fun onFailure(call: Call<Void>, t: Throwable) {
                         print(t.message)
                         Log.d("Registro erroneo", t.message)
                         Toast.makeText(requireContext(), t.message + "Registro Erroneo!!", Toast.LENGTH_SHORT).show()
                     }
 
-                    override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
 
                         Toast.makeText(requireContext(), "Registro exitoso!", Toast.LENGTH_SHORT).show()
 
