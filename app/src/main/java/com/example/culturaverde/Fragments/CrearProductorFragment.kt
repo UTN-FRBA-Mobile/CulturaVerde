@@ -9,6 +9,8 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Controllers.UsuarioControlador
 import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
@@ -60,8 +62,6 @@ class CrearProductorFragment : Fragment() {
         }
     }
 
-    private var disposable: Disposable? = null
-
     fun registrarUsuario() {
 
             usuarioControlador =
@@ -91,8 +91,11 @@ class CrearProductorFragment : Fragment() {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
 
                         Toast.makeText(requireContext(), "Registro exitoso!", Toast.LENGTH_SHORT).show()
-
+                        val action =
+                            CrearProductorFragmentDirections.actionCrearProductorFragmentToLoginmainfragment2()
+                        findNavController().navigate(action)
                     }
+
 
                 })
         }
