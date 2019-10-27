@@ -2,19 +2,16 @@ package com.example.culturaverde.Models
 
 import com.google.gson.annotations.SerializedName
 
-class Productor {
+data class Productor (
 
     @SerializedName("id")
-    var id: Long? = null
+    var id: Long? = null,
 
     @SerializedName("usuario")
-    var usuario: Usuario?=null
+    var usuario: Usuario,
 
 
     @SerializedName("razon_social")
     var razon_social: String? = null
 
-
-
-
-}
+)
