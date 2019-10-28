@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.ProductoProductorAdapter
 import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Models.ProductoProductor
@@ -51,7 +52,7 @@ class ProductosProductorFragment : Fragment() {
 
         swipeRefreshLayout2.isRefreshing = true
 
-          recycler_productos.layoutManager = LinearLayoutManager(requireContext())
+          recycler_productos.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
           getProducts()
     }

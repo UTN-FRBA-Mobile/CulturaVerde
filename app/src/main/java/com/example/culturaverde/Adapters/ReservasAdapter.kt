@@ -7,9 +7,17 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.culturaverde.Controllers.ReservasControlador
+import com.example.culturaverde.Models.DetalleReserva
 import com.example.culturaverde.Models.Reserva
 import com.example.culturaverde.R
+import com.example.culturaverde.Services.APIConfig
+import com.example.culturaverde.Ui.Reservas.ReservasFragment
+import kotlinx.android.synthetic.main.detalle_reserva_item.view.*
+import kotlinx.android.synthetic.main.reservas_item.*
 import kotlinx.android.synthetic.main.reservas_item.view.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -19,6 +27,7 @@ import java.text.SimpleDateFormat
 class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayListOf()) :
     RecyclerView.Adapter<ReservasAdapter.ViewHolder>() {
 
+    private val ctx:Context=context
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ReservasAdapter.ViewHolder {
         // The layout design used for each list item
@@ -31,14 +40,26 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
     override fun onBindViewHolder(viewHolder: ReservasAdapter.ViewHolder, position: Int) {
         //we simply call the `bindProduct` function here
-        viewHolder.bindProduct(reservas[position])
+        viewHolder.bindProduct(reservas[position],ctx)
+
+
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         // This displays the product information for each item
 
-        fun bindProduct(reserva: Reserva) {
+        fun bindProduct(reserva: Reserva, ctx:Context) {
+
+            var detalleReservasAdapter: DetalleReservaAdapter
+
+            itemView.layout_detalle_reserva.setVisibility(View.GONE)
+            itemView.floatingActionButtonCalificarProductor.hide()
+            itemView.floatingActionButtonMostrarDetalle.hide()
+            itemView.floatingActionButtonCambioEstado.hide()
+
+            var isOpen:Boolean=false
+            var isOpenDetalle:Boolean=false
 
             itemView.texto_estado.text = "Estado"
             itemView.estado.text = reserva.estado_reserva!!.nombre
@@ -50,12 +71,24 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
             itemView.fecha_creacion.text = "${date}"
 
             itemView.persona_retiro.text = "Retira "+reserva.persona_retiro
-            itemView.direccion_retiro.text= reserva.punto_entrega!!.direccion
 
-            itemView.localidad_retiro.text= reserva.punto_entrega!!.localidad
+            if(reserva.punto_entrega!=null) {
 
-            val date2 = SimpleDateFormat("dd/MM/yyy").format(reserva.fecha)
-            itemView.fecha_retiro.text="${date2}"
+                itemView.direccion_retiro.text = "por "+reserva.punto_entrega!!.direccion+","
+
+                itemView.localidad_retiro.text = reserva.punto_entrega!!.localidad+","
+            }
+
+            if(reserva.fecha!=null && reserva.forma_retiro!="Acuerda con Productor") {
+                val date2 = SimpleDateFormat("dd/MM/yyy").format(reserva.fecha)
+                itemView.fecha_retiro.text = "el "+"${date2}"
+
+            }else{
+
+                itemView.direccion_retiro.text = "con fecha y lugar de retiro"
+                itemView.localidad_retiro.text ="a coordinar"
+
+            }
 
             itemView.usuario.text = "Usuario"
             itemView.nombre.text = "Federico"
@@ -65,8 +98,57 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
             itemView.total_reserva.text = "Total"
             itemView.total.text = "$${reserva.total_reserva}"
 
+            itemView.floatingActionButtonMostrarDetalle.setOnClickListener { view ->
+
+                if(isOpenDetalle) {
+                    itemView.layout_detalle_reserva.visibility=View.GONE
+                    isOpenDetalle=false
+                }else{
+
+                    itemView.layout_detalle_reserva.setVisibility(View.VISIBLE)
+                    isOpenDetalle=true
+
+                }
+            }
+
+
+            itemView.floatingActionButtonGeneral.setOnClickListener { view ->
+
+                if(isOpen) {
+
+                    itemView.floatingActionButtonCalificarProductor.hide()
+                    itemView.floatingActionButtonMostrarDetalle.hide()
+                    itemView.floatingActionButtonCambioEstado.hide()
+
+                    isOpen=false
+
+                }else {
+
+                    if(reserva.estado_reserva!!.nombre=="Finalizado" || reserva.estado_reserva!!.nombre=="Cancelado") {
+                        itemView.floatingActionButtonCalificarProductor.show()
+                        itemView.floatingActionButtonMostrarDetalle.show()
+
+                        isOpen=true
+
+                        return@setOnClickListener
+                    }
+
+                    itemView.floatingActionButtonMostrarDetalle.show()
+                    itemView.floatingActionButtonCambioEstado.show()
+
+                    isOpen=true
+                }
+            }
+
+            itemView.recycler_detalle_reserva.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            detalleReservasAdapter = DetalleReservaAdapter(ctx,reserva.detalleReserva)
+            itemView.recycler_detalle_reserva.adapter = detalleReservasAdapter
+            detalleReservasAdapter.notifyDataSetChanged()
+
 
         }
+
+
 
     }
 

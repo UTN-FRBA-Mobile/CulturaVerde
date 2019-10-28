@@ -31,6 +31,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMisReservas"
         tools:layout_editor_absoluteX="1dp">
 
+
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout3"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"

@@ -77,6 +77,12 @@
     <string name="texto_fecha_creacion">Fecha creación</string>
     <string name="texto_reserva">Reserva</string>
     <string name="texto_total">Total</string>
+    <string name="texto_producto">Producto</string>
+    <string name="texto_detalle_reserva">Detalle de la reserva</string>
+    <string name="texto_cantidad">Cantidad</string>
+    <string name="texto_subtotal">Subtotal</string>
+    <string name="texto_categoria">Categoria</string>
+    <string name="texto_precio_unidad">Precio x unidad</string>
 
     <!-- Botones -->
     <string name="boton_guardar">Guardar</string>
