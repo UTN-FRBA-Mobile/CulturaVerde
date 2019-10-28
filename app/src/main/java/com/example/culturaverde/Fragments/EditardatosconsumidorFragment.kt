@@ -54,6 +54,16 @@ class EditardatosconsumidorFragment : Fragment() {
         botonGuardar.setOnClickListener {
             guardarDatosConsumidor()
         }
+        botonLimpiar.setOnClickListener {
+            val nombreConsumidorN = SpannableStringBuilder("")
+            val apellidoConsumidorN = SpannableStringBuilder("")
+            val fechaNacimientoConsumidorN = SpannableStringBuilder("")
+            val telefonoConsumidorN = SpannableStringBuilder("")
+            nombreUsuario.text = nombreConsumidorN
+            apellidoUsuario.text = apellidoConsumidorN
+            fechaNac.text = fechaNacimientoConsumidorN
+            telefono.text = telefonoConsumidorN
+        }
     }
 
     fun guardarDatosConsumidor(){

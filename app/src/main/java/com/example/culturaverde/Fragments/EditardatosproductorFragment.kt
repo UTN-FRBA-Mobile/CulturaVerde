@@ -52,6 +52,17 @@ class EditardatosproductorFragment : Fragment() {
         botonGuardar.setOnClickListener {
             guardarDatosProductor()
         }
+
+        botonLimpiar.setOnClickListener {
+            val nombreProductorN = SpannableStringBuilder("")
+            val apellidoProductorN = SpannableStringBuilder("")
+            val fechaNacimientoProductorN = SpannableStringBuilder("")
+            val telefonoProductorN = SpannableStringBuilder("")
+            editarNombreProductor.text = nombreProductorN
+            editarApellidoProductor.text = apellidoProductorN
+            editarFechaNacProductor.text = fechaNacimientoProductorN
+            editarTelefonoProductor.text = telefonoProductorN
+        }
     }
 
     fun guardarDatosProductor(){
