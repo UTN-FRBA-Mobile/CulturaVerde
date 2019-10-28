@@ -36,13 +36,16 @@
             app:destination="@id/nav_principalconsumidores" />
     </fragment>
     <fragment
-        android:id="@+id/nav_preferenciasConsumidor"
-        android:name="com.example.culturaverde.Ui.PreferenciasConsumidor.PreferenciasFragment"
-        tools:layout="@layout/preferencias_fragment" />
-    <fragment
         android:id="@+id/nav_reservasFragment"
         android:name="com.example.culturaverde.Ui.Reservas.ReservasFragment"
-        tools:layout="@layout/reservas_fragment" />
+        tools:layout="@layout/reservas_fragment" >
+        <action
+            android:id="@+id/action_nav_reservasFragment_to_estadoReservaFragment"
+            app:destination="@id/estadoReservaFragment" />
+        <action
+            android:id="@+id/action_nav_reservasFragment_to_calificarProductorFragment"
+            app:destination="@id/calificarProductorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_categoriasFragment"
         android:name="com.example.culturaverde.Ui.Principalconsumidores.Categorias.CategoriasFragment"
@@ -56,5 +59,11 @@
         android:name="com.example.culturaverde.Activities.ResultadoBusqueda"
         android:label="activity_resultado_busqueda"
         tools:layout="@layout/activity_resultado_busqueda" />
+    <fragment
+        android:id="@+id/estadoReservaFragment"
+        android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" />
+    <fragment
+        android:id="@+id/calificarProductorFragment"
+        android:name="com.example.culturaverde.Fragments.CalificarProductorFragment" />
 
 </navigation>

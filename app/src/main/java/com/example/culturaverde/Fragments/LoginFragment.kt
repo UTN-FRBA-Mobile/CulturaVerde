@@ -13,7 +13,6 @@ import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import kotlinx.android.synthetic.main.fragment_loginmain.*
 import com.example.culturaverde.Services.APIConfig
-import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,14 +45,15 @@ class LoginFragment : Fragment() {
 
             if (usuario?.rol == "Productor") {
                 val action =
-                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores(usuario!!.id,
+                        usuario!!.rol)
                 findNavController().navigate(action)
             }
 
             if (usuario?.rol == "Consumidor") {
 
                 val action =
-                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
+                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores(usuario!!.id,usuario!!.rol)
                 findNavController().navigate(action)
             }
         }

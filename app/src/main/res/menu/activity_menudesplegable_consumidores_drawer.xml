@@ -16,10 +16,6 @@
             android:id="@+id/nav_editardatosconsumidores"
             android:icon="@drawable/ic_editardatos"
             android:title="Editar datos" />
-        <item
-            android:id="@+id/nav_preferenciasConsumidor"
-            android:icon="@drawable/preferences"
-            android:title="Preferencias" />
     </group>
 
 </menu>

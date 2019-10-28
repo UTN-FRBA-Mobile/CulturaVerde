@@ -119,13 +119,6 @@
             android:layout_height="300dp"
             android:orientation="horizontal">
 
-            <fragment
-                android:id="@+id/lista_preferencias_fragment"
-                android:name="com.example.culturaverde.Ui.PreferenciasConsumidor.ListadoPreferenciasFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

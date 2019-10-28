@@ -6,35 +6,36 @@ import com.google.gson.annotations.SerializedName
 
     data class Usuario (
 
-       /* @Expose
+        @Expose
         @SerializedName("id")
-        var id: Long? = null,
-*/
+        var id: Long,
+
+
         @Expose
         @SerializedName("nombre")
-        var nombre: String? =null,
+        var nombre: String,
 
         @Expose
         @SerializedName("apellido")
-        var apellido: String? =null,
+        var apellido: String,
 
         @Expose
         @SerializedName("usuario")
-        var usuario: String? =null,
+        var usuario: String,
 
         @Expose
         @SerializedName("contraseña")
-        var contraseña: String? =null,
+        var contraseña: String,
 
         @Expose
         @SerializedName("fecha_nacimiento")
-        var fecha_nacimiento: Date?=null,
+        var fecha_nacimiento: Date,
 
         @Expose
         @SerializedName("rol")
-        var rol: String? =null,
+        var rol: String,
 
         @Expose
         @SerializedName("telefono")
-        var telefono: String? =null
+        var telefono: String
     )

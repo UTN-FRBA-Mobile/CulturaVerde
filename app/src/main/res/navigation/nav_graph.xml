@@ -29,7 +29,14 @@
         android:id="@+id/menudesplegable_consumidores"
         android:name="com.example.culturaverde.Ui.MenuDesplegable.menudesplegable_consumidores"
         android:label="app_bar_menudesplegable_consumidores"
-        tools:layout="@layout/app_bar_menudesplegable_consumidores" />
+        tools:layout="@layout/app_bar_menudesplegable_consumidores" >
+        <argument
+            android:name="id_usuario"
+            app:argType="long" />
+        <argument
+            android:name="rol_usuario"
+            app:argType="string" />
+    </activity>
 
     <!-- manejo del menu desplegable productores -->
 
@@ -37,7 +44,14 @@
         android:id="@+id/menudesplegable_productores"
         android:name="com.example.culturaverde.Ui.MenuDesplegable.menudesplegable_productores"
         android:label="app_bar_menudesplegable_productores"
-        tools:layout="@layout/app_bar_menudesplegable_productores" />
+        tools:layout="@layout/app_bar_menudesplegable_productores" >
+        <argument
+            android:name="id_usuario"
+            app:argType="long" />
+        <argument
+            android:name="rol_usuario"
+            app:argType="string" />
+    </activity>
 
     <!-- manejo de creacion tipo usuario -->
 

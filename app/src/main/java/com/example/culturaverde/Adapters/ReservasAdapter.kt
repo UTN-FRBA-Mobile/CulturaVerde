@@ -7,6 +7,8 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -111,6 +113,17 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
                 }
             }
 
+            itemView.floatingActionButtonCalificarProductor.setOnClickListener { view ->
+
+                view.findNavController().navigate(R.id.action_nav_reservasFragment_to_calificarProductorFragment)
+
+            }
+
+            itemView.floatingActionButtonCambioEstado.setOnClickListener { view ->
+
+                    view.findNavController().navigate(R.id.action_nav_reservasFragment_to_estadoReservaFragment)
+
+            }
 
             itemView.floatingActionButtonGeneral.setOnClickListener { view ->
 

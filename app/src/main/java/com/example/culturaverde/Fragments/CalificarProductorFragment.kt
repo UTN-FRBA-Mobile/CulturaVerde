@@ -1,4 +1,4 @@
-package com.example.culturaverde.Ui.PreferenciasConsumidor
+package com.example.culturaverde.Fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,26 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.culturaverde.R
-import com.example.culturaverde.ViewModels.PreferenciasViewModel
 
-class PreferenciasFragment : Fragment() {
+class CalificarProductorFragment : Fragment() {
 
     companion object {
-        fun newInstance() = PreferenciasFragment()
+        fun newInstance() = CalificarProductorFragment()
     }
 
-    private lateinit var viewModel: PreferenciasViewModel
+    private lateinit var viewModel: CalificarProductorViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.preferencias_fragment, container, false)
+        return inflater.inflate(R.layout.calificar_productor_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(PreferenciasViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(CalificarProductorViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

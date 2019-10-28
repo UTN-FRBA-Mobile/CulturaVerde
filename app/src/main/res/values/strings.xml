@@ -84,6 +84,14 @@
     <string name="texto_categoria">Categoria</string>
     <string name="texto_precio_unidad">Precio x unidad</string>
 
+    <!-- Pantalla estado reservas -->
+    <string name="texto_estado_reservas">Estado de la reserva</string>
+    <string name="texto_cambio_estados">Modificá el estado de tu reserva a continuación.</string>
+
+    <!-- Pantalla calificar productor-->
+    <string name="texto_calificar_productor">Calificá al productor a continuación.</string>
+    <string name="texto_cp">Calificar</string>
+
     <!-- Botones -->
     <string name="boton_guardar">Guardar</string>
     <string name="nombreUsuarioTitulo">Nombre</string>

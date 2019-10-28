@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textCalificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/texto_cp"
+            android:textColor="@android:color/background_dark"
+            android:textColorHint="#00000000"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/textViewCalificarProductor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/texto_calificar_productor"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calificación"
+            android:gravity="center"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="10dp"
+            android:layout_marginTop="5dp"
+            android:numStars="5"
+            android:backgroundTint="@color/color_verde"
+            android:backgroundTintMode="@color/color_verde"
+            tools:layout_editor_absoluteY="183dp" />
+
+        <TextView
+            android:id="@+id/textViewComentario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Querés comentarnos algo más?"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="291dp"
+            android:layout_marginTop="45dp"/>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteX="9dp"
+            tools:layout_editor_absoluteY="273dp" />
+
+        <Button
+            android:id="@+id/buttonGuardarCalificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:background="@color/color_verde"
+            android:text="@string/boton_guardar"
+            android:textColor="@android:color/background_light" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
