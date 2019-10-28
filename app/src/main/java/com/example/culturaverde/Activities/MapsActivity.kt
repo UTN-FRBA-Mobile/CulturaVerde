@@ -67,9 +67,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     //donde estan los productores
     private fun marketplace (locationproductor: LatLng, razonsocial: String, direccion: String, localidad: String ){
 
-        map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial))
-        map.addMarker(MarkerOptions().position(locationproductor).title(direccion))
-        map.addMarker(MarkerOptions().position(locationproductor).title(localidad))
+
+        map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial).snippet(direccion.plus(", ").plus(localidad)) )
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationproductor, zoommaps))
 
     }
@@ -124,7 +123,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
                 for (puntosEntrega in puntosentrega) {
                     var location = LatLng(puntosEntrega.latitud,puntosEntrega.longitud)
-                    var razonsocial = puntosEntrega.productor.razon_social.toString()
+                    var razonsocial = puntosEntrega.productor.usuario.nombre.toString() + " " + puntosEntrega.productor.usuario.apellido.toString()
                     var direccion = puntosEntrega.direccion
                     var localidad = puntosEntrega.localidad
                     marketplace(location, razonsocial, direccion, localidad)

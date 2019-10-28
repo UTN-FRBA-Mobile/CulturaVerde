@@ -44,8 +44,7 @@
     <fragment
         android:id="@+id/creartipousuario"
         android:name="com.example.culturaverde.Fragments.CreartipousuarioFragment"
-        android:label="fragment_creartipousuario"
-        tools:layout="@layout/fragment_creartipousuario" >
+        android:label="fragment_creartipousuario">
         <action
             android:id="@+id/action_creartipousuario_to_crearConsumidorFragment"
             app:destination="@id/crearConsumidorFragment" />
@@ -58,12 +57,19 @@
         android:id="@+id/crearConsumidorFragment"
         android:name="com.example.culturaverde.Fragments.CrearConsumidorFragment"
         android:label="CrearConsumidorFragment"
-        tools:layout="@layout/fragment_crearusuarioconsumidor"/>
+        tools:layout="@layout/fragment_crearusuarioconsumidor">
+        <action
+            android:id="@+id/action_crearConsumidorFragment_to_loginmainfragment2"
+            app:destination="@id/loginmainfragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/crearProductorFragment"
         android:name="com.example.culturaverde.Fragments.CrearProductorFragment"
-        android:label="CrearProductorFragment"
-        tools:layout="@layout/fragment_crearusuarioproductor"/>
+        android:label="CrearProductorFragment">
+        <action
+            android:id="@+id/action_crearProductorFragment_to_loginmainfragment2"
+            app:destination="@id/loginmainfragment" />
+    </fragment>
 
 </navigation>

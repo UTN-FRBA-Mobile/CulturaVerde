@@ -30,7 +30,7 @@
     <string name="nav_header_desc_consumidor">Navigation header</string>
     <string name="menu_principalconsumidores">Mi cuenta</string>
     <string name="menu_alertas_consumidor">Alertas</string>
-    <string name="menu_editardatos_consumidor">Editar Datos Usuario</string>
+    <string name="menu_editardatos_consumidor">Editar Datos</string>
 
     <!-- Menu desplegable --><!-- Pantalla principal productores -->
     <string name="title_activity_menunavigation_productores"></string>
@@ -95,6 +95,15 @@
     <string name="telefonoTitulo">Teléfono</string>
     <string name="telefono">Ingrese teléfono</string>
     <string name="botonLmpiar">Limpiar</string>
+
+    <!-- Finalizar reserva -->
+    <string name="texto_finalizarreserva">Finalizar la Reserva</string>
+    <string name="texto_subfinalizarreserva">Elegí una forma de retiro</string>
+    <string name="texto_usuarioreserva">Usuario</string>
+    <string name="texto_nombrereserva">Nombre</string>
+    <string name="texto_apellidoreserva">Apellido</string>
+    <string name="texto_contactoreserva">Contacto</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

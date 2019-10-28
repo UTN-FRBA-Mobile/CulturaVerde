@@ -25,7 +25,11 @@
     <fragment
         android:id="@+id/nav_editardatosproductores"
         android:name="com.example.culturaverde.Ui.Editardatosproductor.EditardatosproductorFragment"
-        tools:layout="@layout/fragment_editardatosproductores" />
+        tools:layout="@layout/fragment_editardatosproductores" >
+        <action
+            android:id="@+id/action_nav_editardatosproductores_to_nav_principalproductores"
+            app:destination="@+id/nav_principalproductores" />
+    </fragment>
     <fragment
         android:id="@+id/nav_reservasFragment"
         android:name="com.example.culturaverde.Ui.Reservas.ReservasFragment"
