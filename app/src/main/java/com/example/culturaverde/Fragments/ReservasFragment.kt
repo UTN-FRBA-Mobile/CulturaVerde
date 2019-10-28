@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.culturaverde.Adapters.DetalleReservaAdapter
 import com.example.culturaverde.Adapters.ReservasAdapter
 import com.example.culturaverde.Controllers.ReservasControlador
 import com.example.culturaverde.Models.Reserva
@@ -18,6 +20,7 @@ import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.ReservasViewModel
 import kotlinx.android.synthetic.main.reservas_fragment.*
+import kotlinx.android.synthetic.main.reservas_item.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -51,9 +54,11 @@ class ReservasFragment : Fragment() {
 
         swipeRefreshLayout3.isRefreshing = true
 
-        recycler_reservas.layoutManager = LinearLayoutManager(requireContext())
+        recycler_reservas.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
         getReservas()
+
+
     }
 
 
@@ -79,7 +84,6 @@ class ReservasFragment : Fragment() {
                     reservas = response.body()!!
 
                     reservasAdapter = ReservasAdapter(requireContext(), reservas)
-
                     recycler_reservas.adapter = reservasAdapter
                     reservasAdapter.notifyDataSetChanged()
 

@@ -12,17 +12,18 @@
     android:layout_height="wrap_content"
     >
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="240dp"
-        android:weightSum="2"
+        android:layout_height="400dp"
+        android:weightSum="3"
         android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="45dp"
+        android:layout_height="5dp"
         android:weightSum="3"
         android:layout_weight="1">
 
@@ -84,17 +85,50 @@
             android:layout_weight="1"
             android:layout_marginLeft="15dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+                android:id="@+id/floatingActionButtonMostrarDetalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center"
                 app:fabSize="mini"
                 android:tint="@android:color/white"
-                app:srcCompat="@drawable/add24" />
+                app:srcCompat="@drawable/listblack24dp"
+                app:backgroundTint="@color/color_verde"
+                />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButtonGeneral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    app:fabSize="mini"
+                    android:tint="@android:color/white"
+                    app:srcCompat="@drawable/add24" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButtonCambioEstado"
+                android:layout_marginStart="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                app:fabSize="mini"
+                android:tint="@android:color/white"
+                app:srcCompat="@drawable/editwhite24"
+                app:backgroundTint="@color/color_verde"/>
+
+                </LinearLayout>
+
 
         </LinearLayout>
 
@@ -188,6 +222,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButtonCalificarProductor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="7dp"
+                    app:fabSize="mini"
+                    android:tint="@android:color/white"
+                    app:srcCompat="@drawable/star24"
+                    app:backgroundTint="@color/color_verde"/>
+
             </LinearLayout>
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -214,6 +260,164 @@
             </LinearLayout>
         </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layout_detalle_reserva"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:weightSum="3"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight=".05"
+            >
+
+            <TextView
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:id="@+id/texto_detalle_reserva"
+            android:text="@string/texto_detalle_reserva"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_weight=".05"
+            android:weightSum="5"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/texto_categoria"
+                    android:layout_marginTop="5dp"
+                    android:gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:text="@string/texto_producto"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:text="@string/texto_cantidad"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/texto_precio_unidad"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+            <TextView
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@android:color/black"
+                android:text="@string/texto_subtotal"
+                android:layout_marginTop="5dp"
+                android:gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.90"
+            android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/recycler_detalle_reserva"
+            android:layout_height="match_parent"
+            />
+
+        </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
