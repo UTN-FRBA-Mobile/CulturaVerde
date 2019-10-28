@@ -77,3 +77,5 @@ build.gradle
 build.gradle
 .idea/modules.xml
 .idea/navEditor.xml
+.idea/.name
+app/src/main/java/com/example/culturaverde/Services/APIConfig.kt
