@@ -72,28 +72,44 @@ class EditardatosproductorFragment : Fragment() {
         var date = Date()
         val paramObject = JSONObject()
 
-        paramObject.put("nombre", editarNombreProductor.text.toString())
-        paramObject.put("apellido", editarApellidoProductor.text.toString())
-        paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
-        paramObject.put("telefono", editarTelefonoProductor.text.toString())
 
-        usuarioControlador.editarDatosUsuario(paramObject.toString(), 1)
-            .enqueue(object : Callback<Void> {
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-                    print(t.message)
-                    Log.d("Registro erroneo", t.message)
-                    Toast.makeText(requireContext(), t.message + "No se ha podido modificar el usuario", Toast.LENGTH_SHORT).show()
-                    val action =
-                        EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
-                    findNavController().navigate(action)
-                }
+        if ( editarNombreProductor.text.toString() != "" &&
+            editarApellidoProductor.text.toString() != ""&&
+            editarFechaNacProductor.text.toString() != ""&&
+            editarTelefonoProductor.text.toString() != ""
+            ){
+            paramObject.put("nombre", editarNombreProductor.text.toString())
+            paramObject.put("apellido", editarApellidoProductor.text.toString())
+            paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
+            paramObject.put("telefono", editarTelefonoProductor.text.toString())
 
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    Toast.makeText(requireContext(), "Modificación exitosa!", Toast.LENGTH_SHORT).show()
-                    val action =
-                        EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
-                    findNavController().navigate(action)
-                }
-            })
+            usuarioControlador.editarDatosUsuario(paramObject.toString(), 1)
+                .enqueue(object : Callback<Void> {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        print(t.message)
+                        Log.d("Registro erroneo", t.message)
+                        Toast.makeText(
+                            requireContext(),
+                            t.message + "No se ha podido modificar el usuario",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        val action =
+                            EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
+                        findNavController().navigate(action)
+                    }
+
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Modificación exitosa!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        val action =
+                            EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
+                        findNavController().navigate(action)
+                    }
+                })
+        }
+        else{Toast.makeText(requireContext(),"Debe completar los campos vacios!",Toast.LENGTH_SHORT).show()}
     }
 }
