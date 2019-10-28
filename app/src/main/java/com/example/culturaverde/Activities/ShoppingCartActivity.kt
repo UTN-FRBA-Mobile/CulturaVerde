@@ -1,5 +1,6 @@
 package com.example.culturaverde.Activities
 
+import android.content.Intent
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.culturaverde.Adapters.ShoppingCartAdapter
@@ -9,7 +10,6 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 import kotlinx.android.synthetic.main.activity_shopping_cart.toolbar
 
@@ -38,6 +38,11 @@ class ShoppingCartActivity : AppCompatActivity() {
         shopping_cart_recyclerView.layoutManager = LinearLayoutManager(this)
 
         actualizarPrecioTotal()
+
+        botonfinalizarreserva.setOnClickListener {
+
+            startActivity(Intent(this, FinalizarReservaActivity::class.java))
+        }
     }
 
     fun actualizarPrecioTotal(){

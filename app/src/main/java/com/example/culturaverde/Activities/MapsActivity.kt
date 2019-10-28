@@ -68,7 +68,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private fun marketplace (locationproductor: LatLng, razonsocial: String, direccion: String, localidad: String ){
 
 
-        map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial).snippet(direccion.plus(", ").plus(localidad)))
+        map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial).snippet(direccion.plus(", ").plus(localidad)) )
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationproductor, zoommaps))
 
     }
