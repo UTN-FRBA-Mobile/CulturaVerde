@@ -55,7 +55,6 @@
         android:id="@+id/botonRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:background="@color/color_verde"
         android:padding="5sp"
         android:text="@string/texto_registrar"
@@ -65,13 +64,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/botonIngreso" />
+        app:layout_constraintStart_toEndOf="@+id/botonIngreso"
+        app:layout_constraintTop_toBottomOf="@+id/contrasena" />
 
     <Button
         android:id="@+id/botonIngreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:background="@color/color_verde"
         android:padding="5sp"
         android:text="@string/texto_ingresar"
@@ -81,6 +80,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/botonRegistrar"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contrasena" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,8 +30,11 @@
 
     <fragment
         android:id="@+id/nav_editardatosconsumidores"
-        android:name="com.example.culturaverde.Ui.Editardatosconsumidor.EditardatosconsumidorFragment"
-        tools:layout="@layout/fragment_editardatosconsumidores"/>
+        android:name="com.example.culturaverde.Ui.Editardatosconsumidor.EditardatosconsumidorFragment">
+        <action
+            android:id="@+id/action_nav_editardatosconsumidores_to_nav_principalconsumidores"
+            app:destination="@id/nav_principalconsumidores" />
+    </fragment>
     <fragment
         android:id="@+id/nav_preferenciasConsumidor"
         android:name="com.example.culturaverde.Ui.PreferenciasConsumidor.PreferenciasFragment"

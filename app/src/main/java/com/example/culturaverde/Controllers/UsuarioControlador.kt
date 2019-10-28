@@ -1,12 +1,9 @@
 package com.example.culturaverde.Controllers
 
 import com.example.culturaverde.Models.Usuario
-import io.reactivex.Observable
-import org.json.JSONObject
-import retrofit2.Response
+
 import retrofit2.http.*
 import retrofit2.Call
-import java.util.*
 
 
 interface UsuarioControlador {
@@ -23,8 +20,9 @@ interface UsuarioControlador {
         @POST("usuario_consumidor")
         fun registrarConsumidor(@Body body:String): Call<Void>
 
-        @PUT("users/{username}")
-        fun update(@Path("username") username: String, @Body user: Usuario): Observable<Usuario>
+        @Headers("Content-Type: application/json", "Accept: application/json")
+        @PUT("update_usuario")
+        fun editarDatosUsuario(@Body body:String, @Query("id") id: Int): Call<Void>
 
 
         /*@DELETE("users/{username}")

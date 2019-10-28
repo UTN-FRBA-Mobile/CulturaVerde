@@ -12,11 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Controllers.UsuarioControlador
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
-import com.example.culturaverde.Ui.Login.LoginFragmentDirections
 import com.example.culturaverde.ViewModels.CrearConsumidorViewModel
-import com.example.culturaverde.ViewModels.CrearProductorViewModel
 import kotlinx.android.synthetic.main.fragment_crearusuarioconsumidor.*
-import kotlinx.android.synthetic.main.fragment_crearusuarioproductor.*
 import kotlinx.android.synthetic.main.fragment_crearusuarioproductor.botonCrearUsuario
 import org.json.JSONObject
 import retrofit2.Call

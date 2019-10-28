@@ -5,32 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Controllers.UsuarioControlador
-import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.CrearProductorViewModel
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_crearusuarioproductor.*
-import kotlinx.android.synthetic.main.fragment_loginmain.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
 import java.util.*
 import org.json.JSONObject
-import java.time.LocalDate
-import java.time.Month
-import com.google.gson.GsonBuilder
-import java.sql.DatabaseMetaData
-import java.text.DateFormat
+
 
 
 class CrearProductorFragment : Fragment() {
@@ -67,7 +56,7 @@ class CrearProductorFragment : Fragment() {
             usuarioControlador =
                 APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-       var date:Date = Date()
+       var date = Date()
 
         val paramObject = JSONObject()
 
