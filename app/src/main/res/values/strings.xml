@@ -106,7 +106,10 @@
 
     <!-- Finalizar reserva -->
     <string name="texto_finalizarreserva">Finalizar la Reserva</string>
-    <string name="texto_subfinalizarreserva">Elegí una forma de retiro</string>
+    <string name="texto_finalizarreserva_parte1">Confirmá tus datos personales</string>
+    <string name="texto_finalizarreserva_parte2">Elegí una forma de retiro</string>
+    <string name="texto_finalizarreserva_parte3">Resumen de la reserva</string>
+    <string name="text_onclick_puntodeentrega">Comunicate con el productor para coordinar la fecha y el punto de entrega que más te convenga.</string>
     <string name="texto_usuarioreserva">Usuario</string>
     <string name="texto_nombrereserva">Nombre</string>
     <string name="texto_apellidoreserva">Apellido</string>
