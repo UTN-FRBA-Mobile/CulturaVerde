@@ -20,7 +20,8 @@ class SearchResultsActivity : Activity() {
 
         if (Intent.ACTION_SEARCH == intent.action) {
             val query = intent.getStringExtra(SearchManager.QUERY)
-            //use the query to search your data somehow
+
+
 
         }
     }

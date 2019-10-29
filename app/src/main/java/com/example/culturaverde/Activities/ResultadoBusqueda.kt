@@ -20,8 +20,10 @@ import retrofit2.Call
 import io.paperdb.Paper
 import retrofit2.Response
 import android.view.View
+import com.example.culturaverde.Classes.CategoriaProductoGlobal
+import java.lang.Long
 
-@Suppress("DEPRECATION")
+
 class ResultadoBusqueda : AppCompatActivity() {
 
     private lateinit var productosControlador: ProductosControlador
@@ -77,7 +79,10 @@ class ResultadoBusqueda : AppCompatActivity() {
     }
 
     fun getProductosBusqueda() {
-        productosControlador.getProductosBusqueda("Manzana").enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+
+        var busqueda = CategoriaProductoGlobal.getProducto().tipo
+
+             productosControlador.getProductosBusqueda(busqueda).enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
             override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
                 print(t.message)

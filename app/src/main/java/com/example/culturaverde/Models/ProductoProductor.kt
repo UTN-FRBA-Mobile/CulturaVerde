@@ -3,44 +3,44 @@ package com.example.culturaverde.Models
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-class ProductoProductor {
+data class ProductoProductor (
 
     @SerializedName("id")
-    var id: Long? = null
+    var id: Long? = null,
 
     @SerializedName("productor")
-    var productor: Productor? = null
+    var productor: Productor? = null,
 
     @SerializedName("producto")
-    var producto: Producto? = null
+    var producto: Producto? = null,
 
     @SerializedName("titulo")
-    var titulo: String? = null
+    var titulo: String? = null,
 
     @SerializedName("descripcion")
-    var descripcion: String? = null
+    var descripcion: String? = null,
 
     @SerializedName("precio")
-    var precio: Int? = null
+    var precio: Int? = null,
 
     @SerializedName("imagenes")
-    var imagenes: List<Photo> = arrayListOf()
+    var imagenes: List<Photo> = arrayListOf(),
 
     @SerializedName("tiempo_preparacion")
-    var tiempo_preparacion: Int? = null
+    var tiempo_preparacion: Int? = null,
 
     @SerializedName("tipo_produccion")
-    var tipo_produccion: String? = null
+    var tipo_produccion: String? = null,
 
     @SerializedName("stock")
-    var stock: Int? = null
+    var stock: Int? = null,
 
     @SerializedName("unidad_venta")
-    var unidad_venta: String? = null
+    var unidad_venta: String? = null,
 
     @SerializedName("contenido")
-    var contenido: String? = null
+    var contenido: String? = null,
 
     @SerializedName("fecha_vencimiento")
     var fecha_vencimiento: Date? = null
-}
+)

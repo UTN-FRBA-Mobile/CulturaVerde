@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_height="match_parent"
+    android:background="#fffffa"
+    android:layout_width="match_parent">
+
+<com.google.android.material.appbar.AppBarLayout
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        app:navigationIcon="@drawable/abc_ic_ab_back_material"
+        app:titleTextColor="@android:color/white"
+        android:background="@color/color_verde"
+        app:title="Detalle del producto"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+
+</com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/linearProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+>
+
 <androidx.cardview.widget.CardView
     xmlns:card_view="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,6 +59,11 @@
             android:layout_width="match_parent"
             android:layout_height="240dp"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
         <LinearLayout
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
@@ -36,7 +75,8 @@
 
             <TextView
                 android:textColor="@android:color/black"
-                android:textSize="22sp"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 android:layout_marginBottom="12dp"
                 android:id="@+id/product_name"
                 android:layout_width="match_parent"
@@ -44,6 +84,13 @@
 
             <TextView
                 android:textSize="19sp"
+                android:text="Stock/unidad:"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:textSize="18sp"
                 android:id="@+id/product_stock"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
@@ -52,6 +99,13 @@
 
             <TextView
                 android:textSize="19sp"
+                android:text="Precio(x unidad):"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:textSize="18sp"
                 android:id="@+id/product_price"
                 android:textColor="@color/color_verde"
                 android:layout_width="wrap_content"
@@ -61,8 +115,15 @@
 
             <TextView
                 android:textSize="19sp"
+                android:text="Descripción:"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:textSize="18sp"
                 android:id="@+id/product_description"
-                android:textColor="@color/color_verde"
+                android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
@@ -71,3 +132,7 @@
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
