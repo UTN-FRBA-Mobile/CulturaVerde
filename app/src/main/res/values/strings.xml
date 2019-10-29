@@ -47,8 +47,8 @@
     <string name="IngresarNombre">Nombre</string>
     <string name="IngreseApellido">Apellido</string>
     <string name="Ingresefechanac">Fecha de nacimiento</string>
-    <string name="IngreseTelefono">Telefono</string>
-    <string name="IngreseRazonsocial">Razon social</string>
+    <string name="IngreseTelefono">Teléfono</string>
+    <string name="IngreseRazonsocial">Razón social</string>
     <string name="IngreseEmail">Email</string>
     <string name="IngresePassword">Password</string>
 
