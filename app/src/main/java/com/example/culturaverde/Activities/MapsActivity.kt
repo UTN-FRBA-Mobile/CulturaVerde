@@ -1,15 +1,14 @@
 package com.example.culturaverde.Activities
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Controllers.PuntosentregaControlador
 import com.example.culturaverde.Models.PuntosEntrega
-import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -20,9 +19,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import retrofit2.Call
 import retrofit2.Response
+import android.widget.Toast
+
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -41,9 +42,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
+        setContentView(com.example.culturaverde.R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(com.example.culturaverde.R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -62,7 +63,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         getPuntosEntrega()
 
+        map.setOnInfoWindowClickListener(MyOnInfoWindowClickListener)
+
     }
+
+    var MyOnInfoWindowClickListener: GoogleMap.OnInfoWindowClickListener =
+        GoogleMap.OnInfoWindowClickListener { marker ->
+            startActivity(Intent(this, ResultadoBusqueda::class.java))
+            /*Toast.makeText(
+                this@MapsActivity,
+                "onInfoWindowClick():\n" +
+                        marker.position.latitude + "\n" +
+                        marker.position.longitude,
+                Toast.LENGTH_LONG
+            ).show()*/
+        }
 
     //donde estan los productores
     private fun marketplace (locationproductor: LatLng, razonsocial: String, direccion: String, localidad: String ){

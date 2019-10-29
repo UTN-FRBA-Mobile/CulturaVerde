@@ -32,7 +32,7 @@
         android:layout_marginEnd="161dp"
         android:layout_marginRight="161dp"
         android:layout_marginBottom="620dp"
-        android:text="@string/texto_subfinalizarreserva"
+        android:text="@string/texto_finalizarreserva_parte2"
         android:textColor="@android:color/background_dark"
         android:textColorHint="#00000000"
         android:textSize="18sp"
@@ -46,13 +46,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="140dp"
         android:layout_marginRight="140dp"
+        android:checked="true"
+        android:onClick="onCheckboxClicked"
         android:text="Acordá el retiro con tu productor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textfinalizarreserva2" />
+
+    <TextView
+        android:id="@+id/textoonclick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="@string/text_onclick_puntodeentrega"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAcordarConProductor" />
 
     <Button
         android:id="@+id/botonContinuarReserva2"
@@ -71,8 +90,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/checkBoxAcordarConProductor"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxAcordarConProductor"
+        app:layout_constraintStart_toEndOf="@+id/textoonclick"
+        app:layout_constraintTop_toBottomOf="@+id/textoonclick"
         tools:targetApi="m" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

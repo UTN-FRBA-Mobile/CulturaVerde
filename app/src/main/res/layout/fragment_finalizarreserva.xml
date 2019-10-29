@@ -32,7 +32,7 @@
         android:layout_marginEnd="161dp"
         android:layout_marginRight="161dp"
         android:layout_marginBottom="620dp"
-        android:text="@string/texto_subfinalizarreserva"
+        android:text="@string/texto_finalizarreserva_parte1"
         android:textColor="@android:color/background_dark"
         android:textColorHint="#00000000"
         android:textSize="18sp"
@@ -50,6 +50,8 @@
         android:layout_marginEnd="185dp"
         android:layout_marginRight="185dp"
         android:text="Retira otra persona"
+        android:checked="false"
+        android:onClick="onCheckboxClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subtextfinalizarreserva" />
