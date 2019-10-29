@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.DetalleReservaAdapter
 import com.example.culturaverde.Adapters.ReservasAdapter
+import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.ReservasControlador
 import com.example.culturaverde.Models.Reserva
 
@@ -63,7 +64,7 @@ class ReservasFragment : Fragment() {
 
 
     fun getReservas() {
-        reservasControlador.getReservas()
+        reservasControlador.getReservas(UsuarioGlobal.getUsuario().id)
             .enqueue(object : retrofit2.Callback<List<Reserva>> {
                 override fun onFailure(call: Call<List<Reserva>>, t: Throwable) {
 

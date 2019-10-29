@@ -21,6 +21,7 @@ import io.paperdb.Paper
 import retrofit2.Response
 import android.view.View
 
+@Suppress("DEPRECATION")
 class ResultadoBusqueda : AppCompatActivity() {
 
     private lateinit var productosControlador: ProductosControlador
@@ -31,7 +32,6 @@ class ResultadoBusqueda : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Paper.init(this)
 
         setContentView(R.layout.activity_resultado_busqueda)
 
@@ -60,7 +60,7 @@ class ResultadoBusqueda : AppCompatActivity() {
 
         cart_size.text = ShoppingCart.getShoppingCartSize().toString()
 
-        getProducts()
+        getProductosBusqueda()
 
 
         showCart.setOnClickListener {
@@ -76,12 +76,12 @@ class ResultadoBusqueda : AppCompatActivity() {
 
     }
 
-    fun getProducts() {
-        productosControlador.getProducts().enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+    fun getProductosBusqueda() {
+        productosControlador.getProductosBusqueda("Manzana").enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
             override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
                 print(t.message)
-                Log.d("Data error", t.message)
+                Log.d("Data error", t.message!!)
                 Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
 
             }

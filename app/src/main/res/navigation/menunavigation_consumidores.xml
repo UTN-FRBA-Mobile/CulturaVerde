@@ -57,7 +57,6 @@
     <activity
         android:id="@+id/nav_resultadoBusqueda"
         android:name="com.example.culturaverde.Activities.ResultadoBusqueda"
-        android:label="activity_resultado_busqueda"
         tools:layout="@layout/activity_resultado_busqueda" />
     <fragment
         android:id="@+id/estadoReservaFragment"
@@ -65,5 +64,9 @@
     <fragment
         android:id="@+id/calificarProductorFragment"
         android:name="com.example.culturaverde.Fragments.CalificarProductorFragment" />
+    <fragment
+        android:id="@+id/productoSeleccionadoFragment"
+        android:name="com.example.culturaverde.Fragments.ProductoSeleccionadoFragment"
+        android:label="ProductoSeleccionadoFragment" />
 
 </navigation>

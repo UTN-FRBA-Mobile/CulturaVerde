@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.ProductoProductorAdapter
+import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
@@ -54,15 +55,16 @@ class ProductosProductorFragment : Fragment() {
 
           recycler_productos.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
-          getProducts()
+          getProductos()
     }
 
-    fun getProducts() {
-        productosControlador.getProducts().enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+    fun getProductos() {
+
+        productosControlador.getProductos(UsuarioGlobal.getUsuario().id).enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
             override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
                 print(t.message)
-                Log.d("Data error", t.message)
+                Log.d("Data error", t.message!!)
                 Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
 
             }

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.culturaverde.R
+import com.example.culturaverde.ViewModels.EstadoReservaViewModel
 
 class EstadoReservaFragment : Fragment() {
 

@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/nav_principalproductores"
-        android:name="com.example.culturaverde.Ui.PrincipalProductor.PrincipalproductorFragment"
-        tools:layout="@layout/fragment_principalproductores" >
+        android:name="com.example.culturaverde.Ui.PrincipalProductor.PrincipalproductorFragment">
         <action
             android:id="@+id/action_nav_principalproductores_to_reservasFragment"
             app:destination="@id/nav_reservasFragment" />
@@ -33,10 +32,17 @@
     <fragment
         android:id="@+id/nav_reservasFragment"
         android:name="com.example.culturaverde.Ui.Reservas.ReservasFragment"
-        tools:layout="@layout/reservas_fragment" />
+        tools:layout="@layout/reservas_fragment" >
+        <action
+            android:id="@+id/action_nav_reservasFragment_to_estadoReservaFragment2"
+            app:destination="@id/estadoReservaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_productosProductorFragment"
         android:name="com.example.culturaverde.Ui.PrincipalProductor.Productos.ProductosProductorFragment"
         tools:layout="@layout/productos_productor_fragment" />
+    <fragment
+        android:id="@+id/estadoReservaFragment"
+        android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" />
 
 </navigation>

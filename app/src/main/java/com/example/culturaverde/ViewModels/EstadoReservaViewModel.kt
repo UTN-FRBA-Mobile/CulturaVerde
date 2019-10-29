@@ -1,4 +1,4 @@
-package com.example.culturaverde.Fragments
+package com.example.culturaverde.ViewModels
 
 import androidx.lifecycle.ViewModel
 

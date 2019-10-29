@@ -11,11 +11,14 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.culturaverde.Activities.ResultadoBusqueda
 import com.example.culturaverde.Classes.ShoppingCart
+import com.example.culturaverde.Fragments.ProductoSeleccionadoFragment
 import com.example.culturaverde.Models.CartItem
 import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
 import com.squareup.picasso.Picasso
 import io.reactivex.Observable
+import androidx.fragment.app.Fragment
+import com.google.android.gms.common.api.internal.LifecycleCallback
 import io.reactivex.ObservableOnSubscribe
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import kotlinx.android.synthetic.main.cart_list_item.view.*
@@ -23,8 +26,15 @@ import kotlinx.android.synthetic.main.product_row_item.*
 import kotlinx.android.synthetic.main.product_row_item.view.*
 import kotlinx.android.synthetic.main.product_row_item.view.product_name
 import kotlinx.android.synthetic.main.product_row_item.view.product_price
-import java.io.ByteArrayInputStream
-import java.util.*
+
+
+
+
+
+
+
+
+
 
 
 class ProductAdapter(var context: Context, var products: List<ProductoProductor> = arrayListOf()) :
@@ -56,6 +66,12 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
             val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 
             itemView.product_image.setImageBitmap(image)
+
+            itemView.product_image.setOnClickListener{view->
+
+
+
+            }
 
             Observable.create(ObservableOnSubscribe<MutableList<CartItem>> {
 

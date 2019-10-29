@@ -7,7 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.R
+import com.example.culturaverde.Ui.Login.LoginFragment
+import com.example.culturaverde.Ui.Login.LoginFragmentDirections
 import com.example.culturaverde.ViewModels.PrincipalproductorViewModel
 import kotlinx.android.synthetic.main.fragment_principalproductores.*
 
@@ -31,14 +36,22 @@ class PrincipalproductorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+            imagenProductos.setOnClickListener {
 
-        imagenProductos.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.nav_productosProductorFragment)
-        }
+                val action =
+                    PrincipalproductorFragmentDirections.actionNavPrincipalproductoresToProductosProductorFragment()
 
-        imagenReservas.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.nav_reservasFragment)
-        }
+                findNavController().navigate(action)
+            }
+
+            imagenReservas.setOnClickListener { view ->
+
+                val action =
+                    PrincipalproductorFragmentDirections.actionNavPrincipalproductoresToReservasFragment()
+
+                findNavController().navigate(action)
+
+            }
 
 
     }

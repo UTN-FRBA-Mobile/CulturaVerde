@@ -7,8 +7,11 @@ import retrofit2.http.*
 interface ProductosControlador {
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("obtenerProductos/?busqueda=Manzana")
-    fun getProducts(
-    ): Call<List<ProductoProductor>>
+    @GET("obtenerProductosProductor")
+    fun getProductos(@Query("id") id:Long): Call<List<ProductoProductor>>
+
+    @Headers("Content-Type: application/json", "Accept: application/json")
+    @GET("obtenerProductos")
+    fun getProductosBusqueda(@Query("busqueda") busqueda:String): Call<List<ProductoProductor>>
 
 }

@@ -72,6 +72,10 @@ class EditardatosproductorFragment : Fragment() {
         var date = Date()
         val paramObject = JSONObject()
 
+        var arg = arguments
+        var id_usuario = arg?.getLong("id_usuario")
+        var rol_usuario = arg?.getString("rol_usuario")
+
 
         if ( editarNombreProductor.text.toString() != "" &&
             editarApellidoProductor.text.toString() != ""&&
@@ -87,7 +91,7 @@ class EditardatosproductorFragment : Fragment() {
                 .enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                         print(t.message)
-                        Log.d("Registro erroneo", t.message)
+                        Log.d("Registro erroneo", t.message!!)
                         Toast.makeText(
                             requireContext(),
                             t.message + "No se ha podido modificar el usuario",

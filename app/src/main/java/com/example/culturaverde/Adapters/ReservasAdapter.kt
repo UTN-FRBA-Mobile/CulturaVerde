@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.ReservasControlador
 import com.example.culturaverde.Models.DetalleReserva
 import com.example.culturaverde.Models.Reserva
@@ -92,7 +93,17 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
             }
 
-            itemView.usuario.text = "Usuario"
+            if(UsuarioGlobal.getUsuario().rol=="Productor") {
+
+                itemView.usuario.text = "Consumidor"
+
+            }else{
+
+                itemView.usuario.text = "Productor"
+
+
+            }
+
             itemView.nombre.text = "Federico"
             itemView.apellido.text="Fernandez"
             itemView.tel.text="1530245798"
@@ -121,6 +132,13 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
             itemView.floatingActionButtonCambioEstado.setOnClickListener { view ->
 
+                if(UsuarioGlobal.getUsuario().rol=="Productor"){
+
+                    view.findNavController().navigate(R.id.action_nav_reservasFragment_to_estadoReservaFragment2)
+
+                    return@setOnClickListener
+
+                }
                     view.findNavController().navigate(R.id.action_nav_reservasFragment_to_estadoReservaFragment)
 
             }
@@ -137,7 +155,24 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
                 }else {
 
+                    if(UsuarioGlobal.getUsuario().rol=="Productor"){
+
+                        itemView.floatingActionButtonMostrarDetalle.show()
+
+                        if(reserva.estado_reserva!!.nombre!="Finalizado" && reserva.estado_reserva!!.nombre!="Cancelado"){
+
+                            itemView.floatingActionButtonCambioEstado.show()
+
+                        }
+
+                        isOpen=true
+
+                        return@setOnClickListener
+
+                    }
+
                     if(reserva.estado_reserva!!.nombre=="Finalizado" || reserva.estado_reserva!!.nombre=="Cancelado") {
+
                         itemView.floatingActionButtonCalificarProductor.show()
                         itemView.floatingActionButtonMostrarDetalle.show()
 
