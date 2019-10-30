@@ -7,8 +7,8 @@ import java.util.*
 data class Reserva (
 
     @Expose
-    @SerializedName("id_reserva")
-    val id_reserva: Long,
+    @SerializedName("id")
+    val id: Long,
 
     @Expose
     @SerializedName("productor")
@@ -20,7 +20,7 @@ data class Reserva (
 
     @Expose
     @SerializedName("punto_entrega")
-    val punto_entrega: PuntosEntrega,
+    val punto_entrega: PuntosEntrega?=null,
 
     @Expose
     @SerializedName("estado_reserva")
@@ -28,7 +28,7 @@ data class Reserva (
 
     @Expose
     @SerializedName("fecha")
-    val fecha: Date,
+    val fecha: Date?=null,
 
     @Expose
     @SerializedName("fecha_creacion")
@@ -52,15 +52,7 @@ data class Reserva (
 
     @Expose
     @SerializedName("calificacion")
-    val calificacion: Calificacion,
-
-    @Expose
-    @SerializedName("contenido")
-    val contenido: String,
-
-    @Expose
-    @SerializedName("fecha_vencimiento")
-    val fecha_vencimiento: Date
+    val calificacion: Calificacion?=null
 
 
 )

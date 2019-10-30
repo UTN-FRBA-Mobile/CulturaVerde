@@ -64,9 +64,8 @@ class CategoriasFragment : Fragment() {
             .enqueue(object : retrofit2.Callback<List<Producto>> {
                 override fun onFailure(call: Call<List<Producto>>, t: Throwable) {
 
-                    print(t.message)
-                    Log.d("Data error", t.message)
-                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+
+                    Toast.makeText(requireContext(), "Ocurrió un error inesperado, intentá nuevamente", Toast.LENGTH_SHORT).show()
 
                 }
 

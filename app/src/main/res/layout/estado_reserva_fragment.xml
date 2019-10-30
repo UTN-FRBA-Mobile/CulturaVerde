@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="En proceso"
+            android:text="Pendiente"
             tools:layout_editor_absoluteX="154dp"
             tools:layout_editor_absoluteY="162dp" />
 
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Disponible"
+            android:text="En proceso"
             tools:layout_editor_absoluteX="160dp"
             tools:layout_editor_absoluteY="248dp" />
 
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Finalizado"
+            android:text="Disponible"
             tools:layout_editor_absoluteX="167dp"
             tools:layout_editor_absoluteY="335dp" />
 
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Cancelado"
+            android:text="Finalizado"
             tools:layout_editor_absoluteX="158dp"
             tools:layout_editor_absoluteY="426dp" />
 
@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Pendiente"
+            android:text="Cancelado"
             tools:layout_editor_absoluteX="149dp"
             tools:layout_editor_absoluteY="517dp" />
 

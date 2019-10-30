@@ -85,9 +85,7 @@ class ResultadoBusqueda : AppCompatActivity() {
              productosControlador.getProductosBusqueda(busqueda).enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
             override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
-                print(t.message)
-                Log.d("Data error", t.message!!)
-                Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ResultadoBusqueda, "Ocurrió un error inesperado, intentá nuevamente", Toast.LENGTH_SHORT).show()
 
             }
 

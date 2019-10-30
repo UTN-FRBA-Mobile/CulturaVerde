@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.culturaverde.Classes.ReservaGlobal
 import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.ReservasControlador
 import com.example.culturaverde.Models.DetalleReserva
@@ -96,17 +97,19 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
             if(UsuarioGlobal.getUsuario().rol=="Productor") {
 
                 itemView.usuario.text = "Consumidor"
+                itemView.nombre.text = reserva.consumidor.usuario.nombre
+                itemView.apellido.text=reserva.consumidor.usuario.apellido
+                itemView.tel.text=reserva.consumidor.usuario.telefono
 
             }else{
 
                 itemView.usuario.text = "Productor"
+                itemView.nombre.text = reserva.productor.usuario.nombre
+                itemView.apellido.text=reserva.productor.usuario.apellido
+                itemView.tel.text=reserva.productor.usuario.telefono
 
 
             }
-
-            itemView.nombre.text = "Federico"
-            itemView.apellido.text="Fernandez"
-            itemView.tel.text="1530245798"
 
             itemView.total_reserva.text = "Total"
             itemView.total.text = "$${reserva.total_reserva}"
@@ -134,12 +137,22 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
                 if(UsuarioGlobal.getUsuario().rol=="Productor"){
 
+                    ReservaGlobal.guardarReserva(Reserva(reserva.id,reserva.productor,reserva.consumidor,reserva.punto_entrega,
+                        reserva.estado_reserva,reserva.fecha,reserva.fecha_creacion,reserva.total_reserva,reserva.forma_retiro,
+                        reserva.persona_retiro,reserva.detalleReserva,reserva.calificacion))
+
                     view.findNavController().navigate(R.id.action_nav_reservasFragment_to_estadoReservaFragment2)
 
                     return@setOnClickListener
 
                 }
-                    view.findNavController().navigate(R.id.action_nav_reservasFragment_to_estadoReservaFragment)
+
+
+                ReservaGlobal.guardarReserva(Reserva(reserva.id,reserva.productor,reserva.consumidor,reserva.punto_entrega,
+                    reserva.estado_reserva,reserva.fecha,reserva.fecha_creacion,reserva.total_reserva,reserva.forma_retiro,
+                    reserva.persona_retiro,reserva.detalleReserva,reserva.calificacion))
+
+                view.findNavController().navigate(R.id.action_nav_reservasFragment_to_estadoReservaFragment)
 
             }
 

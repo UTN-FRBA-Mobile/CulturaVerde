@@ -12,6 +12,7 @@ import com.example.culturaverde.R
 import com.example.culturaverde.Ui.Principalconsumidores.Categorias.CategoriasFragmentDirections
 import com.example.culturaverde.Ui.Principalconsumidores.PrincipalConsumidoresFragmentDirections
 import kotlinx.android.synthetic.main.categorias_item.view.*
+import kotlinx.android.synthetic.main.estado_reserva_fragment.view.*
 
 class CategoriasAdapter(var context: Context, var productos: List<Producto> = arrayListOf()) :
 RecyclerView.Adapter<CategoriasAdapter.ViewHolder>() {
