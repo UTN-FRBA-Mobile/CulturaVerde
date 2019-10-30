@@ -73,6 +73,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxAcordarConProductor" />
 
+    <CheckBox
+        android:id="@+id/checkBoxselectpuntosentrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
+        android:checked="false"
+        android:onClick="onCheckboxClicked"
+        android:text="Seleccioná un punto de entrega"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoonclick" />
+
     <Button
         android:id="@+id/botonContinuarReserva2"
         style="@android:style/Widget.Material.Button.Colored"

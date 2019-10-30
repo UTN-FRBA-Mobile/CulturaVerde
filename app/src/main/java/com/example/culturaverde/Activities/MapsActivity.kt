@@ -22,7 +22,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import retrofit2.Call
 import retrofit2.Response
 import android.widget.Toast
-
+import com.example.culturaverde.Classes.ProductorGlobal
+import com.example.culturaverde.Models.ProductorMaps
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -69,14 +70,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     var MyOnInfoWindowClickListener: GoogleMap.OnInfoWindowClickListener =
         GoogleMap.OnInfoWindowClickListener { marker ->
-            startActivity(Intent(this, ResultadoBusqueda::class.java))
-            /*Toast.makeText(
+
+            Toast.makeText(
                 this@MapsActivity,
                 "onInfoWindowClick():\n" +
                         marker.position.latitude + "\n" +
                         marker.position.longitude,
                 Toast.LENGTH_LONG
-            ).show()*/
+            ).show()
+
+            ProductorGlobal.guardarProductor(ProductorMaps(4))
+
+            startActivity(Intent(this, ResultadoBusqueda::class.java))
         }
 
     //donde estan los productores
@@ -141,6 +146,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     var razonsocial = puntosEntrega.productor.usuario.nombre.toString() + " " + puntosEntrega.productor.usuario.apellido.toString()
                     var direccion = puntosEntrega.direccion
                     var localidad = puntosEntrega.localidad
+                    var id:Long = puntosEntrega.productor.id!!
                     marketplace(location, razonsocial, direccion, localidad)
                 }
 

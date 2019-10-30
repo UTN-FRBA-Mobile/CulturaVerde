@@ -9,8 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.Classes.ProductorGlobal
 import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.UsuarioControlador
+import com.example.culturaverde.Models.ProductorMaps
 import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import kotlinx.android.synthetic.main.fragment_loginmain.*
@@ -40,6 +42,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Paper.init(requireContext())
+        ProductorGlobal.guardarProductor(ProductorMaps(null))
 
         botonIngreso.setOnClickListener {
             usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
