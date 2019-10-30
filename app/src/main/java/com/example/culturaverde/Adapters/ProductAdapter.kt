@@ -1,6 +1,7 @@
 package com.example.culturaverde.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
@@ -8,31 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.snackbar.Snackbar
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.culturaverde.Activities.ProductoSeleccionadoActivity
 import com.example.culturaverde.Activities.ResultadoBusqueda
+import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.Classes.ShoppingCart
-import com.example.culturaverde.Fragments.ProductoSeleccionadoFragment
 import com.example.culturaverde.Models.CartItem
 import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
-import com.squareup.picasso.Picasso
+import com.example.culturaverde.Ui.Principalconsumidores.PrincipalConsumidoresFragmentDirections
 import io.reactivex.Observable
-import androidx.fragment.app.Fragment
-import com.google.android.gms.common.api.internal.LifecycleCallback
 import io.reactivex.ObservableOnSubscribe
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
-import kotlinx.android.synthetic.main.cart_list_item.view.*
-import kotlinx.android.synthetic.main.product_row_item.*
 import kotlinx.android.synthetic.main.product_row_item.view.*
 import kotlinx.android.synthetic.main.product_row_item.view.product_name
 import kotlinx.android.synthetic.main.product_row_item.view.product_price
-
-
-
-
-
-
-
 
 
 
@@ -50,17 +42,17 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
 
     override fun onBindViewHolder(viewHolder: ProductAdapter.ViewHolder, position: Int) {
         //we simply call the `bindProduct` function here
-        viewHolder.bindProduct(products[position])
+        viewHolder.bindProduct(products[position],context)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         // This displays the product information for each item
-        fun bindProduct(product: ProductoProductor) {
+        fun bindProduct(product: ProductoProductor,context:Context) {
 
             itemView.product_name.text = product.titulo
-            itemView.product_stock.text = "Cantidad: "+product.stock.toString()+" "+"/"+" "+product.unidad_venta
-            itemView.product_price.text = "$${product.precio.toString()}"
+            itemView.product_stock.text = "Stock: "+product.stock.toString()+" "+"/"+" "+product.unidad_venta
+            itemView.product_price.text = "$${product.precio.toString()}"+" (x unidad)"
 
             val imageBytes = Base64.decode(product.imagenes[0].image, 0)
             val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
@@ -69,9 +61,14 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
 
             itemView.product_image.setOnClickListener{view->
 
+                ProductoGlobal.guardarProducto(product)
 
-
+                val myIntent = Intent(
+                    view.context,
+                    ProductoSeleccionadoActivity::class.java)
+                view.context.startActivity(myIntent)
             }
+
 
             Observable.create(ObservableOnSubscribe<MutableList<CartItem>> {
 

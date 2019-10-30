@@ -18,9 +18,6 @@
         <action
             android:id="@+id/action_nav_principalconsumidores_to_nav_geolocalizacionFragment"
             app:destination="@id/nav_geolocalizacionFragment" />
-        <action
-            android:id="@+id/action_nav_principalconsumidores_to_resultadoBusqueda"
-            app:destination="@id/nav_resultadoBusqueda" />
     </fragment>
 
     <fragment
@@ -49,7 +46,11 @@
     <fragment
         android:id="@+id/nav_categoriasFragment"
         android:name="com.example.culturaverde.Ui.Principalconsumidores.Categorias.CategoriasFragment"
-        tools:layout="@layout/categorias_fragment" />
+        tools:layout="@layout/categorias_fragment" >
+        <action
+            android:id="@+id/action_nav_categoriasFragment_to_nav_resultadoBusqueda"
+            app:destination="@id/nav_resultadoBusqueda" />
+    </fragment>
     <activity
         android:id="@+id/nav_geolocalizacionFragment"
         android:name="com.example.culturaverde.Activities.MapsActivity"
@@ -64,9 +65,9 @@
     <fragment
         android:id="@+id/calificarProductorFragment"
         android:name="com.example.culturaverde.Fragments.CalificarProductorFragment" />
-    <fragment
-        android:id="@+id/productoSeleccionadoFragment"
-        android:name="com.example.culturaverde.Fragments.ProductoSeleccionadoFragment"
-        android:label="ProductoSeleccionadoFragment" />
+    <activity
+        android:id="@+id/productoSeleccionadoActivity"
+        android:name="com.example.culturaverde.Activities.ProductoSeleccionadoActivity"
+        android:label="ProductoSeleccionadoActivity" />
 
 </navigation>

@@ -68,9 +68,7 @@ class ReservasFragment : Fragment() {
             .enqueue(object : retrofit2.Callback<List<Reserva>> {
                 override fun onFailure(call: Call<List<Reserva>>, t: Throwable) {
 
-                    print(t.message)
-                    Log.d("Data error", t.message)
-                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Ocurrió un error inesperado, intentá nuevamente", Toast.LENGTH_SHORT).show()
 
                 }
 

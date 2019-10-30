@@ -2,11 +2,9 @@ package com.example.culturaverde.Models
 
 import com.google.gson.annotations.SerializedName
 
-data class Consumidor (
+data class ProductorMaps (
 
     @SerializedName("id")
-    var id: Long,
+    var id: Long?=null
 
-    @SerializedName("usuario")
-    var usuario: Usuario
 )
