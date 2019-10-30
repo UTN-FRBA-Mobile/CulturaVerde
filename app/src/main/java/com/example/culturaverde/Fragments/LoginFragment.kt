@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.UsuarioControlador
@@ -44,32 +43,35 @@ class LoginFragment : Fragment() {
         botonIngreso.setOnClickListener {
             usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
                 create(UsuarioControlador::class.java)
+            if(nombreUsuario.text.toString()!=""&&contrasena.text.toString()!="") {
+                login()
 
-            login()
+                if (usuario?.rol == "Productor") {
+                    val action =
+                        LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
 
+                    UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
+                        usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
 
-            if (usuario?.rol == "Productor") {
-                val action =
-                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+                    findNavController().navigate(action)
+                }
 
-                UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
-                    usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
+                if (usuario?.rol == "Consumidor") {
 
-                findNavController().navigate(action)
+                    val action =
+                        LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
+
+                    UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
+                        usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
+
+                    findNavController().navigate(action)
+                }
+
             }
-
-            if (usuario?.rol == "Consumidor") {
-
-                val action =
-                    LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
-
-                UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
-                    usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
-
-                findNavController().navigate(action)
+            else {
+                Toast.makeText(requireContext(), "No se permiten campos vacios", Toast.LENGTH_SHORT).show()
             }
         }
-
 
         botonRegistrar.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginmainfragmentToRegistrar()

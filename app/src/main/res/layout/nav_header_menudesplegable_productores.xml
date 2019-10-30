@@ -22,6 +22,7 @@
         app:srcCompat="@drawable/cultura_verde2" />
 
     <TextView
+        android:id="@+id/navHeaderProductor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"

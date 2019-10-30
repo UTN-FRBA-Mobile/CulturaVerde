@@ -14,4 +14,8 @@ interface ProductosControlador {
     @GET("obtenerProductos")
     fun getProductosBusqueda(@Query("busqueda") busqueda:String): Call<List<ProductoProductor>>
 
+    @Headers("Content-Type: application/json", "Accept: application/json")
+    @PUT("desactivar_producto")
+    fun desactivarProductos(@Query("id") id: Long): Call<Void>
+
 }

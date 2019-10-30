@@ -20,7 +20,9 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:paddingLeft="-8dp"
         app:srcCompat="@drawable/cultura_verde2"/>
+
     <TextView
+        android:id="@+id/navHeaderConsumidor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
