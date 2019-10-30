@@ -22,6 +22,7 @@ import retrofit2.Response
 import android.view.View
 import com.example.culturaverde.Classes.CategoriaProductoGlobal
 import com.example.culturaverde.Classes.ProductorGlobal
+import com.example.culturaverde.Models.ProductorMaps
 import java.lang.Long
 
 
@@ -90,7 +91,7 @@ class ResultadoBusqueda : AppCompatActivity() {
             productosControlador.getProductosBusquedaProductor(id_productor)
                 .enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
                     override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
-                        
+
                         Toast.makeText(this@ResultadoBusqueda, "Ocurrió un error inesperado, intentá nuevamente", Toast.LENGTH_SHORT).show()
 
                     }
@@ -99,6 +100,8 @@ class ResultadoBusqueda : AppCompatActivity() {
                         call: Call<List<ProductoProductor>>,
                         response: Response<List<ProductoProductor>>
                     ) {
+
+                        ProductorGlobal.guardarProductor(ProductorMaps())
 
                         swipeRefreshLayout.isRefreshing = false
                         swipeRefreshLayout.isEnabled = false

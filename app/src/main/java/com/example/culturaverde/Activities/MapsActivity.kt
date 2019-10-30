@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.culturaverde.Controllers.PuntosentregaControlador
@@ -24,6 +25,12 @@ import retrofit2.Response
 import android.widget.Toast
 import com.example.culturaverde.Classes.ProductorGlobal
 import com.example.culturaverde.Models.ProductorMaps
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.esotericsoftware.kryo.util.IntArray
+
+
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -71,24 +78,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     var MyOnInfoWindowClickListener: GoogleMap.OnInfoWindowClickListener =
         GoogleMap.OnInfoWindowClickListener { marker ->
 
-            Toast.makeText(
-                this@MapsActivity,
-                "onInfoWindowClick():\n" +
-                        marker.position.latitude + "\n" +
-                        marker.position.longitude,
-                Toast.LENGTH_LONG
-            ).show()
+            var id = marker.tag
 
-            ProductorGlobal.guardarProductor(ProductorMaps(4))
+            ProductorGlobal.guardarProductor(ProductorMaps(id.toString().toLong()))
 
             startActivity(Intent(this, ResultadoBusqueda::class.java))
         }
 
     //donde estan los productores
-    private fun marketplace (locationproductor: LatLng, razonsocial: String, direccion: String, localidad: String ){
+    private fun marketplace (locationproductor: LatLng, razonsocial: String, direccion: String, localidad: String,id:Long ){
 
-
-        map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial).snippet(direccion.plus(", ").plus(localidad)) )
+        map.addMarker(MarkerOptions().position(locationproductor).title(razonsocial).snippet(direccion.plus(", ").plus(localidad))).setTag(id)
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(locationproductor, zoommaps))
 
     }
@@ -142,12 +142,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
 
                 for (puntosEntrega in puntosentrega) {
+                    var id = puntosEntrega.productor.id!!
                     var location = LatLng(puntosEntrega.latitud,puntosEntrega.longitud)
                     var razonsocial = puntosEntrega.productor.usuario.nombre.toString() + " " + puntosEntrega.productor.usuario.apellido.toString()
                     var direccion = puntosEntrega.direccion
                     var localidad = puntosEntrega.localidad
-                    var id:Long = puntosEntrega.productor.id!!
-                    marketplace(location, razonsocial, direccion, localidad)
+                    marketplace(location, razonsocial, direccion, localidad,id)
                 }
 
             }

@@ -42,7 +42,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Paper.init(requireContext())
-        ProductorGlobal.guardarProductor(ProductorMaps(null))
 
         botonIngreso.setOnClickListener {
             usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
