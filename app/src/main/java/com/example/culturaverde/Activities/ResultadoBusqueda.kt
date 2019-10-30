@@ -21,6 +21,7 @@ import io.paperdb.Paper
 import retrofit2.Response
 import android.view.View
 import com.example.culturaverde.Classes.CategoriaProductoGlobal
+import com.example.culturaverde.Classes.ProductorGlobal
 import java.lang.Long
 
 
@@ -80,32 +81,76 @@ class ResultadoBusqueda : AppCompatActivity() {
 
     fun getProductosBusqueda() {
 
+        var id_productor = ProductorGlobal.getProductor().id
+
         var busqueda = CategoriaProductoGlobal.getProducto().tipo
 
-             productosControlador.getProductosBusqueda(busqueda).enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
-            override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
+        if (id_productor != null) {
 
-                print(t.message)
-                Log.d("Data error", t.message!!)
-                Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
+            productosControlador.getProductosBusquedaProductor(id_productor)
+                .enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+                    override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
-            }
+                        print(t.message)
+                        Log.d("Data error", t.message!!)
+                        Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
 
-            override fun onResponse(call: Call<List<ProductoProductor>>, response: Response<List<ProductoProductor>>) {
+                    }
 
-                swipeRefreshLayout.isRefreshing = false
-                swipeRefreshLayout.isEnabled = false
+                    override fun onResponse(
+                        call: Call<List<ProductoProductor>>,
+                        response: Response<List<ProductoProductor>>
+                    ) {
 
-                products = response.body()!!
+                        swipeRefreshLayout.isRefreshing = false
+                        swipeRefreshLayout.isEnabled = false
 
-                productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
+                        products = response.body()!!
 
-                products_recyclerview.adapter = productAdapter
-                productAdapter.notifyDataSetChanged()
+                        productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
 
-            }
+                        products_recyclerview.adapter = productAdapter
+                        productAdapter.notifyDataSetChanged()
 
-        })
+                    }
+
+                })
+
+
+
+
+
+        }else {
+
+            productosControlador.getProductosBusqueda(busqueda)
+                .enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+                    override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
+
+                        print(t.message)
+                        Log.d("Data error", t.message!!)
+                        Toast.makeText(this@ResultadoBusqueda, t.message, Toast.LENGTH_SHORT).show()
+
+                    }
+
+                    override fun onResponse(
+                        call: Call<List<ProductoProductor>>,
+                        response: Response<List<ProductoProductor>>
+                    ) {
+
+                        swipeRefreshLayout.isRefreshing = false
+                        swipeRefreshLayout.isEnabled = false
+
+                        products = response.body()!!
+
+                        productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
+
+                        products_recyclerview.adapter = productAdapter
+                        productAdapter.notifyDataSetChanged()
+
+                    }
+
+                })
+        }
     }
 
 }
