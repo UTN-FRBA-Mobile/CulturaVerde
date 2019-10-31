@@ -3,16 +3,29 @@ package com.example.culturaverde.Adapters
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.culturaverde.Models.ProductoProductor
 import com.example.culturaverde.R
+import com.example.culturaverde.Ui.PrincipalProductor.Productos.ProductosProductorFragmentDirections
 import kotlinx.android.synthetic.main.productos_productor_item.view.*
+import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.Controllers.ProductosControlador
+import com.example.culturaverde.Services.APIConfig
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class ProductoProductorAdapter(var context: Context, var products: List<ProductoProductor> = arrayListOf()) :
     RecyclerView.Adapter<ProductoProductorAdapter.ViewHolder>() {
+
+    private val ctx:Context=context
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductoProductorAdapter.ViewHolder {
         // The layout design used for each list item
@@ -25,13 +38,17 @@ class ProductoProductorAdapter(var context: Context, var products: List<Producto
 
     override fun onBindViewHolder(viewHolder: ProductoProductorAdapter.ViewHolder, position: Int) {
         //we simply call the `bindProduct` function here
-        viewHolder.bindProduct(products[position])
+        viewHolder.bindProduct(products[position], ctx)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+        private lateinit var productoControlador: ProductosControlador
+
         // This displays the product information for each item
-        fun bindProduct(product: ProductoProductor) {
+        fun bindProduct(product: ProductoProductor, ctx: Context) {
+            productoControlador =
+                APIConfig.getRetrofitClient(ctx).create(ProductosControlador::class.java)
 
             itemView.product_name2.text = product.titulo
             itemView.product_stock2.text =
@@ -43,8 +60,28 @@ class ProductoProductorAdapter(var context: Context, var products: List<Producto
 
             itemView.product_image3.setImageBitmap(image)
 
+            itemView.editar_producto.setOnClickListener{
+                val action =
+                    ProductosProductorFragmentDirections.actionNavProductosProductorFragmentToProductoModificarFragment()
+                itemView.findNavController().navigate(action)
+            }
+
+
+            itemView.eliminar_productos.setOnClickListener{
+                productoControlador.desactivarProductos(product.id!!).enqueue(object : Callback<Void> {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        Log.d("No se ha desactivado", t.message)
+                        Toast.makeText(ctx, t.message + "No se ha desactivado!!", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+                        Toast.makeText(ctx, "Producto desactivado!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+           }
+            itemView.crear_oferta.setOnClickListener{
+            }
         }
-
     }
-
 }

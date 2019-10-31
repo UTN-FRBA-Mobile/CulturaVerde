@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBoxAcordarConProductor" />
 
     <CheckBox
-        android:id="@+id/checkBoxselectpuntosentrega"
+        android:id="@+id/checkBoxSelectPuntosEntrega"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -83,11 +83,27 @@
         android:layout_marginEnd="140dp"
         android:layout_marginRight="140dp"
         android:checked="false"
-        android:onClick="onCheckboxClicked"
+        android:onClick="onCheckboxClickedPuntosEntrega"
         android:text="Seleccioná un punto de entrega"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoonclick" />
+
+    <Spinner
+        android:id="@+id/comboseleccionarpuntoentrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSelectPuntosEntrega" />
+
+    <TextView
+        android:id="@+id/textcomboseleccionarpuntoentrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSelectPuntosEntrega" />
 
     <Button
         android:id="@+id/botonContinuarReserva2"

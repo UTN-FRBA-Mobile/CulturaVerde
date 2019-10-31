@@ -16,8 +16,8 @@ import android.view.Menu
 import android.view.View
 import com.example.culturaverde.R
 import android.widget.SearchView
-
-
+import com.example.culturaverde.Classes.UsuarioGlobal
+import kotlinx.android.synthetic.main.nav_header_menudesplegable_consumidores.*
 
 class menudesplegable_consumidores : AppCompatActivity() {
 
@@ -47,6 +47,7 @@ class menudesplegable_consumidores : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menudesplegable_consumidores, menu)
+        navHeaderConsumidor.text = UsuarioGlobal.getUsuario().usuario
 
         //Associate searchable configuration with the SearchView
 

@@ -122,5 +122,6 @@
     <string name="google_maps_key">AIzaSyA0Z6lbH46TvbqPzkqYS5MLo2ci8Vr-dYw</string>
     <string name="imagenCultura" />
     <string name="CrearUsuario">Crear</string>
+    <string name="tituloModificarProducto">Modificar producto</string>
 
 </resources>

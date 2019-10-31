@@ -82,8 +82,6 @@ class ProductosProductorFragment : Fragment() {
                     productAdapter.notifyDataSetChanged()
                 }
             }
-
         })
     }
-
 }

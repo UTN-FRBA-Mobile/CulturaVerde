@@ -17,9 +17,12 @@ import android.text.SpannableStringBuilder
 import android.util.Log
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.Classes.UsuarioGlobal
+import com.example.culturaverde.Models.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
 
 class EditardatosproductorFragment : Fragment() {
 
@@ -40,10 +43,13 @@ class EditardatosproductorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val nombreProductor = SpannableStringBuilder("Ezequiel")
-        val apellidoProductor = SpannableStringBuilder("Bosso")
+        val nombreProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario().nombre)
+        val apellidoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario().apellido)
         val fechaNacimientoProductor= SpannableStringBuilder("1982-09-09")
-        val telefonoProductor = SpannableStringBuilder("123456789")
+        val telefonoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario().telefono)
+
+        //val date = SimpleDateFormat("dd/MM/yyy").format(fechaNacimientoProductor)
+
         editarNombreProductor.text = nombreProductor
         editarApellidoProductor.text = apellidoProductor
         editarFechaNacProductor.text = fechaNacimientoProductor
@@ -54,14 +60,17 @@ class EditardatosproductorFragment : Fragment() {
         }
 
         botonLimpiar.setOnClickListener {
-            val nombreProductorN = SpannableStringBuilder("")
+            /*
+            val nombreProductorN =
             val apellidoProductorN = SpannableStringBuilder("")
             val fechaNacimientoProductorN = SpannableStringBuilder("")
             val telefonoProductorN = SpannableStringBuilder("")
-            editarNombreProductor.text = nombreProductorN
-            editarApellidoProductor.text = apellidoProductorN
-            editarFechaNacProductor.text = fechaNacimientoProductorN
-            editarTelefonoProductor.text = telefonoProductorN
+             */
+
+            editarNombreProductor.text = SpannableStringBuilder("")
+            editarApellidoProductor.text = SpannableStringBuilder("")
+            editarFechaNacProductor.text = SpannableStringBuilder("")
+            editarTelefonoProductor.text = SpannableStringBuilder("")
         }
     }
 
@@ -72,10 +81,14 @@ class EditardatosproductorFragment : Fragment() {
         var date = Date()
         val paramObject = JSONObject()
 
-        var arg = arguments
-        var id_usuario = arg?.getLong("id_usuario")
-        var rol_usuario = arg?.getString("rol_usuario")
-
+        UsuarioGlobal.guardarUsuario(
+            Usuario(
+                UsuarioGlobal.getUsuario().id,editarNombreProductor.text.toString(),
+                editarApellidoProductor.text.toString(),UsuarioGlobal.getUsuario().usuario,
+                UsuarioGlobal.getUsuario().contraseña, java.sql.Date(date.getTime()),
+                UsuarioGlobal.getUsuario().rol,editarTelefonoProductor.text.toString()
+            )
+        )
 
         if ( editarNombreProductor.text.toString() != "" &&
             editarApellidoProductor.text.toString() != ""&&
@@ -111,6 +124,7 @@ class EditardatosproductorFragment : Fragment() {
                         val action =
                             EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
                         findNavController().navigate(action)
+
                     }
                 })
         }

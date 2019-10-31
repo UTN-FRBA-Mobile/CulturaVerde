@@ -40,7 +40,11 @@
     <fragment
         android:id="@+id/nav_productosProductorFragment"
         android:name="com.example.culturaverde.Ui.PrincipalProductor.Productos.ProductosProductorFragment"
-        tools:layout="@layout/productos_productor_fragment" />
+        tools:layout="@layout/productos_productor_fragment" >
+        <action
+            android:id="@+id/action_nav_productosProductorFragment_to_productoModificarFragment"
+            app:destination="@id/productoModificarFragment" />
+    </fragment>
     <fragment
         android:id="@+id/estadoReservaFragment"
         android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" >
@@ -48,5 +52,10 @@
             android:id="@+id/action_estadoReservaFragment_to_nav_principalproductores"
             app:destination="@id/nav_principalproductores" />
     </fragment>
+
+    <fragment
+        android:id="@+id/productoModificarFragment"
+        android:name="com.example.culturaverde.Fragments.ProductoModificarFragment"
+        tools:layout="@layout/producto_modificar_fragment" />
 
 </navigation>
