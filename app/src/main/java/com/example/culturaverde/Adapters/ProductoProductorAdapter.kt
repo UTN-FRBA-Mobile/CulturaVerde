@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.culturaverde.Models.ProductoProductor
@@ -15,6 +16,7 @@ import com.example.culturaverde.R
 import com.example.culturaverde.Ui.PrincipalProductor.Productos.ProductosProductorFragmentDirections
 import kotlinx.android.synthetic.main.productos_productor_item.view.*
 import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Services.APIConfig
 import retrofit2.Call
@@ -60,7 +62,17 @@ class ProductoProductorAdapter(var context: Context, var products: List<Producto
 
             itemView.product_image3.setImageBitmap(image)
 
+            if(product.activo==true){
+                itemView.eliminar_productos.visibility=View.VISIBLE
+                itemView.activar_producto.visibility=View.GONE
+            }
+            else{
+                itemView.eliminar_productos.visibility=View.GONE
+                itemView.activar_producto.visibility=View.VISIBLE
+            }
+
             itemView.editar_producto.setOnClickListener{
+                ProductoGlobal.guardarProducto(product)
                 val action =
                     ProductosProductorFragmentDirections.actionNavProductosProductorFragmentToProductoModificarFragment()
                 itemView.findNavController().navigate(action)
@@ -68,20 +80,37 @@ class ProductoProductorAdapter(var context: Context, var products: List<Producto
 
 
             itemView.eliminar_productos.setOnClickListener{
-                productoControlador.desactivarProductos(product.id!!).enqueue(object : Callback<Void> {
+                itemView.eliminar_productos.visibility=View.GONE
+                itemView.activar_producto.visibility=View.VISIBLE
+                productoControlador.desactivarProductos(product.id!!, false).enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                         Log.d("No se ha desactivado", t.message)
                         Toast.makeText(ctx, t.message + "No se ha desactivado!!", Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
-
-                        Toast.makeText(ctx, "Producto desactivado!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(ctx, response.message() + " Producto desactivado!", Toast.LENGTH_SHORT).show()
                     }
                 })
            }
-            itemView.crear_oferta.setOnClickListener{
+            itemView.activar_producto.setOnClickListener{
+                itemView.eliminar_productos.visibility=View.VISIBLE
+                itemView.activar_producto.visibility=View.GONE
+                productoControlador.desactivarProductos(product.id!!, true).enqueue(object : Callback<Void> {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        Log.d("No se ha activado", t.message)
+                        Toast.makeText(ctx, t.message + "No se ha activado!!", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        Toast.makeText(ctx, " Producto activado!", Toast.LENGTH_SHORT).show()
+                    }
+                })
             }
         }
     }
+
+
+
+
 }

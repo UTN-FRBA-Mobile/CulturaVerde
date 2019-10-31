@@ -64,4 +64,5 @@
         android:id="@+id/calificacionesFragment"
         android:name="com.example.culturaverde.Fragments.CalificacionesFragment" />
 
+
 </navigation>
