@@ -1,5 +1,7 @@
 package com.example.culturaverde.Ui.MenuDesplegable
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,7 +13,11 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
 import com.example.culturaverde.R
+import android.widget.SearchView
+
+
 
 class menudesplegable_consumidores : AppCompatActivity() {
 
@@ -43,11 +49,31 @@ class menudesplegable_consumidores : AppCompatActivity() {
         menuInflater.inflate(R.menu.menudesplegable_consumidores, menu)
 
         //Associate searchable configuration with the SearchView
-        //val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        //(menu.findItem(R.id.search).actionView as SearchView).apply {
-        //setSearchableInfo(searchManager.getSearchableInfo(componentName))}
+
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = menu.findItem(R.id.search).actionView as SearchView
+        searchView.setSearchableInfo(
+            searchManager.getSearchableInfo(componentName)
+        )
 
         return true
+
+      /*  val searchItem = menu.findItem(R.id.search)
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+
+        var searchView: SearchView? = null
+        if (searchItem != null) {
+            val searchView = searchItem.getActionView() as SearchView
+        }
+        searchView?.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()))
+        return super.onCreateOptionsMenu(menu)
+*/
+   /*     (menu.findItem(R.id.search).actionView as SearchView).apply {
+        setSearchableInfo(searchManager.getSearchableInfo(componentName))}
+
+        return true*/
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -140,14 +140,14 @@ class ResultadoBusqueda : AppCompatActivity() {
 
                         swipeRefreshLayout.isRefreshing = false
                         swipeRefreshLayout.isEnabled = false
+                        if(response!=null) {
+                            products = response.body()!!
 
-                        products = response.body()!!
+                            productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
 
-                        productAdapter = ProductAdapter(this@ResultadoBusqueda, products)
-
-                        products_recyclerview.adapter = productAdapter
-                        productAdapter.notifyDataSetChanged()
-
+                            products_recyclerview.adapter = productAdapter
+                            productAdapter.notifyDataSetChanged()
+                        }
                     }
 
                 })

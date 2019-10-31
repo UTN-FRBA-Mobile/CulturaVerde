@@ -61,7 +61,11 @@
         tools:layout="@layout/activity_resultado_busqueda" />
     <fragment
         android:id="@+id/estadoReservaFragment"
-        android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" />
+        android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" >
+        <action
+            android:id="@+id/action_estadoReservaFragment_to_nav_principalconsumidores"
+            app:destination="@id/nav_principalconsumidores" />
+    </fragment>
     <fragment
         android:id="@+id/calificarProductorFragment"
         android:name="com.example.culturaverde.Fragments.CalificarProductorFragment" />

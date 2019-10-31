@@ -29,6 +29,15 @@
                             <option name="y" value="681" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_estadoReservaFragment_to_nav_principalconsumidores">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -91,8 +100,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="744" />
-                            <option name="y" value="368" />
+                            <option name="x" value="884" />
+                            <option name="y" value="314" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -160,8 +169,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="744" />
-                            <option name="y" value="12" />
+                            <option name="x" value="862" />
+                            <option name="y" value="-28" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -197,6 +206,15 @@
                             <option name="x" value="988" />
                             <option name="y" value="368" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_estadoReservaFragment_to_nav_principalproductores">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

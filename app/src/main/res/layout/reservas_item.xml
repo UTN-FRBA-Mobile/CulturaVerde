@@ -16,9 +16,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="400dp"
-        android:weightSum="3"
+        android:layout_height="440dp"
+        android:weightSum="4"
         android:padding="10dp">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:id="@+id/id_reserva"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/lightgray" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,7 +71,7 @@
             android:layout_width="wrap_content"
             android:orientation="vertical"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1">
 
 
@@ -83,7 +98,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -193,7 +208,7 @@
                 android:orientation="vertical"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="15dp">
+                android:layout_marginLeft="5dp">
 
                 <TextView
                     android:textSize="18sp"
@@ -241,7 +256,7 @@
                 android:orientation="vertical"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="15dp">
+                android:layout_marginLeft="5dp">
 
                 <TextView
                     android:textSize="18sp"

@@ -77,12 +77,13 @@ class CategoriasFragment : Fragment() {
                     swipeRefreshLayout4.isRefreshing = false
                     swipeRefreshLayout4.isEnabled = false
 
-                    categorias = response.body()!!
+                    if(response!=null) {
+                        categorias = response.body()!!
 
-                    categoriasAdapter = CategoriasAdapter(requireContext(), categorias)
-                    recycler_categorias.adapter = categoriasAdapter
-                    categoriasAdapter.notifyDataSetChanged()
-
+                        categoriasAdapter = CategoriasAdapter(requireContext(), categorias)
+                        recycler_categorias.adapter = categoriasAdapter
+                        categoriasAdapter.notifyDataSetChanged()
+                    }
                 }
 
             })

@@ -65,6 +65,8 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
             var isOpen:Boolean=false
             var isOpenDetalle:Boolean=false
 
+            itemView.id_reserva.text = "#"+reserva.id.toString()
+
             itemView.texto_estado.text = "Estado"
             itemView.estado.text = reserva.estado_reserva!!.nombre
 
@@ -129,6 +131,10 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
             itemView.floatingActionButtonCalificarProductor.setOnClickListener { view ->
 
+                ReservaGlobal.guardarReserva(Reserva(reserva.id,reserva.productor,reserva.consumidor,reserva.punto_entrega,
+                    reserva.estado_reserva,reserva.fecha,reserva.fecha_creacion,reserva.total_reserva,reserva.forma_retiro,
+                    reserva.persona_retiro,reserva.detalleReserva,reserva.calificacion))
+
                 view.findNavController().navigate(R.id.action_nav_reservasFragment_to_calificarProductorFragment)
 
             }
@@ -186,7 +192,9 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
                     if(reserva.estado_reserva!!.nombre=="Finalizado" || reserva.estado_reserva!!.nombre=="Cancelado") {
 
-                        itemView.floatingActionButtonCalificarProductor.show()
+                        if(reserva.calificacion==null) {
+                            itemView.floatingActionButtonCalificarProductor.show()
+                        }
                         itemView.floatingActionButtonMostrarDetalle.show()
 
                         isOpen=true

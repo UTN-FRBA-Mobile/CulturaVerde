@@ -80,12 +80,13 @@ class ReservasFragment : Fragment() {
                     swipeRefreshLayout3.isRefreshing = false
                     swipeRefreshLayout3.isEnabled = false
 
-                    reservas = response.body()!!
+                    if(response!=null) {
+                        reservas = response.body()!!
 
-                    reservasAdapter = ReservasAdapter(requireContext(), reservas)
-                    recycler_reservas.adapter = reservasAdapter
-                    reservasAdapter.notifyDataSetChanged()
-
+                        reservasAdapter = ReservasAdapter(requireContext(), reservas)
+                        recycler_reservas.adapter = reservasAdapter
+                        reservasAdapter.notifyDataSetChanged()
+                    }
                 }
 
             })

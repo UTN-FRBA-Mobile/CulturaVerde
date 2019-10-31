@@ -72,13 +72,15 @@ class ProductosProductorFragment : Fragment() {
                 swipeRefreshLayout2.isRefreshing = false
                 swipeRefreshLayout2.isEnabled = false
 
-                products = response.body()!!
+                if(response!=null) {
 
-                productAdapter = ProductoProductorAdapter(requireContext(), products)
+                    products = response.body()!!
 
-                recycler_productos.adapter = productAdapter
-                productAdapter.notifyDataSetChanged()
+                    productAdapter = ProductoProductorAdapter(requireContext(), products)
 
+                    recycler_productos.adapter = productAdapter
+                    productAdapter.notifyDataSetChanged()
+                }
             }
 
         })
