@@ -47,7 +47,12 @@
     </fragment>
     <fragment
         android:id="@+id/estadoReservaFragment"
-        android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" />
+        android:name="com.example.culturaverde.Fragments.EstadoReservaFragment" >
+        <action
+            android:id="@+id/action_estadoReservaFragment_to_nav_principalproductores"
+            app:destination="@id/nav_principalproductores" />
+    </fragment>
+
     <fragment
         android:id="@+id/productoModificarFragment"
         android:name="com.example.culturaverde.Fragments.ProductoModificarFragment"

@@ -1,5 +1,8 @@
 package com.example.culturaverde.Ui.MenuDesplegable
 
+import android.app.SearchManager
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,9 +14,17 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import com.example.culturaverde.Classes.UsuarioGlobal
+import android.widget.Toast
 import com.example.culturaverde.R
+import androidx.appcompat.widget.SearchView
+import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.Activities.ShoppingCartActivity
+import com.example.culturaverde.Classes.UsuarioGlobal
 import kotlinx.android.synthetic.main.nav_header_menudesplegable_consumidores.*
+import android.view.View
+import com.example.culturaverde.Activities.ResultadoBusqueda
+import com.example.culturaverde.Classes.CategoriaProductoGlobal
+import com.example.culturaverde.Models.Producto
 
 class menudesplegable_consumidores : AppCompatActivity() {
 
@@ -46,11 +57,30 @@ class menudesplegable_consumidores : AppCompatActivity() {
         navHeaderConsumidor.text = UsuarioGlobal.getUsuario().usuario
 
         //Associate searchable configuration with the SearchView
-        //val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        //(menu.findItem(R.id.search).actionView as SearchView).apply {
-        //setSearchableInfo(searchManager.getSearchableInfo(componentName))}
+
+
+        val searchItem = menu.findItem(R.id.search)
+        val searchView = searchItem.actionView as SearchView
+        searchView.setMaxWidth(Integer.MAX_VALUE)
+        searchView.queryHint = "Buscar productos y productores.."
+        searchView.setOnQueryTextListener(object :  SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+
+                CategoriaProductoGlobal.guardarProducto(Producto(0,"jej",query))
+              startActivity(Intent(this@menudesplegable_consumidores,ResultadoBusqueda::class.java))
+
+                return false
+            }
+
+        })
 
         return true
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
