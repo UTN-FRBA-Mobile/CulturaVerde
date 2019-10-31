@@ -41,10 +41,10 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Paper.init(requireContext())
-
+        usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
+            create(UsuarioControlador::class.java)
         botonIngreso.setOnClickListener {
-            usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
-                create(UsuarioControlador::class.java)
+
             if(nombreUsuario.text.toString()!=""&&contrasena.text.toString()!="") {
                 login()
 

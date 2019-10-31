@@ -73,6 +73,7 @@ class CrearProductorFragment : Fragment() {
                 .enqueue(object : Callback<Void> {
                   override fun onFailure(call: Call<Void>, t: Throwable) {
                         print(t.message)
+
                         Log.d("Registro erroneo", t.message)
                         Toast.makeText(requireContext(), t.message + "Registro Erroneo!!", Toast.LENGTH_SHORT).show()
                     }

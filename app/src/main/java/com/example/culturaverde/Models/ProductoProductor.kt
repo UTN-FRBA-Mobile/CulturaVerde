@@ -42,5 +42,8 @@ data class ProductoProductor (
     var contenido: String? = null,
 
     @SerializedName("fecha_vencimiento")
-    var fecha_vencimiento: Date? = null
+    var fecha_vencimiento: Date? = null,
+
+    @SerializedName("activo")
+    var activo: Boolean? = null
 )

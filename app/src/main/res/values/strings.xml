@@ -68,8 +68,8 @@
     <!-- Pantalla productos productor -->
     <string name="texto_productos_productor">Mis productos</string>
     <string name="texto_editar_producto">Modificar</string>
-    <string name="texto_eliminar_producto">Eliminar</string>
-    <string name="texto_crear_oferta">Crear oferta</string>
+    <string name="texto_eliminar_producto">Desactivar</string>
+    <string name="texto_crear_oferta">Activar</string>
 
     <!-- Pantalla reservas -->
     <string name="texto_mis_reservas">Mis reservas</string>

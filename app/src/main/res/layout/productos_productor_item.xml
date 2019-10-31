@@ -1,116 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardUseCompatPadding="true"
-    app:cardElevation="1.5dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="2dp"
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="2dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    app:cardElevation="1.5dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:layout_height="180dp"
         android:gravity="center_vertical"
-        android:weightSum="1.5"
-        android:layout_height="180dp">
+        android:weightSum="1.5">
 
 
         <ImageView
-            android:layout_weight=".5"
-            android:scaleType="fitXY"
             android:id="@+id/product_image3"
             android:layout_width="110dp"
-            android:layout_height="90dp"/>
+            android:layout_height="90dp"
+            android:layout_weight=".5"
+            android:scaleType="fitXY" />
 
 
         <LinearLayout
-            android:layout_weight="1"
-            android:layout_marginRight="8dp"
-            android:padding="8dp"
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginEnd="8dp">
 
 
             <TextView
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
                 android:id="@+id/product_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
 
             <TextView
-                android:layout_marginTop="10dp"
-                android:textSize="13sp"
-                android:textStyle="bold"
                 android:id="@+id/product_price2"
-                android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:textSize="13sp"
-                android:textColor="@android:color/black"
                 android:id="@+id/product_stock2"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="13sp" />
 
 
             <LinearLayout
 
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-            <TextView
-                   android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                   android:padding="4dp"
-                   android:text="@string/texto_editar_producto"
-                android:layout_marginRight="10dp"
-                   android:background="@drawable/round_background"
-                    android:id="@+id/editar_producto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
-                android:padding="4dp"
-                android:text="@string/texto_eliminar_producto"
-                android:background="@drawable/round_background"
-                android:id="@+id/eliminar_productos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                />
+                android:layout_width="270dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/editar_producto"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_background"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="4dp"
+                    android:text="@string/texto_editar_producto"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
+
+                    android:textStyle="bold"
+                    android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/eliminar_productos"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_background"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="4dp"
+                    android:text="@string/texto_eliminar_producto"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/activar_producto"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_background"
+                    android:gravity="center_horizontal|center_vertical"
                     android:padding="4dp"
                     android:text="@string/texto_crear_oferta"
-                    android:background="@drawable/round_background"
-                    android:id="@+id/crear_oferta"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
 
-                    />
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp" />
 
             </LinearLayout>
 
