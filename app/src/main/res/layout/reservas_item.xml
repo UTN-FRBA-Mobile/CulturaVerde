@@ -23,7 +23,7 @@
         <TextView
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorAccent"
             android:id="@+id/id_reserva"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"

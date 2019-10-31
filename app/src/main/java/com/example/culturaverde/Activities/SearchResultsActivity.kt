@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.media.session.MediaButtonReceiver.handleIntent
 import com.example.culturaverde.R
@@ -15,7 +15,6 @@ class SearchResultsActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_resultado_busqueda)
         handleIntent(intent)
     }
 
@@ -28,22 +27,14 @@ class SearchResultsActivity : Activity() {
         menuInflater.inflate(R.menu.menudesplegable_consumidores, menu)
 
         //Associate searchable configuration with the SearchView
-
-
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
-        searchView.setSearchableInfo(
-            searchManager.getSearchableInfo(componentName)
-        )
-
-        return true
-
+return true
     }
 
     private fun handleIntent(intent: Intent) {
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             var query  = intent.getStringExtra(SearchManager.QUERY)
+
 
         }
     }
