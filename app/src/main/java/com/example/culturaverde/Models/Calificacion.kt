@@ -15,12 +15,24 @@ data class Calificacion (
     val id_reserva: Long,
 
     @Expose
+    @SerializedName("reserva")
+    val reserva: Long,
+
+    @Expose
     @SerializedName("valor")
     val valor: Int,
 
     @Expose
     @SerializedName("comentario")
     val comentario: String,
+
+    @Expose
+    @SerializedName("nombreConsumidor")
+    val nombreConsumidor: String,
+
+    @Expose
+    @SerializedName("apellidoConsumidor")
+    val apellidoConsumidor: String,
 
     @Expose
     @SerializedName("fecha_calificacion")
