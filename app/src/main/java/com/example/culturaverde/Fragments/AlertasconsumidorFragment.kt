@@ -26,7 +26,6 @@ class AlertasconsumidorFragment : Fragment() {
 
     private lateinit var alertasconsumidorViewModel: AlertasconsumidorViewModel
     private lateinit var alertasControlador: AlertasControlador
-    val usuario:Usuario=UsuarioGlobal.getUsuario()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,7 +54,7 @@ class AlertasconsumidorFragment : Fragment() {
                 override fun onFailure(call: Call<List<AlertaUsuario>>, t: Throwable) {
                     print(t.message)
                     Log.d("Registro erroneo", t.message!!)
-                    Toast.makeText(requireContext(),t.message + "Ocurrió un eror inespeado, intente nuevamente",
+                    Toast.makeText(requireContext(),"Ocurrió un eror inespeado, intente nuevamente",
                         Toast.LENGTH_SHORT).show()
                 }
 
@@ -85,8 +84,10 @@ class AlertasconsumidorFragment : Fragment() {
 
             var paramObject = JSONObject()
 
-            paramObject.put("alertaNombre", "Actualización de reservas")
-            paramObject.put("frecuencia", "En el momento")
+            if(switch1.isChecked) {
+                paramObject.put("alertaNombre", "Actualización de reservas")
+                paramObject.put("frecuencia", "En el momento")
+            }
 
             alertas_a_guardar.add(paramObject)
 
@@ -102,7 +103,7 @@ class AlertasconsumidorFragment : Fragment() {
                         call: Call<Void>,
                         response: Response<Void>) {
 
-                        Toast.makeText(requireContext(),"Alerta guardada correctamente",
+                        Toast.makeText(requireContext(),"Alertas actualizadas correctamente",
                             Toast.LENGTH_SHORT).show()
 
 
