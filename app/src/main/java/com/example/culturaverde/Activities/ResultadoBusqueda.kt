@@ -25,6 +25,7 @@ import com.example.culturaverde.Classes.ProductorGlobal
 import com.example.culturaverde.Models.ProductorMaps
 
 
+
 class ResultadoBusqueda : AppCompatActivity() {
 
     private lateinit var productosControlador: ProductosControlador
@@ -81,13 +82,7 @@ class ResultadoBusqueda : AppCompatActivity() {
 
     fun getProductosBusqueda() {
 
-        var id_productor:Long?=null
-
-        if(ProductorGlobal.getProductor().id!=null){
-
-        id_productor = ProductorGlobal.getProductor().id
-
-        }
+        var id_productor= ProductorGlobal.getProductor().id
 
         var busqueda = CategoriaProductoGlobal.getProducto().tipo
 

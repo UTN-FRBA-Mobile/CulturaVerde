@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.Toast
 import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.Classes.UsuarioGlobal
@@ -41,116 +42,107 @@ class OfertasFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(OfertasViewModel::class.java)
         // TODO: Use the ViewModel
 
-        precio_actual.text = "$"+ProductoGlobal.getProducto().precio.toString()
+        precio_actual.text = "$" + ProductoGlobal.getProducto().precio.toString()
 
-        porcentaje.isEnabled= false
+        porcentaje.isEnabled = false
 
+        if (ProductoGlobal.getProducto().oferta != null) {
 
-        if(ProductoGlobal.getProducto().oferta!=null){
-
-            if(ProductoGlobal.getProducto().oferta!!.activo==true) {
+            if (ProductoGlobal.getProducto().oferta!!.activo == true) {
                 checkBoxOferta.isChecked = true
-                porcentaje.isEnabled= true
+                porcentaje.isEnabled = true
+
+                porcentaje.text =
+                    SpannableStringBuilder(ProductoGlobal.getProducto().oferta!!.porcentaje.toString())
+
+                nuevo_precio.text =
+                    "$" + (ProductoGlobal.getProducto().precio!! - ((ProductoGlobal.getProducto().oferta!!.porcentaje!!.toInt() * ProductoGlobal.getProducto().precio!!) / 100)).toString()
+
+            }else {
+
+                porcentaje.isEnabled = false
+
             }
-
-            porcentaje.isEnabled= false
-
-            porcentaje.text = SpannableStringBuilder(ProductoGlobal.getProducto().oferta!!.porcentaje.toString())
-
-            nuevo_precio.text = "$"+(ProductoGlobal.getProducto().precio!! - ((ProductoGlobal.getProducto().oferta!!.porcentaje!!.toInt() * ProductoGlobal.getProducto().precio!!)/100)).toString()
-
         }
 
-        checkBoxOferta.setOnClickListener{
+        checkBoxOferta.setOnClickListener {
 
-            if(checkBoxOferta.isChecked){
+            if (checkBoxOferta.isChecked) {
 
-                porcentaje.isEnabled= true
-
+                porcentaje.isEnabled = true
                 return@setOnClickListener
             }
-            porcentaje.isEnabled= false
+                porcentaje.isEnabled = false
+        }
+
+        porcentaje.setOnClickListener {
+
+            nuevo_precio.text =
+                "$" + (ProductoGlobal.getProducto().precio!! - ((porcentaje.text.toString().toInt() * ProductoGlobal.getProducto().precio!!) / 100)).toString()
 
         }
 
-    porcentaje.setOnClickListener{
 
-        nuevo_precio.text = "$"+(ProductoGlobal.getProducto().precio!! - ((porcentaje.text.toString().toInt() * ProductoGlobal.getProducto().precio!!)/100)).toString()
+        buttonGuardarOferta.setOnClickListener {
 
+
+            var activo: Boolean = false
+
+            var id_oferta: Long = 0
+
+            if (checkBoxOferta.isChecked) {
+
+                activo = true
+
+            }
+
+            if (ProductoGlobal.getProducto().oferta != null) {
+
+                id_oferta = ProductoGlobal.getProducto().oferta!!.id!!
+
+            }
+
+            var ofertaControlador: OfertasControlador =
+                APIConfig.getRetrofitClient(requireContext()).create(OfertasControlador::class.java)
+
+            if ((ProductoGlobal.getProducto().oferta!=null && !porcentaje.text.isEmpty())||
+                (ProductoGlobal.getProducto().oferta==null&& checkBoxOferta.isChecked && !porcentaje.text.isEmpty())) {
+                ofertaControlador.guardarOferta(
+                    ProductoGlobal.getProducto().id!!,
+                    porcentaje.text.toString().toInt(),
+                    activo,
+                    id_oferta
+                ).enqueue(object : Callback<Void> {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+
+                        Toast.makeText(
+                            requireContext(),
+                            "Ocurrió un problema inesperado, intente nuevamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    }
+
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Ofertada guardada correctamente!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    }
+                })
+            }else
+            {
+
+                Toast.makeText(
+                    requireContext(),
+                    "Tenés que validar la oferta y completar el porcentaje de descuento",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            }
+
+        }
     }
-
-
-        buttonGuardarOferta.setOnClickListener{
-
-            guardarOferta()
-
-        }
-
-    }
-
-
-    fun guardarOferta(){
-
-        var activo:Boolean = false
-
-        var id_oferta:Long = 0
-
-        if(checkBoxOferta.isChecked){
-
-            activo=true
-
-        }
-
-        if(ProductoGlobal.getProducto().oferta!=null){
-
-            id_oferta = ProductoGlobal.getProducto().oferta!!.id!!
-
-        }
-
-       var ofertaControlador:OfertasControlador = APIConfig.getRetrofitClient(requireContext()).create(OfertasControlador::class.java)
-
-
-        if(porcentaje.text.toString()!="") {
-
-
-            ofertaControlador.guardarOferta(
-                ProductoGlobal.getProducto().id!!,
-                porcentaje.text.toString().toInt(),
-                activo,
-                id_oferta.toInt()
-            ).enqueue(object : Callback<Void> {
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-
-                    Toast.makeText(
-                        requireContext(),
-                        "Ocurrió un problema inesperado, intente nuevamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                }
-
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Ofertada guardada correctamente!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                }
-            })
-        }else {
-
-            Toast.makeText(
-                requireContext(),
-                "Tenés que completar el porcentaje de descuento!",
-                Toast.LENGTH_SHORT
-            ).show()
-
-        }
-
-
-
-    }
-
-
 }
