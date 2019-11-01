@@ -53,6 +53,10 @@ class PrincipalproductorFragment : Fragment() {
 
             }
 
+        imagenCalificaciones.setOnClickListener{ view ->
+            view.findNavController().navigate(R.id.action_nav_principalproductores_to_calificacionesFragment)
+        }
+
 
     }
 }

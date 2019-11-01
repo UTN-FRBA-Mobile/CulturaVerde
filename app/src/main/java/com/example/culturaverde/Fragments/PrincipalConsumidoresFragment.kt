@@ -11,6 +11,8 @@ import com.example.culturaverde.Activities.ResultadoBusqueda
 import com.example.culturaverde.R
 import com.example.culturaverde.ViewModels.PrincipalConsumidoresViewModel
 import kotlinx.android.synthetic.main.fragment_principalconsumidores.*
+import kotlinx.android.synthetic.main.fragment_principalconsumidores.imagenReservas
+import kotlinx.android.synthetic.main.fragment_principalproductores.*
 
 
 class PrincipalConsumidoresFragment : Fragment() {

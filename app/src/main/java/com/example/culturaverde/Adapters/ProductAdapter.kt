@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.culturaverde.Activities.ProductoSeleccionadoActivity
 import com.example.culturaverde.Activities.ResultadoBusqueda
+import com.example.culturaverde.Activities.ShoppingCartActivity
 import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.Classes.ShoppingCart
 import com.example.culturaverde.Models.CartItem
@@ -90,6 +91,18 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
                         }
 
                     else{
+
+                            val cart = ShoppingCart.getCart()
+
+                            val targetItem = cart.singleOrNull { it.product.id == item.product.id }
+
+                            if(targetItem==null){
+
+                                Toast.makeText(itemView.context as ResultadoBusqueda, "Tenés que terminar tu reserva actual antes de agregar ese producto!", Toast.LENGTH_SHORT).show()
+
+                                return@setOnClickListener
+                            }
+
 
                             Snackbar.make(
                                 (itemView.context as ResultadoBusqueda).coordinator,
