@@ -9,6 +9,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.R
+import kotlinx.android.synthetic.main.product_row_item.view.*
 import kotlinx.android.synthetic.main.producto_seleccionado_activity.*
 
 class ProductoSeleccionadoActivity : AppCompatActivity() {
@@ -34,11 +35,29 @@ class ProductoSeleccionadoActivity : AppCompatActivity() {
         val imageBytes = Base64.decode(producto.imagenes[0].image, 0)
         val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 
+        tachado_oferta.setVisibility(View.GONE)
+        oferta.setVisibility(View.GONE)
+
+        if(producto.oferta!=null){
+
+            if(producto.oferta!!.activo==true){
+
+                tachado_oferta.setVisibility(View.VISIBLE)
+
+                oferta.text= "$"+(producto.precio!! - ((producto.oferta!!.porcentaje.toString().toInt() * producto.precio!!)/100)).toString()+" (x unidad)"
+
+                oferta.setVisibility(View.VISIBLE)
+
+
+            }
+
+        }
+
         product_image.setImageBitmap(image)
 
         product_name.text=producto.titulo
-        product_stock.text=producto.stock.toString()+"/"+producto.unidad_venta
-        product_price.text ="$"+producto.precio.toString()
+        product_stock.text=producto.stock.toString()+" / "+producto.unidad_venta
+        product_price.text ="$"+producto.precio.toString()+" (x unidad)"
         product_description.text= producto.descripcion
 
 
