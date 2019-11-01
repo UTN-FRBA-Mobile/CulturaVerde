@@ -9,14 +9,6 @@ import kotlinx.android.synthetic.main.fragment_elegirpuntoentregaretiro.*
 
 class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     lateinit var checkboxpuntoentrega: CheckBox
     lateinit var checkboxselectpuntosentrega: CheckBox
 
@@ -39,7 +31,9 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItem
         val arrayAdapter = ArrayAdapter(this, R.layout.fragment_elegirpuntoentregaretiro, listitemstxt)
         arrayAdapter.setDropDownViewResource(R.layout.fragment_elegirpuntoentregaretiro)
         comboselectpuntosentrega.adapter = arrayAdapter
+        comboselectpuntosentrega.onItemSelectedListener = this
 
+        /*
         comboselectpuntosentrega.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 Toast.makeText(this@ElegirPuntoEntregaRetiroActivity, "Nada", Toast.LENGTH_SHORT).show()
@@ -50,7 +44,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItem
             }
 
         }
-
+        */
 
         /*
         // Initializing a String Array
@@ -84,6 +78,14 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItem
         }
         */
 
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     fun onCheckboxClicked(view: View) {
