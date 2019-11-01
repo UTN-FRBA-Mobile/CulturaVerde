@@ -60,12 +60,6 @@ class EditardatosproductorFragment : Fragment() {
         }
 
         botonLimpiar.setOnClickListener {
-            /*
-            val nombreProductorN =
-            val apellidoProductorN = SpannableStringBuilder("")
-            val fechaNacimientoProductorN = SpannableStringBuilder("")
-            val telefonoProductorN = SpannableStringBuilder("")
-             */
 
             editarNombreProductor.text = SpannableStringBuilder("")
             editarApellidoProductor.text = SpannableStringBuilder("")

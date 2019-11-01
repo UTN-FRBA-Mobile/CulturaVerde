@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_nav_productosProductorFragment_to_productoModificarFragment"
             app:destination="@id/productoModificarFragment" />
+        <action
+            android:id="@+id/action_nav_productosProductorFragment_to_ofertasFragment"
+            app:destination="@id/ofertasFragment" />
     </fragment>
     <fragment
         android:id="@+id/estadoReservaFragment"
@@ -63,6 +66,9 @@
     <fragment
         android:id="@+id/calificacionesFragment"
         android:name="com.example.culturaverde.Fragments.CalificacionesFragment" />
+    <fragment
+        android:id="@+id/ofertasFragment"
+        android:name="com.example.culturaverde.Fragments.OfertasFragment" />
 
 
 </navigation>

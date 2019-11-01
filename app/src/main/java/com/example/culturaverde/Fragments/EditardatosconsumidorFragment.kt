@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.UsuarioControlador
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
@@ -42,10 +43,11 @@ class EditardatosconsumidorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val nombreConsumidor = SpannableStringBuilder("Ezequiel")
-        val apellidoConsumidor = SpannableStringBuilder("Bosso")
+        val nombreConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario().nombre)
+        val apellidoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario().apellido)
         val fechaNacimientoConsumidor = SpannableStringBuilder("1982-09-09")
-        val telefonoConsumidor = SpannableStringBuilder("123456789")
+        val telefonoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario().telefono)
+
         nombreUsuario.text = nombreConsumidor
         apellidoUsuario.text = apellidoConsumidor
         fechaNac.text = fechaNacimientoConsumidor
@@ -55,14 +57,11 @@ class EditardatosconsumidorFragment : Fragment() {
             guardarDatosConsumidor()
         }
         botonLimpiar.setOnClickListener {
-            val nombreConsumidorN = SpannableStringBuilder("")
-            val apellidoConsumidorN = SpannableStringBuilder("")
-            val fechaNacimientoConsumidorN = SpannableStringBuilder("")
-            val telefonoConsumidorN = SpannableStringBuilder("")
-            nombreUsuario.text = nombreConsumidorN
-            apellidoUsuario.text = apellidoConsumidorN
-            fechaNac.text = fechaNacimientoConsumidorN
-            telefono.text = telefonoConsumidorN
+
+            nombreUsuario.text = SpannableStringBuilder("")
+            apellidoUsuario.text = SpannableStringBuilder("")
+            fechaNac.text = SpannableStringBuilder("")
+            telefono.text = SpannableStringBuilder("")
         }
     }
 
