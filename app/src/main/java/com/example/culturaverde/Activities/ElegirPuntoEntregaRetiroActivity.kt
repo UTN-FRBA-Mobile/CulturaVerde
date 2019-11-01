@@ -1,25 +1,28 @@
 package com.example.culturaverde.Activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.culturaverde.R
 import kotlinx.android.synthetic.main.fragment_elegirpuntoentregaretiro.*
+import kotlinx.android.synthetic.main.fragment_finalizarreserva.*
 
-class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 
     lateinit var checkboxpuntoentrega: CheckBox
     lateinit var checkboxselectpuntosentrega: CheckBox
+    lateinit var comboselectpuntosentrega: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_elegirpuntoentregaretiro)
 
         checkboxpuntoentrega = findViewById(R.id.checkBoxAcordarConProductor)
         checkboxselectpuntosentrega = findViewById(R.id.checkBoxSelectPuntosEntrega)
-
-        val comboselectpuntosentrega = Spinner(this)
+        comboselectpuntosentrega  = findViewById(R.id.Combopuntoentrega)
 
         if (checkboxpuntoentrega.isChecked){
             textoonclick.visibility = View.VISIBLE
@@ -30,10 +33,9 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItem
         val listitemstxt = arrayOf("Ramos mejia", "vicente lopez", "Capital federal")
         val arrayAdapter = ArrayAdapter(this, R.layout.fragment_elegirpuntoentregaretiro, listitemstxt)
         arrayAdapter.setDropDownViewResource(R.layout.fragment_elegirpuntoentregaretiro)
+/*
         comboselectpuntosentrega.adapter = arrayAdapter
-        comboselectpuntosentrega.onItemSelectedListener = this
 
-        /*
         comboselectpuntosentrega.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 Toast.makeText(this@ElegirPuntoEntregaRetiroActivity, "Nada", Toast.LENGTH_SHORT).show()
@@ -44,49 +46,15 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity(), AdapterView.OnItem
             }
 
         }
-        */
+*/
+        botonContinuarReserva2.setOnClickListener {
 
-        /*
-        // Initializing a String Array
-        val colors = arrayOf("Red","Green","Blue","Yellow","Black","Crimson","Orange")
+            startActivity(Intent(this, ResumenReservasActivity::class.java))
 
-
-        // Initializing an ArrayAdapter
-        val adapter = ArrayAdapter<String>(
-            this, // Context
-            R.layout.fragment_elegirpuntoentregaretiro, // Layout
-            colors // Array
-        )
-
-        // Set the drop down view resource
-        adapter.setDropDownViewResource(R.layout.fragment_elegirpuntoentregaretiro)
-
-        // Finally, data bind the spinner object with dapter
-        Combopuntoentrega.adapter = adapter
-
-
-        // Set an on item selected listener for spinner object
-        Combopuntoentrega?.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent:AdapterView<*>?, view: View?, position: Int, id: Long){
-                // Display the selected item text on text view
-                textcombopuntoentrega.text = "Spinner selected : ${parent?.getItemAtPosition(position).toString()}"
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?){
-                // Another interface callback
-            }
         }
-        */
 
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     fun onCheckboxClicked(view: View) {
 

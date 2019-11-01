@@ -23,6 +23,7 @@
         <activity android:name=".Activities.FinalizarReservaActivity" />
         <activity android:name=".Activities.ElegirPuntoEntregaRetiroActivity" />
         <activity android:name=".Activities.ResultadoBusqueda" />
+        <activity android:name=".Activities.ResumenReservasActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
