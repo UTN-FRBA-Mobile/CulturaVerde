@@ -10,7 +10,7 @@
         android:id="@+id/tituloModificarProducto"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/tituloModificarProducto"
         android:textColor="@android:color/background_dark"
@@ -21,79 +21,144 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black_overlay"
-        tools:ignore="MissingConstraints" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/visorFotosProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloModificarProducto" />
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black_overlay"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/modificarPrecioProducto"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="304dp" />
-
-    <TextView
-        android:id="@+id/tituloModificarStockProd"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="20dp"
-        android:text="Stock"
-        android:textColorHint="#00000000"
-        app:layout_constraintEnd_toStartOf="@+id/modificarStockProducto"
-        tools:layout_editor_absoluteY="369dp" />
-
-    <TextView
-        android:id="@+id/tituloModificarPrecioProd"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:text="Precio:  $"
-        android:textColorHint="#00000000"
-        app:layout_constraintEnd_toStartOf="@+id/modificarPrecioProducto"
-        tools:layout_editor_absoluteY="304dp"
-        tools:text="Precio:  $" />
-
-    <EditText
-        android:id="@+id/modificarStockProducto"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="369dp" />
-
-    <Button
-        android:id="@+id/botonModificarProducto"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:background="@color/color_verde"
-        android:text="@string/boton_guardar"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/visorFotosProducto"
+        tools:layout_editor_absoluteX="123dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tituloModificarPrecioProd"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Precio: $"
+                    android:textColorHint="#00000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/modificarPrecioProducto"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/modificarPrecioProducto"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:ems="20"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tituloModificarPrecioProd"
+                    app:layout_constraintTop_toBottomOf="@+id/visorFotosProducto" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tituloModificarStockProd"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Stock"
+                    android:textColorHint="#00000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/modificarStockProducto"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/modificarStockProducto"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:ems="20"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tituloModificarStockProd"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/botonModificarProducto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/color_verde"
+                    android:text="@string/boton_guardar"
+                    android:textColor="@android:color/background_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.472"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

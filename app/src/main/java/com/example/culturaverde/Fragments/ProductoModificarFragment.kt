@@ -11,14 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.ModificarProductoAdapter
 import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Models.Producto
 import com.example.culturaverde.Models.ProductoProductor
-
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.ProductoModificarViewModel
@@ -40,6 +38,7 @@ class ProductoModificarFragment : Fragment() {
     private lateinit var viewModel: ProductoModificarViewModel
     private lateinit var modificarProductoAdapter: ModificarProductoAdapter
     private lateinit var productosControlador: ProductosControlador
+    val product: ProductoProductor=ProductoGlobal.getProducto()
 
 
     override fun onCreateView(
@@ -54,7 +53,6 @@ class ProductoModificarFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(ProductoModificarViewModel::class.java)
         // TODO: Use the ViewModel
 
-        val product: ProductoProductor=ProductoGlobal.getProducto()
 
         visorFotosProducto.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
 
@@ -84,9 +82,14 @@ class ProductoModificarFragment : Fragment() {
         ) {
             paramObject.put("precio", modificarPrecioProducto.text.toString())
             paramObject.put("stock", modificarStockProducto.text.toString())
+            paramObject.put("titulo", product.titulo)
+            paramObject.put("descripcion", product.descripcion)
+            //paramObject.put("fecha_vencimiento", product.fecha_vencimiento)
+            paramObject.put("tiempo_preparacion", product.tiempo_preparacion)
+            paramObject.put("contenido", product.contenido)
+           // paramObject.put("imagenes", product.imagenes)
 
-
-            productosControlador.editarDatosProducto(paramObject.toString())
+            productosControlador.editarDatosProducto(paramObject.toString(), product.id!!)
                 .enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                         print(t.message)
@@ -96,10 +99,6 @@ class ProductoModificarFragment : Fragment() {
                             t.message + "No se ha podido modificar el usuario",
                             Toast.LENGTH_SHORT
                         ).show()
-                        /*val action =
-                           EditardatosconsumidorFragmentDirections.actionNavEditardatosconsumidoresToNavPrincipalconsumidores()
-                        findNavController().navigate(action)
-                        */
                     }
 
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -108,14 +107,9 @@ class ProductoModificarFragment : Fragment() {
                             "Modificación exitosa!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        /*val action =
-                            EditardatosconsumidorFragmentDirections.actionNavEditardatosconsumidoresToNavPrincipalconsumidores()
-                        findNavController().navigate(action)
-                        */
                     }
                 })
         }
         else{Toast.makeText(requireContext(),"Debe completar los campos vacios!",Toast.LENGTH_SHORT).show()}
     }
-
 }

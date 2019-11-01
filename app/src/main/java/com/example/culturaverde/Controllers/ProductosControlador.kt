@@ -23,7 +23,7 @@ interface ProductosControlador {
     fun getProductosBusquedaProductor(@Query("id") id:Long): Call<List<ProductoProductor>>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @PUT("obtenerProductosProductorBusqueda")
-    fun editarDatosProducto(@Body body:String): Call<Void>
+    @POST("actualizarProductoProductor")
+    fun editarDatosProducto(@Body body:String, @Query ("id_producto_productor") id_producto_productor:Long): Call<Void>
 
 }
