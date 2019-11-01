@@ -51,6 +51,9 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
         // This displays the product information for each item
         fun bindProduct(product: ProductoProductor,context:Context) {
 
+            itemView.tachado_oferta.setVisibility(View.GONE)
+            itemView.oferta.setVisibility(View.GONE)
+
             itemView.product_name.text = product.titulo
             itemView.product_stock.text = "Stock: "+product.stock.toString()+" "+"/"+" "+product.unidad_venta
             itemView.product_price.text = "$${product.precio.toString()}"+" (x unidad)"
@@ -59,6 +62,21 @@ class ProductAdapter(var context: Context, var products: List<ProductoProductor>
             val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 
             itemView.product_image.setImageBitmap(image)
+
+            if(product.oferta!=null){
+
+                if(product.oferta!!.activo==true){
+
+                    itemView.tachado_oferta.setVisibility(View.VISIBLE)
+
+                    itemView.oferta.text= "$"+(product.precio!! - ((product.oferta!!.porcentaje.toString().toInt() * product.precio!!)/100)).toString()+" (x unidad)"
+
+                    itemView.oferta.setVisibility(View.VISIBLE)
+
+
+                }
+
+            }
 
             itemView.product_image.setOnClickListener{view->
 

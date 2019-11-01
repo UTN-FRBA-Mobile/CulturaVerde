@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Classes.ProductoGlobal
 import com.example.culturaverde.Controllers.ProductosControlador
 import com.example.culturaverde.Services.APIConfig
+import kotlinx.android.synthetic.main.productos_productor_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -106,6 +107,16 @@ class ProductoProductorAdapter(var context: Context, var products: List<Producto
                         Toast.makeText(ctx, " Producto activado!", Toast.LENGTH_SHORT).show()
                     }
                 })
+            }
+
+            itemView.crear_oferta.setOnClickListener{
+
+                ProductoGlobal.guardarProducto(product)
+
+                val action= ProductosProductorFragmentDirections.actionNavProductosProductorFragmentToOfertasFragment()
+
+                itemView.findNavController().navigate(action)
+
             }
         }
     }

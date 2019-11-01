@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.ProductoProductorAdapter
@@ -19,6 +21,7 @@ import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.ProductosProductorViewModel
 import kotlinx.android.synthetic.main.productos_productor_fragment.*
+import kotlinx.android.synthetic.main.productos_productor_item.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -56,6 +59,7 @@ class ProductosProductorFragment : Fragment() {
           recycler_productos.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
           getProductos()
+
     }
 
     fun getProductos() {

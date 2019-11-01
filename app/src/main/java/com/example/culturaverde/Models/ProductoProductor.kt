@@ -14,6 +14,9 @@ data class ProductoProductor (
     @SerializedName("producto")
     var producto: Producto? = null,
 
+    @SerializedName("oferta")
+    var oferta: Oferta? = null,
+
     @SerializedName("titulo")
     var titulo: String? = null,
 
