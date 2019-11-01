@@ -110,9 +110,11 @@ class EditardatosproductorFragment : Fragment() {
                             t.message + "No se ha podido modificar el usuario",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val action =
+                       /* val action =
                             EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
                         findNavController().navigate(action)
+
+                        */
                     }
 
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -121,10 +123,10 @@ class EditardatosproductorFragment : Fragment() {
                             "Modificación exitosa!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val action =
+                        /*val action =
                             EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
                         findNavController().navigate(action)
-
+                         */
                     }
                 })
         }

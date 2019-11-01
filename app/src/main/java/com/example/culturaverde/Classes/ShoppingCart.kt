@@ -13,10 +13,26 @@ class ShoppingCart {
             val targetItem = cart.singleOrNull { it.product.id == cartItem.product.id }
             if (targetItem == null) {
 
+                if(cart.size==0) {
+
                     cartItem.quantity++
                     cart.add(cartItem)
                     ShoppingCart.saveCart(cart)
                     return true
+
+                }else{
+
+                    if(cart[0].product.productor!!.id==cartItem.product.productor!!.id){
+
+                        cartItem.quantity++
+                        cart.add(cartItem)
+                        ShoppingCart.saveCart(cart)
+                        return true
+                    }
+
+                    return false
+
+                }
 
                 } else {
 

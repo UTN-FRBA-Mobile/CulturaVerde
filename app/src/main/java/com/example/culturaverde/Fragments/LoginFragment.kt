@@ -25,8 +25,6 @@ import retrofit2.Response
 class LoginFragment : Fragment() {
 
     private lateinit var usuarioControlador: UsuarioControlador
-    private var usuario: Usuario? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,33 +39,13 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Paper.init(requireContext())
-        usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
-            create(UsuarioControlador::class.java)
+        
         botonIngreso.setOnClickListener {
 
             if(nombreUsuario.text.toString()!=""&&contrasena.text.toString()!="") {
-                login()
 
-                if (usuario?.rol == "Productor") {
-                    val action =
-                        LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+                login(nombreUsuario.text.toString(), contrasena.text.toString())
 
-                    UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
-                        usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
-
-                    findNavController().navigate(action)
-                }
-
-                if (usuario?.rol == "Consumidor") {
-
-                    val action =
-                        LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
-
-                    UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
-                        usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
-
-                    findNavController().navigate(action)
-                }
 
             }
             else {
@@ -81,19 +59,42 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun login() {
+    fun login(user:String,contraseña:String) {
 
-        usuarioControlador.login(nombreUsuario.text.toString(),contrasena.text.toString())
+        usuarioControlador = APIConfig.getRetrofitClient(requireContext()).
+            create(UsuarioControlador::class.java)
+
+        usuarioControlador.login(user,contraseña)
             .enqueue(object : Callback<Usuario> {
 
                 override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                    print(t.message)
-                    Log.d("Login error", t.message!!)
-                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                    usuario = response.body()!!
+
+                    var usuario = response.body()!!
+
+                    if (usuario!!.rol == "Productor") {
+                        val action =
+                            LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableProductores()
+
+                        UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
+                            usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
+
+                        findNavController().navigate(action)
+                    }
+
+                    if (usuario!!.rol == "Consumidor") {
+
+                        val action =
+                            LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
+
+                        UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
+                            usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
+
+                        findNavController().navigate(action)
+                    }
 
                 }
             })

@@ -93,9 +93,11 @@ class EditardatosconsumidorFragment : Fragment() {
                             t.message + "No se ha podido modificar el usuario",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val action =
+                       /* val action =
                             EditardatosconsumidorFragmentDirections.actionNavEditardatosconsumidoresToNavPrincipalconsumidores()
                         findNavController().navigate(action)
+
+                        */
                     }
 
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -104,9 +106,10 @@ class EditardatosconsumidorFragment : Fragment() {
                             "Modificación exitosa!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val action =
+                        /*val action =
                             EditardatosconsumidorFragmentDirections.actionNavEditardatosconsumidoresToNavPrincipalconsumidores()
                         findNavController().navigate(action)
+                        */
                     }
                 })
         }
