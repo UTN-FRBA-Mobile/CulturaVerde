@@ -23,7 +23,6 @@ import android.view.View
 import com.example.culturaverde.Classes.CategoriaProductoGlobal
 import com.example.culturaverde.Classes.ProductorGlobal
 import com.example.culturaverde.Models.ProductorMaps
-import java.lang.Long
 
 
 class ResultadoBusqueda : AppCompatActivity() {
@@ -82,7 +81,13 @@ class ResultadoBusqueda : AppCompatActivity() {
 
     fun getProductosBusqueda() {
 
-        var id_productor = ProductorGlobal.getProductor().id
+        var id_productor:Long?=null
+
+        if(ProductorGlobal.getProductor().id!=null){
+
+        id_productor = ProductorGlobal.getProductor().id
+
+        }
 
         var busqueda = CategoriaProductoGlobal.getProducto().tipo
 
