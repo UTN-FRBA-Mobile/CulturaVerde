@@ -114,6 +114,7 @@
     <string name="texto_nombrereserva">Nombre</string>
     <string name="texto_apellidoreserva">Apellido</string>
     <string name="texto_contactoreserva">Contacto</string>
+    <string name="spinner_text_punto_entrega">"Elegí punto de entrega"</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
