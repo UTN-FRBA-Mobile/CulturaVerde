@@ -50,7 +50,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/basketButton"
-            android:src="@drawable/ic_shopping_basket"
+            android:src="@drawable/baseline_shopping_cart_white_24dp"
             android:tint="@android:color/white"
             android:background="@color/color_verde"
             app:fabSize="normal"
