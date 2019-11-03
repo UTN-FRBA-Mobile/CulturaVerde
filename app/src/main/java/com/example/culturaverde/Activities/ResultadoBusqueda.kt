@@ -82,19 +82,11 @@ class ResultadoBusqueda : AppCompatActivity() {
 
     fun getProductosBusqueda() {
 
-       // var id_productor= ProductorGlobal.getProductor().id
-
-        var id_productor:Long?=null
-
-        if(ProductorGlobal.getProductor().id!=null){
-
-            id_productor = ProductorGlobal.getProductor().id
-
-        }
+        var id_productor= ProductorGlobal.getProductor().id
 
         var busqueda = CategoriaProductoGlobal.getProducto().tipo
 
-        if (id_productor != null) {
+        if (id_productor!!.toInt() != 0) {
 
             productosControlador.getProductosBusquedaProductor(id_productor)
                 .enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
@@ -109,7 +101,7 @@ class ResultadoBusqueda : AppCompatActivity() {
                         response: Response<List<ProductoProductor>>
                     ) {
 
-                        ProductorGlobal.guardarProductor(ProductorMaps())
+                        ProductorGlobal.guardarProductor(ProductorMaps(0))
 
                         swipeRefreshLayout.isRefreshing = false
                         swipeRefreshLayout.isEnabled = false

@@ -51,7 +51,7 @@
 
         <TextView
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@android:color/black"
             android:id="@+id/texto_estado"
             android:layout_marginTop="5dp"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/estado"
             android:layout_width="wrap_content"
@@ -71,13 +71,13 @@
             android:layout_width="wrap_content"
             android:orientation="vertical"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_gravity="left">
 
 
             <TextView
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:layout_marginTop="5dp"
                 android:textColor="@android:color/black"
                 android:id="@+id/texto_fecha_creacion"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textColor="@android:color/black"
                 android:id="@+id/fecha_creacion"
                 android:layout_width="wrap_content"
@@ -103,15 +103,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_gravity="left">
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButtonMostrarDetalle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:clickable="true"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 app:fabSize="mini"
                 android:tint="@android:color/white"
@@ -121,8 +121,8 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/floatingActionButtonGeneral"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:clickable="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
@@ -133,8 +133,8 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButtonCambioEstado"
                 android:layout_marginStart="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 app:fabSize="mini"
@@ -166,7 +166,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/datos_retiro"
                     android:textStyle="bold"
@@ -174,26 +174,26 @@
                     android:layout_height="wrap_content"/>
 
             <TextView
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textColor="@android:color/black"
                 android:id="@+id/persona_retiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/direccion_retiro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/localidad_retiro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/fecha_retiro"
                     android:layout_width="wrap_content"
@@ -211,7 +211,7 @@
                 android:layout_marginLeft="5dp">
 
                 <TextView
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/usuario"
                     android:textStyle="bold"
@@ -219,19 +219,19 @@
                     android:layout_height="wrap_content"/>
 
             <TextView
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textColor="@android:color/black"
                 android:id="@+id/nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
                 <TextView
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/apellido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textColor="@android:color/black"
                     android:id="@+id/tel"
                     android:layout_width="wrap_content"
@@ -259,7 +259,7 @@
                 android:layout_marginLeft="5dp">
 
                 <TextView
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/black"
                     android:id="@+id/total_reserva"
@@ -267,7 +267,7 @@
                     android:layout_height="wrap_content"/>
 
             <TextView
-                android:textSize="15sp"
+                android:textSize="12sp"
                 android:textColor="@android:color/black"
                 android:id="@+id/total"
                 android:layout_width="wrap_content"
@@ -326,7 +326,7 @@
 
                 <TextView
                     android:textStyle="bold"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textColor="@android:color/black"
                     android:text="@string/texto_categoria"
                     android:layout_marginTop="5dp"
@@ -345,7 +345,7 @@
 
             <TextView
                 android:textStyle="bold"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@android:color/black"
                 android:text="@string/texto_producto"
                 android:layout_marginTop="5dp"
@@ -364,7 +364,7 @@
 
             <TextView
                 android:textStyle="bold"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@android:color/black"
                 android:text="@string/texto_cantidad"
                 android:layout_marginTop="5dp"
@@ -382,7 +382,7 @@
                 >
                 <TextView
                     android:textStyle="bold"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textColor="@android:color/black"
                     android:text="@string/texto_precio_unidad"
                     android:layout_marginTop="5dp"
@@ -400,7 +400,7 @@
                 >
             <TextView
                 android:textStyle="bold"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@android:color/black"
                 android:text="@string/texto_subtotal"
                 android:layout_marginTop="5dp"

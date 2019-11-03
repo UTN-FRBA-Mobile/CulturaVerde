@@ -90,6 +90,8 @@ class LoginFragment : Fragment() {
                         val action =
                             LoginFragmentDirections.actionLoginmainfragmentToMenudesplegableConsumidores()
 
+                        ProductorGlobal.guardarProductor(ProductorMaps(0))
+
                         UsuarioGlobal.guardarUsuario(Usuario(usuario!!.id,usuario!!.nombre,usuario!!.apellido,usuario!!.usuario,
                             usuario!!.contraseña, usuario!!.fecha_nacimiento,usuario!!.rol,usuario!!.telefono))
 

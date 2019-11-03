@@ -26,7 +26,7 @@
         >
 
         <TextView
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/input_categoria"
             android:gravity="left"
@@ -43,7 +43,7 @@
         android:layout_weight="1"
         >
         <TextView
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/input_producto"
             android:gravity="left"
@@ -60,7 +60,7 @@
         android:layout_weight="1"
         >
         <TextView
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/input_cantidad"
             android:gravity="center"
@@ -77,7 +77,7 @@
         android:layout_weight="1"
         >
         <TextView
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/input_precio_unidad"
             android:gravity="center"
@@ -94,7 +94,7 @@
         android:layout_weight="1"
         >
         <TextView
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/input_subtotal"
             android:layout_marginTop="5dp"
