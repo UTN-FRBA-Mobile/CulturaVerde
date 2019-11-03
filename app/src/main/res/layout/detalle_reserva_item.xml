@@ -16,25 +16,7 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:weightSum="5">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        >
-
-        <TextView
-            android:textSize="12sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/input_categoria"
-            android:gravity="left"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+        android:weightSum="4">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,8 +28,8 @@
             android:textSize="12sp"
             android:textColor="@android:color/black"
             android:id="@+id/input_producto"
-            android:gravity="left"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="11dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -82,7 +64,7 @@
             android:id="@+id/input_precio_unidad"
             android:gravity="center"
             android:layout_marginTop="5dp"
-            android:layout_width="70dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -99,7 +81,7 @@
             android:id="@+id/input_subtotal"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:gravity="right"
+            android:gravity="center"
             android:layout_height="wrap_content" />
 
     </LinearLayout>

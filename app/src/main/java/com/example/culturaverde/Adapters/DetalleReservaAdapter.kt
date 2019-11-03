@@ -41,7 +41,6 @@ class DetalleReservaAdapter(var context: Context, var detalle_reserva: List<Deta
             var cantidad:Int = detalle_reserva.cantidad
             var precio_unidad:Float = detalle_reserva.precio_por_unidad
 
-              itemView.input_categoria.text = detalle_reserva.producto.producto!!.categoria
               itemView.input_producto.text = detalle_reserva.producto.producto!!.tipo
                itemView.input_cantidad.text = detalle_reserva.cantidad.toString()
               itemView.input_precio_unidad.text = detalle_reserva.precio_por_unidad.toString()
