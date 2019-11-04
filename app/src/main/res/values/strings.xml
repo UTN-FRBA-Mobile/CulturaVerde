@@ -117,6 +117,7 @@
     <string name="spinner_text_punto_entrega">"Elegí punto de entrega"</string>
     <string name="datosparaelretirotext">"Datos para el retiro"</string>
     <string name="datosproductosseleccionadostext">"Productos seleccionados"</string>
+    <string name="text_total">"Total $ "</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
