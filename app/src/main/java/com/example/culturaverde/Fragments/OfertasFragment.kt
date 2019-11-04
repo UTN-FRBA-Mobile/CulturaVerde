@@ -137,7 +137,7 @@ class OfertasFragment : Fragment() {
 
                 Toast.makeText(
                     requireContext(),
-                    "Tenés que validar la oferta y completar el porcentaje de descuento",
+                    "Tenés que validar la oferta y completar el porcentaje de descuento!",
                     Toast.LENGTH_SHORT
                 ).show()
 

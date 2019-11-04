@@ -80,13 +80,14 @@
                 android:text="Porcentaje de descuento: " />
 
             <EditText
-                android:textSize="15sp"
                 android:id="@+id/porcentaje"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textStyle="bold"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:textSize="15sp"
