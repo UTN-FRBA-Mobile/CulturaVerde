@@ -63,6 +63,7 @@ class ProductoModificarFragment : Fragment() {
 
         modificarPrecioProducto.text = SpannableStringBuilder(product.precio.toString())
         modificarStockProducto.text  = SpannableStringBuilder(product.stock.toString())
+        modificarTituloProducto.text = SpannableStringBuilder(product.titulo.toString())
 
         botonModificarProducto.setOnClickListener{
 
@@ -78,11 +79,12 @@ class ProductoModificarFragment : Fragment() {
 
         val paramObject = JSONObject()
         if ( modificarPrecioProducto.text.toString() != "" &&
-            modificarStockProducto.text.toString() != ""
+            modificarStockProducto.text.toString() != "" &&
+            modificarTituloProducto.text.toString()!= ""
         ) {
             paramObject.put("precio", modificarPrecioProducto.text.toString())
             paramObject.put("stock", modificarStockProducto.text.toString())
-            paramObject.put("titulo", product.titulo)
+            paramObject.put("titulo", modificarTituloProducto.text.toString())
             paramObject.put("descripcion", product.descripcion)
             //paramObject.put("fecha_vencimiento", product.fecha_vencimiento)
             paramObject.put("tiempo_preparacion", product.tiempo_preparacion)
@@ -92,11 +94,9 @@ class ProductoModificarFragment : Fragment() {
             productosControlador.editarDatosProducto(paramObject.toString(), product.id!!)
                 .enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
-                        print(t.message)
-                        Log.d("Registro erroneo", t.message!!)
-                        Toast.makeText(
+                       Toast.makeText(
                             requireContext(),
-                            t.message + "No se ha podido modificar el usuario",
+                            "No se ha podido modificar el usuario",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -110,6 +110,6 @@ class ProductoModificarFragment : Fragment() {
                     }
                 })
         }
-        else{Toast.makeText(requireContext(),"Debe completar los campos vacios!",Toast.LENGTH_SHORT).show()}
+        else{Toast.makeText(requireContext(),"Debe completar los campos vacíos!",Toast.LENGTH_SHORT).show()}
     }
 }

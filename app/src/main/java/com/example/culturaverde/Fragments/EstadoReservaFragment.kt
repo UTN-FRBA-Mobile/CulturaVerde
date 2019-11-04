@@ -48,7 +48,7 @@ class EstadoReservaFragment : Fragment() {
         return inflater.inflate(R.layout.estado_reserva_fragment, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(EstadoReservaViewModel::class.java)
@@ -59,13 +59,6 @@ class EstadoReservaFragment : Fragment() {
         view!!.radioButton3.setVisibility(View.GONE)
         view!!.radioButton4.setVisibility(View.GONE)
         view!!.radioButton5.setVisibility(View.GONE)
-
-        var estados: HashMap<String, Int>
-                = HashMap<String, Int> ()
-
-        estados.put("Pendiente",1)
-        estados.put("En proceso",2)
-        estados.put("Disponible",3)
 
         var fechaHoy = Date()
 
@@ -162,6 +155,7 @@ class EstadoReservaFragment : Fragment() {
 
     fun guardarEstado(id_estado:Long){
 
+
         var id_reserva = ReservaGlobal.getReserva().id
 
         reservasControlador = APIConfig.getRetrofitClient(requireContext()).create(ReservasControlador::class.java)
@@ -169,6 +163,7 @@ class EstadoReservaFragment : Fragment() {
         reservasControlador.modificarEstado(id_reserva,id_estado)
             .enqueue(object : retrofit2.Callback<String> {
                 override fun onFailure(call: Call<String>, t: Throwable) {
+
 
                     Toast.makeText(
                         requireContext(),
@@ -182,6 +177,7 @@ class EstadoReservaFragment : Fragment() {
                     call: Call<String>,
                     response: Response<String>
                 ) {
+
 
                     Toast.makeText(
                         requireContext(),

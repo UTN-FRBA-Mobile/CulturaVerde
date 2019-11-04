@@ -53,7 +53,7 @@
     <string name="IngresePassword">Password</string>
 
     <!-- Pantalla alertas -->
-    <string name="texto_pantalla_alertas">Administrá tus notificaciones a continuación.</string>
+    <string name="texto_pantalla_alertas">Configurá tus notificaciones a continuación.</string>
     <string name="alerta_modificacion_reservas">Actualización de reservas</string>
     <string name="alerta_productos_interes">Productos de interés</string>
     <string name="alerta_nuevas_reservas">Nuevas reservas</string>
