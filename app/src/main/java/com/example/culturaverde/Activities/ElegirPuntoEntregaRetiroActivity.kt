@@ -20,6 +20,12 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_elegirpuntoentregaretiro)
 
+        val objetoIntent: Intent = intent
+
+        var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
+        var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
+
+
         checkboxpuntoentrega = findViewById(R.id.checkBoxAcordarConProductor)
         checkboxselectpuntosentrega = findViewById(R.id.checkBoxSelectPuntosEntrega)
         comboselectpuntosentrega  = findViewById(R.id.Combopuntoentrega)
@@ -49,7 +55,18 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 */
         botonContinuarReserva2.setOnClickListener {
 
-            startActivity(Intent(this, ResumenReservasActivity::class.java))
+            val intent = Intent(this, ResumenReservasActivity::class.java)
+            intent.putExtra("Nombreretira", nombreretira)
+            intent.putExtra("Apellidoretira", apellidoretira)
+
+            if (checkboxpuntoentrega.isChecked){
+                intent.putExtra("Comoretira", "Acordas el punto de entrega y la fecha con el productor")
+            }else
+            {
+                intent.putExtra("Comoretira", "Retira en Feria A")
+            }
+
+            startActivity(intent)
 
         }
 

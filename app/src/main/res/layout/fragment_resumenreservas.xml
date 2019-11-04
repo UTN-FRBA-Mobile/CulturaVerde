@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--titulos y subtitulos-->
+
     <TextView
         android:id="@+id/textfinalizarreserva3"
         android:layout_width="wrap_content"
@@ -40,61 +42,115 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textfinalizarreserva3"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/resumenreservas_recyclerView"
-        android:layout_width="match_parent"
+    <!--datos para el retiro -->
+    <!--titulo -->
+
+    <TextView
+        android:id="@+id/datosparaelretirotext"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        android:text="@string/datosparaelretirotext"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subtextfinalizarreserva3" />
 
-        <LinearLayout
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="15dp"
+    <!--Texto: Persona que retira -->
+
+    <TextView
+
+        android:id="@+id/datosparaelretiropersona"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:ignore="RtlCompat">
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datosparaelretirotext" />
 
-        <TextView
-            android:id="@+id/totalLabel"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:text="Total"
+    <!--Texto: Punto de entrega o acuerda con el productor -->
+    <TextView
+        android:id="@+id/datospuntoentregaoacuerdo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datosparaelretiropersona" />
+
+    <TextView
+        android:id="@+id/datosproductosseleccionadostext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:text="@string/datosproductosseleccionadostext"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datospuntoentregaoacuerdo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/resumenproductosselect_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datosproductosseleccionadostext" />
+
+        <LinearLayout
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
+            android:layout_marginLeft="15dp"
             android:layout_height="wrap_content"
-            />
-
-        <TextView
-            android:layout_marginStart="18dp"
-            android:id="@+id/total_price"
-            android:textSize="24sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="RtlCompat"/>
-
-    </LinearLayout>
+            tools:ignore="RtlCompat">
+        </LinearLayout>
 
     <Button
         android:id="@+id/botonFinalizarReserva3"
         style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
+        android:layout_marginBottom="50dp"
         android:background="@color/color_verde"
         android:text="Finalizar"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resumenreservas_recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/resumenreservas_recyclerView"
+        app:layout_constraintStart_toEndOf="@+id/resumenproductosselect_recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/resumenproductosselect_recyclerView"
         tools:targetApi="m" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

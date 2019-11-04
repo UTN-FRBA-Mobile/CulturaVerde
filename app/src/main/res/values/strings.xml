@@ -115,6 +115,8 @@
     <string name="texto_apellidoreserva">Apellido</string>
     <string name="texto_contactoreserva">Contacto</string>
     <string name="spinner_text_punto_entrega">"Elegí punto de entrega"</string>
+    <string name="datosparaelretirotext">"Datos para el retiro"</string>
+    <string name="datosproductosseleccionadostext">"Productos seleccionados"</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
