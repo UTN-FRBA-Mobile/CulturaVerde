@@ -28,7 +28,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 
         checkboxpuntoentrega = findViewById(R.id.checkBoxAcordarConProductor)
         checkboxselectpuntosentrega = findViewById(R.id.checkBoxSelectPuntosEntrega)
-        comboselectpuntosentrega  = findViewById(R.id.Combopuntoentrega)
+
 
         if (checkboxpuntoentrega.isChecked){
             textoonclick.visibility = View.VISIBLE
@@ -36,23 +36,12 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
             textoonclick.visibility = View.INVISIBLE
         }
 
-        val listitemstxt = arrayOf("Ramos mejia", "vicente lopez", "Capital federal")
-        val arrayAdapter = ArrayAdapter(this, R.layout.fragment_elegirpuntoentregaretiro, listitemstxt)
-        arrayAdapter.setDropDownViewResource(R.layout.fragment_elegirpuntoentregaretiro)
-/*
-        comboselectpuntosentrega.adapter = arrayAdapter
+        botonelegirpuntoentrega.setOnClickListener{
 
-        comboselectpuntosentrega.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                Toast.makeText(this@ElegirPuntoEntregaRetiroActivity, "Nada", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                Toast.makeText(this@ElegirPuntoEntregaRetiroActivity, "posicion "+listitemstxt[position] , Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, BusquedaPuntosEntregaActivity::class.java)
+            startActivity(intent)
 
         }
-*/
         botonContinuarReserva2.setOnClickListener {
 
             val intent = Intent(this, ResumenReservasActivity::class.java)
