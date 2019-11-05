@@ -2,6 +2,7 @@ package com.example.culturaverde.Activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.culturaverde.R
@@ -24,10 +25,19 @@ class FinalizarReservaActivity : AppCompatActivity() {
 
         if (checkboxotrapersona.isChecked) {
             usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
+            nombrereserva.isEnabled = true
             nombrereserva.setText("")
+            apellidoreserva.isEnabled = true
             apellidoreserva.setText("")
             contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
+
         } else {
+
+            usuarioreserva.isEnabled = false
+            nombrereserva.isEnabled = false
+            apellidoreserva.isEnabled = false
+            contactoreserva.isEnabled = false
+
             usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
             nombrereserva.setText(UsuarioGlobal.getUsuario().nombre)
             apellidoreserva.setText(UsuarioGlobal.getUsuario().apellido)
@@ -52,15 +62,24 @@ class FinalizarReservaActivity : AppCompatActivity() {
 
         if (checkboxotrapersona.isChecked) {
             usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
+
+            nombrereserva.isEnabled = true
             nombrereserva.setText("")
+            apellidoreserva.isEnabled = true
             apellidoreserva.setText("")
             contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
+
         } else {
+
+            usuarioreserva.isEnabled = false
+            nombrereserva.isEnabled = false
+            apellidoreserva.isEnabled = false
+            contactoreserva.isEnabled = false
+
             usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
             nombrereserva.setText(UsuarioGlobal.getUsuario().nombre)
             apellidoreserva.setText(UsuarioGlobal.getUsuario().apellido)
             contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
-
         }
     }
 

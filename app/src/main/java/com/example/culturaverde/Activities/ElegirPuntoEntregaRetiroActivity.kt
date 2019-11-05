@@ -32,6 +32,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 
         if (checkboxpuntoentrega.isChecked){
             textoonclick.visibility = View.VISIBLE
+            botonelegirpuntoentrega.visibility = View.INVISIBLE
         } else {
             textoonclick.visibility = View.INVISIBLE
         }
@@ -66,9 +67,11 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 
         if (checkboxpuntoentrega.isChecked){
             textoonclick.visibility = View.VISIBLE
+            botonelegirpuntoentrega.visibility = View.INVISIBLE
             checkboxselectpuntosentrega.isChecked = false
         } else {
             textoonclick.visibility = View.INVISIBLE
+            botonelegirpuntoentrega.visibility = View.VISIBLE
             checkboxselectpuntosentrega.isChecked = true
         }
     }
@@ -79,9 +82,11 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
         if (checkboxselectpuntosentrega.isChecked){
             textoonclick.visibility = View.INVISIBLE
             checkboxpuntoentrega.isChecked = false
+            botonelegirpuntoentrega.visibility = View.VISIBLE
         } else {
             textoonclick.visibility = View.VISIBLE
             checkboxpuntoentrega.isChecked = true
+            botonelegirpuntoentrega.visibility = View.INVISIBLE
         }
     }
 }
