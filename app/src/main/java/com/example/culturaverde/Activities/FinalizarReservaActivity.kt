@@ -9,6 +9,7 @@ import com.example.culturaverde.R
 import kotlinx.android.synthetic.main.fragment_finalizarreserva.*
 import android.widget.CheckBox
 import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import com.example.culturaverde.Classes.UsuarioGlobal
 
 
@@ -20,6 +21,11 @@ class FinalizarReservaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_finalizarreserva)
 
+        val objetoIntent: Intent = intent
+
+        var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
+
+        Toast.makeText(this, "id productor "+idproductor, LENGTH_SHORT).show()
         checkboxotrapersona = findViewById(R.id.checkBoxRetiraOtraPersona)
 
 
@@ -52,6 +58,7 @@ class FinalizarReservaActivity : AppCompatActivity() {
 
             intent.putExtra("Nombreretira", nombreretira)
             intent.putExtra("Apellidoretira", apellidoretira)
+            intent.putExtra("Idproductor", idproductor)
             startActivity(intent)
 
         }

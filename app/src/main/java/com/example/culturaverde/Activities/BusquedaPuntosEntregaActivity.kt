@@ -1,5 +1,6 @@
 package com.example.culturaverde.Activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,9 @@ import com.example.culturaverde.Models.PuntosEntrega
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.BusquedaPuntosEntregaViewModel
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
+import kotlinx.android.synthetic.main.busquedapuntosentrega_items.*
 import kotlinx.android.synthetic.main.fragment_busquedapuntosentrega.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,9 +38,15 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
         swipeRefreshLayout4.isRefreshing = true
 
-       recycler_puntosentrega.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        recycler_puntosentrega.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
         getpuntosdeentrega()
+
+        puntosentrega_resultados!!.setOnClickListener { view ->
+            Toast.makeText(this, "hola",Toast.LENGTH_SHORT).show()
+
+        }
+
 
     }
 
@@ -44,13 +54,6 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
         puntosEntregaControlador.obtenerpuntosdeentrega()
             .enqueue(object : Callback<List<PuntosEntrega>> {
                 override fun onFailure(call: Call<List<PuntosEntrega>>, t: Throwable) {
-
-
-                    Toast.makeText(
-                        this@BusquedaPuntosEntregaActivity,
-                        "Ocurrió un error inesperado, intentá nuevamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
 
                 }
 

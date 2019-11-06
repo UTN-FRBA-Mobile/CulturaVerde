@@ -27,6 +27,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 
         var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
         var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
+        var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
 
 
         checkboxpuntoentrega = findViewById(R.id.checkBoxAcordarConProductor)

@@ -1,18 +1,17 @@
 package com.example.culturaverde.Adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.culturaverde.Activities.ElegirPuntoEntregaRetiroActivity
-import com.example.culturaverde.Activities.ResumenReservasActivity
+import com.example.culturaverde.Activities.BusquedaPuntosEntregaActivity
 import com.example.culturaverde.Classes.PuntoEntregaGlobal
-import com.example.culturaverde.Models.CartItem
 import com.example.culturaverde.Models.PuntosEntrega
 import com.example.culturaverde.R
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import kotlinx.android.synthetic.main.busquedapuntosentrega_items.view.*
 
 class PuntosEntregaAdapter (var context: Context, var puntosEntrega: List<PuntosEntrega> = arrayListOf()):
@@ -43,7 +42,18 @@ class PuntosEntregaAdapter (var context: Context, var puntosEntrega: List<Puntos
             itemView.id_puntoentrega.text= puntosEntrega.id.toString()
             itemView.descrippuntoentrega.text = puntosEntrega.direccion.toString()
 
+/*
             itemView.puntosentrega_resultados.setOnClickListener { view ->
+
+
+
+
+                Snackbar.make(
+                                (itemView.context as BusquedaPuntosEntregaActivity).coordinator,
+                                "No hay mas stock de ese producto",
+                                Snackbar.LENGTH_LONG
+                            ).show()
+
 
                 PuntoEntregaGlobal.guardarPuntoEntrega(PuntosEntrega(puntosEntrega.id, puntosEntrega.reservas, puntosEntrega.fechas_entrega,
                                                                      puntosEntrega.cod_postal, puntosEntrega.direccion, puntosEntrega.latitud, puntosEntrega.localidad,
@@ -51,10 +61,9 @@ class PuntosEntregaAdapter (var context: Context, var puntosEntrega: List<Puntos
                                                                      puntosEntrega.activo))
 
 
-
                 view.findNavController().navigate(R.id.action_busquedaPuntosEntregaFragment_to_elegirPuntoEntregaRetiroActivity)
 
-            }
+            }*/
         }
 
 
@@ -63,10 +72,3 @@ class PuntosEntregaAdapter (var context: Context, var puntosEntrega: List<Puntos
 
 
 }
-
-/*
-
-class ShoppingCartAdapter(var context: Context, var cartItems: List<CartItem>) :
-    RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder>() {
-
- */

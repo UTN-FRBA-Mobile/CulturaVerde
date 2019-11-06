@@ -41,7 +41,10 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         botonfinalizarreserva.setOnClickListener {
 
-            startActivity(Intent(this, FinalizarReservaActivity::class.java))
+            val intent = Intent(this, FinalizarReservaActivity::class.java)
+            intent.putExtra("Idproductor", "2")
+            startActivity(intent)
+
         }
     }
 
