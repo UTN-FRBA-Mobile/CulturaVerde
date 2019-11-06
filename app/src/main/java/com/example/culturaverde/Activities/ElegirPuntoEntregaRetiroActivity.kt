@@ -37,8 +37,15 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
         if (checkboxpuntoentrega.isChecked){
             textoonclick.visibility = View.VISIBLE
             botonelegirpuntoentrega.visibility = View.INVISIBLE
+            textpuntoentrega.visibility = View.INVISIBLE
+            textfechapuntoentrega.visibility = View.INVISIBLE
+            botonelegirfechaentrega.visibility = View.INVISIBLE
         } else {
             textoonclick.visibility = View.INVISIBLE
+            botonelegirpuntoentrega.visibility = View.VISIBLE
+            textpuntoentrega.visibility = View.VISIBLE
+            textfechapuntoentrega.visibility = View.VISIBLE
+            botonelegirfechaentrega.visibility = View.VISIBLE
         }
 
         botonelegirpuntoentrega.setOnClickListener{
@@ -76,11 +83,17 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
         if (checkboxpuntoentrega.isChecked){
             textoonclick.visibility = View.VISIBLE
             botonelegirpuntoentrega.visibility = View.INVISIBLE
+            textpuntoentrega.visibility = View.INVISIBLE
+            textfechapuntoentrega.visibility = View.INVISIBLE
+            botonelegirfechaentrega.visibility = View.INVISIBLE
             checkboxselectpuntosentrega.isChecked = false
         } else {
             textoonclick.visibility = View.INVISIBLE
             botonelegirpuntoentrega.visibility = View.VISIBLE
             checkboxselectpuntosentrega.isChecked = true
+            textpuntoentrega.visibility = View.VISIBLE
+            textfechapuntoentrega.visibility = View.VISIBLE
+            botonelegirfechaentrega.visibility = View.VISIBLE
         }
     }
 
@@ -91,10 +104,16 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
             textoonclick.visibility = View.INVISIBLE
             checkboxpuntoentrega.isChecked = false
             botonelegirpuntoentrega.visibility = View.VISIBLE
+            textpuntoentrega.visibility = View.VISIBLE
+            textfechapuntoentrega.visibility = View.VISIBLE
+            botonelegirfechaentrega.visibility = View.VISIBLE
         } else {
             textoonclick.visibility = View.VISIBLE
             checkboxpuntoentrega.isChecked = true
             botonelegirpuntoentrega.visibility = View.INVISIBLE
+            textpuntoentrega.visibility = View.INVISIBLE
+            textfechapuntoentrega.visibility = View.INVISIBLE
+            botonelegirfechaentrega.visibility = View.INVISIBLE
         }
     }
 }

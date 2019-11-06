@@ -2,10 +2,12 @@ package com.example.culturaverde.Activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.culturaverde.Adapters.PuntosEntregaAdapter
 import com.example.culturaverde.Controllers.PuntosentregaControlador
@@ -39,6 +41,8 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
         var idprod: Long = idproductor!!.toLong()
 
+        //puntosentrega_resultados.setOnClickListener(clickListener)
+
         swipeRefreshLayout4.setColorSchemeColors(ContextCompat.getColor(this, R.color.color_verde))
 
         swipeRefreshLayout4.isRefreshing = true
@@ -48,15 +52,31 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
         getpuntosdeentrega(idprod)
 
         /*
-        puntosentrega_resultados!!.setOnClickListener { view ->
-            Toast.makeText(this, "hola",Toast.LENGTH_SHORT).show()
 
-        }
+        puntosentrega_resultados.view.setOnCli{
 
-         */
+            val intent = Intent(this, ElegirPuntoEntregaRetiroActivity::class.java)
+            //intent.putExtra("Idproductor", idproductor)
+
+            startActivity(intent)
+        }*/
+
 
 
     }
+
+    /*
+    private val clickListener: View.OnClickListener = View.OnClickListener { view -> when (view.id)
+    { R.id.puntosentrega_resultados -> gotoXScreent()}
+    }
+
+    private fun gotoXScreent() {
+        val intent = Intent(this, ElegirPuntoEntregaRetiroActivity::class.java)
+        //intent.putExtra("Idproductor", idproductor)
+
+        startActivity(intent)
+    }
+*/
 
     fun getpuntosdeentrega(idprod: Long) {
         puntosEntregaControlador.obtenerpuntosdeentrega(idprod)

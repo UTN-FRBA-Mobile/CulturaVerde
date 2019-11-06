@@ -61,8 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:gravity="center"
-        android:layout_marginTop="50dp"
         android:text="@string/text_onclick_puntodeentrega"
         android:textColor="@android:color/background_dark"
         android:textColorHint="#00000000"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="140dp"
         android:layout_marginRight="140dp"
         android:checked="false"
@@ -89,11 +89,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoonclick" />
 
+    <EditText
+        android:id="@+id/textpuntoentrega"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:hint="Punto de entrega"
+        android:enabled="false"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSelectPuntosEntrega" />
+
     <Button
         android:id="@+id/botonelegirpuntoentrega"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:background="@color/backgroundcolor"
@@ -103,21 +124,58 @@
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxSelectPuntosEntrega" />
+        app:layout_constraintTop_toBottomOf="@+id/textpuntoentrega" />
+
+    <EditText
+        android:id="@+id/textfechapuntoentrega"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        android:hint="Fecha de entrega"
+        android:visibility="invisible"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonelegirpuntoentrega" />
+
+    <Button
+        android:id="@+id/botonelegirfechaentrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@color/backgroundcolor"
+        android:text="Elegí una fecha de entrega"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textfechapuntoentrega" />
 
     <Button
         android:id="@+id/botonContinuarReserva2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="150dp"
         android:background="@color/color_verde"
         android:text="Continuar"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonelegirpuntoentrega" />
+        app:layout_constraintTop_toBottomOf="@+id/botonelegirfechaentrega" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
