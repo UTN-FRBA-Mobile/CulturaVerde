@@ -24,6 +24,9 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
+        val objetoIntent: Intent = intent
+        var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
+
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -42,12 +45,10 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         botonfinalizarreserva.setOnClickListener {
 
-            var id_productor= ProductorGlobal.getProductor().id
-
-            var idproductor = id_productor.toString()
+            var id_productor = idproductor.toString()
 
             val intent = Intent(this, FinalizarReservaActivity::class.java)
-            intent.putExtra("Idproductor", idproductor)
+            intent.putExtra("Idproductor", id_productor)
             startActivity(intent)
 
         }
