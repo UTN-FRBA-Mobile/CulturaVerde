@@ -73,5 +73,17 @@
         android:id="@+id/productoSeleccionadoActivity"
         android:name="com.example.culturaverde.Activities.ProductoSeleccionadoActivity"
         android:label="ProductoSeleccionadoActivity" />
+    <fragment
+        android:id="@+id/busquedaPuntosEntregaFragment"
+        android:name="com.example.culturaverde.Fragments.BusquedaPuntosEntregaFragment"
+        android:label="BusquedaPuntosEntregaFragment" >
+        <action
+            android:id="@+id/action_busquedaPuntosEntregaFragment_to_elegirPuntoEntregaRetiroActivity"
+            app:destination="@id/elegirPuntoEntregaRetiroActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/elegirPuntoEntregaRetiroActivity"
+        android:name="com.example.culturaverde.Activities.ElegirPuntoEntregaRetiroActivity"
+        android:label="ElegirPuntoEntregaRetiroActivity" />
 
 </navigation>

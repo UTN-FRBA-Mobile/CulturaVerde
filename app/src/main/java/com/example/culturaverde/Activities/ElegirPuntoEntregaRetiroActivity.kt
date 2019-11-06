@@ -1,10 +1,12 @@
 package com.example.culturaverde.Activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.culturaverde.R
 import kotlinx.android.synthetic.main.fragment_elegirpuntoentregaretiro.*
 import kotlinx.android.synthetic.main.fragment_finalizarreserva.*
@@ -15,6 +17,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
     lateinit var checkboxselectpuntosentrega: CheckBox
     lateinit var comboselectpuntosentrega: Spinner
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -42,7 +45,9 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
             val intent = Intent(this, BusquedaPuntosEntregaActivity::class.java)
             startActivity(intent)
 
+
         }
+
         botonContinuarReserva2.setOnClickListener {
 
             val intent = Intent(this, ResumenReservasActivity::class.java)

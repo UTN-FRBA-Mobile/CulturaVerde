@@ -10,6 +10,8 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_busquedapuntosentrega)
+
     }
+
 
 }
