@@ -69,7 +69,13 @@ class ResultadoBusqueda : AppCompatActivity() {
 
         showCart.setOnClickListener {
 
-            var id_productor= ProductorGlobal.getProductor().id
+            var id_productor = ProductorGlobal.getProductor().id
+
+            if (id_productor!!.toInt() === 0) {
+
+            id_productor = ShoppingCart.getCart()[0].product.id
+
+            }
             val intent = Intent(this, ShoppingCartActivity::class.java)
             intent.putExtra("Idproductor", id_productor)
             startActivity(intent)
