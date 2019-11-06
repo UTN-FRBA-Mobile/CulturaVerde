@@ -14,8 +14,9 @@ interface PuntosentregaControlador {
     fun getPuntosentrega(): Call<List<PuntosEntrega>>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("puntos_productor?id=2")
-    fun obtenerpuntosdeentrega(): Call<List<PuntosEntrega>>
+    @GET("puntos_productor")
+    fun obtenerpuntosdeentrega(@Query("id") id:Long): Call<List<PuntosEntrega>>
+
 
 
 }

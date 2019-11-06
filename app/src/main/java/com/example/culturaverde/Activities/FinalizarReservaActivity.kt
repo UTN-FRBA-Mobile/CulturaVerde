@@ -25,7 +25,7 @@ class FinalizarReservaActivity : AppCompatActivity() {
 
         var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
 
-        Toast.makeText(this, "id productor "+idproductor, LENGTH_SHORT).show()
+
         checkboxotrapersona = findViewById(R.id.checkBoxRetiraOtraPersona)
 
 

@@ -27,12 +27,17 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
     private lateinit var puntosEntregaAdapter: PuntosEntregaAdapter
     private var puntosentrega = listOf<PuntosEntrega>()
-
+    var idprod = Long
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_busquedapuntosentrega)
+
+        val objetoIntent: Intent = intent
+        var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
+
+        var idprod: Long = idproductor!!.toLong()
 
         swipeRefreshLayout4.setColorSchemeColors(ContextCompat.getColor(this, R.color.color_verde))
 
@@ -40,18 +45,21 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
         recycler_puntosentrega.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
-        getpuntosdeentrega()
+        getpuntosdeentrega(idprod)
 
+        /*
         puntosentrega_resultados!!.setOnClickListener { view ->
             Toast.makeText(this, "hola",Toast.LENGTH_SHORT).show()
 
         }
 
+         */
+
 
     }
 
-    fun getpuntosdeentrega() {
-        puntosEntregaControlador.obtenerpuntosdeentrega()
+    fun getpuntosdeentrega(idprod: Long) {
+        puntosEntregaControlador.obtenerpuntosdeentrega(idprod)
             .enqueue(object : Callback<List<PuntosEntrega>> {
                 override fun onFailure(call: Call<List<PuntosEntrega>>, t: Throwable) {
 

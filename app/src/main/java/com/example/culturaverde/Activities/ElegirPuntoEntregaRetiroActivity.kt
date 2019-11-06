@@ -18,6 +18,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
     lateinit var comboselectpuntosentrega: Spinner
 
     @SuppressLint("ResourceType")
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -28,7 +29,6 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
         var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
         var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
         var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
-
 
         checkboxpuntoentrega = findViewById(R.id.checkBoxAcordarConProductor)
         checkboxselectpuntosentrega = findViewById(R.id.checkBoxSelectPuntosEntrega)
@@ -44,6 +44,8 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
         botonelegirpuntoentrega.setOnClickListener{
 
             val intent = Intent(this, BusquedaPuntosEntregaActivity::class.java)
+            intent.putExtra("Idproductor", idproductor)
+
             startActivity(intent)
 
 
