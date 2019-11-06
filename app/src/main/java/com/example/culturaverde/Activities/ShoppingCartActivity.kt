@@ -10,6 +10,7 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.culturaverde.Classes.ProductorGlobal
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 import kotlinx.android.synthetic.main.activity_shopping_cart.toolbar
 
@@ -41,8 +42,12 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         botonfinalizarreserva.setOnClickListener {
 
+            var id_productor= ProductorGlobal.getProductor().id
+
+            var idproductor = id_productor.toString()
+
             val intent = Intent(this, FinalizarReservaActivity::class.java)
-            intent.putExtra("Idproductor", "2")
+            intent.putExtra("Idproductor", idproductor)
             startActivity(intent)
 
         }
