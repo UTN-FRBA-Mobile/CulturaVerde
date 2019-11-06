@@ -17,13 +17,11 @@ import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.Controllers.ProductosControlador
 import kotlinx.android.synthetic.main.activity_resultado_busqueda.*
 import retrofit2.Call
-import io.paperdb.Paper
 import retrofit2.Response
 import android.view.View
 import com.example.culturaverde.Classes.CategoriaProductoGlobal
 import com.example.culturaverde.Classes.ProductorGlobal
 import com.example.culturaverde.Models.ProductorMaps
-
 
 
 class ResultadoBusqueda : AppCompatActivity() {
@@ -69,15 +67,7 @@ class ResultadoBusqueda : AppCompatActivity() {
 
         showCart.setOnClickListener {
 
-            var id_productor = ProductorGlobal.getProductor().id
-
-            if (id_productor!!.toInt() === 0) {
-
-            id_productor = ShoppingCart.getCart()[0].product.id
-
-            }
             val intent = Intent(this, ShoppingCartActivity::class.java)
-            intent.putExtra("Idproductor", id_productor)
             startActivity(intent)
 
         }

@@ -9,6 +9,7 @@ import com.example.culturaverde.R
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.culturaverde.Classes.ProductorGlobal
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
@@ -45,11 +46,20 @@ class ShoppingCartActivity : AppCompatActivity() {
 
         botonfinalizarreserva.setOnClickListener {
 
-            var id_productor = idproductor.toString()
+            if(ShoppingCart.getCart().size!=0) {
 
-            val intent = Intent(this, FinalizarReservaActivity::class.java)
-            intent.putExtra("Idproductor", id_productor)
-            startActivity(intent)
+                    var id_productor = ShoppingCart.getCart()[0].product.productor!!.id
+
+                    val intent = Intent(this, FinalizarReservaActivity::class.java)
+                    intent.putExtra("Idproductor", id_productor.toString())
+                    startActivity(intent)
+
+            }else{
+
+                Toast.makeText(this@ShoppingCartActivity, "Tenés que agregar algún producto al carrito!", Toast.LENGTH_SHORT).show()
+
+
+            }
 
         }
     }
