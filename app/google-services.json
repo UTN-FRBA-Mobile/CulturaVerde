@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1038692425397",
+    "firebase_url": "https://culturaverde-e5ca1.firebaseio.com",
+    "project_id": "culturaverde-e5ca1",
+    "storage_bucket": "culturaverde-e5ca1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038692425397:android:0d5292ec41953b9cd428fc",
+        "android_client_info": {
+          "package_name": "com.example.culturaverde"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038692425397-1t21jn5ju19uqt5erj0pcu4i2hs4chdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.culturaverde",
+            "certificate_hash": "88cf8cee84562db5a40694ace64a66b39c918fdd"
+          }
+        },
+        {
+          "client_id": "1038692425397-hj4at0bmfqjqlmtd6bqknemlglbnt8sn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIRfxWTYbPfZUk2b56fbbvoaXBMfJ7yIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038692425397-hj4at0bmfqjqlmtd6bqknemlglbnt8sn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
