@@ -72,10 +72,20 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
             intent.putExtra("Apellidoretira", apellidoretira)
 
             if (checkboxpuntoentrega.isChecked){
+                intent.putExtra("Opcion", "1")
                 intent.putExtra("Comoretira", "Acordas el punto de entrega y la fecha con el productor")
             }else
             {
-                intent.putExtra("Comoretira", "Retira en Feria A")
+                var direccion: String = "Av. Córdoba 3555, C1188. AAB, Buenos Aires"
+                var fechaentrega: String = "24/11/2020"
+                var horarioentregadesde: String = "06:00"
+                var horarioentregahasta: String = "18:00"
+
+                intent.putExtra("Opcion", "2")
+                intent.putExtra("Comoretira", "Por el punto de entrega elegido:")
+                intent.putExtra("Direccion", direccion)
+                intent.putExtra("fechaentrega", "A partir del dia $fechaentrega")
+                intent.putExtra("horario", "Horario de Atención: desde las $horarioentregadesde hasta las $horarioentregahasta")
             }
 
             startActivity(intent)

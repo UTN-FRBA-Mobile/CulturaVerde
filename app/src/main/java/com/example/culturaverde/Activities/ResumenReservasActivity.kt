@@ -23,15 +23,25 @@ class ResumenReservasActivity : AppCompatActivity() {
 
         val objetoIntent: Intent = intent
 
+        var opcion: String? = objetoIntent.getStringExtra("Opcion")
         var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
         var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
         var comoretira: String? = objetoIntent.getStringExtra("Comoretira")
 
-        datosparaelretiropersona.text = "Retira $nombreretira $apellidoretira"
-        datospuntoentregaoacuerdo.text = comoretira
+        if (opcion == "1") {
+            datosparaelretiropersona.text = "Retira $nombreretira $apellidoretira"
+            datospuntoentregaoacuerdo.text = comoretira
+        }
+        else
+        {
+            datosparaelretiropersona.text = "Retira $nombreretira $apellidoretira"
+            datospuntoentregaoacuerdo.text = comoretira
 
-        adapter = ResumenReservasAdapter(this, ShoppingCart.getCart())
-        adapter.notifyDataSetChanged()
+        }
+
+            adapter = ResumenReservasAdapter(this, ShoppingCart.getCart())
+            adapter.notifyDataSetChanged()
+
 
         resumenproductosselect_recyclerView.adapter = adapter
         resumenproductosselect_recyclerView.layoutManager = LinearLayoutManager(this)
