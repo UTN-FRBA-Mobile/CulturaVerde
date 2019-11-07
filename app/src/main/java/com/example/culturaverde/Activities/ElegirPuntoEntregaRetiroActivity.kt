@@ -55,7 +55,14 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
 
             startActivity(intent)
 
+        }
 
+        botonelegirfechaentrega.setOnClickListener {
+
+            val intent = Intent(this, BusquedaFechasEntregaActivity::class.java)
+            intent.putExtra("Idpuntoentrega", "2")
+
+            startActivity(intent)
         }
 
         botonContinuarReserva2.setOnClickListener {
