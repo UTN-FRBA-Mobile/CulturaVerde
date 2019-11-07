@@ -14,15 +14,19 @@ interface UsuarioControlador {
 
         @Headers("Content-Type: application/json", "Accept: application/json")
         @POST("usuario_productor")
-        fun registrar(@Body body:String, @Query("razon_social") razon_social: String): Call<Void>
+        fun registrar(@Body body:String, @Query("razon_social") razon_social: String): Call<Usuario>
 
         @Headers("Content-Type: application/json", "Accept: application/json")
         @POST("usuario_consumidor")
-        fun registrarConsumidor(@Body body:String): Call<Void>
+        fun registrarConsumidor(@Body body:String): Call<Usuario>
 
         @Headers("Content-Type: application/json", "Accept: application/json")
         @PUT("update_usuario")
         fun editarDatosUsuario(@Body body:String, @Query("id") id: Int): Call<Void>
+
+        @Headers("Content-Type: application/json", "Accept: application/json")
+        @POST("registrar_token")
+        fun registrarToken(@Body body:String): Call<Void>
 
 
         /*@DELETE("users/{username}")

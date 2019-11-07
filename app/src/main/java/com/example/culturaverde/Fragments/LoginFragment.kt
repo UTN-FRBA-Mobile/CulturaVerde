@@ -1,5 +1,6 @@
 package com.example.culturaverde.Ui.Login
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,8 @@ import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import kotlinx.android.synthetic.main.fragment_loginmain.*
 import com.example.culturaverde.Services.APIConfig
+import com.example.culturaverde.Services.MyFirebaseInstanceService
+import com.google.firebase.iid.FirebaseInstanceId
 import io.paperdb.Paper
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,7 +100,11 @@ class LoginFragment : Fragment() {
 
                         findNavController().navigate(action)
                     }
-
+                    val sharedPref = activity?.getSharedPreferences(
+                        getString(R.string.user_preference_key), Context.MODE_PRIVATE)
+                    val deviceToken = sharedPref?.getString("deviceToken", FirebaseInstanceId.getInstance().token)
+                    Log.d("LOGIN FRAGMENT", "DEVICE TOKEN $deviceToken")
+                    MyFirebaseInstanceService.sendRegistrationToServer(deviceToken)
                 }
             })
     }

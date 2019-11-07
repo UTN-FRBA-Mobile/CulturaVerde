@@ -5,11 +5,9 @@ import java.util.*
 import com.google.gson.annotations.SerializedName
 
     data class Usuario (
-
         @Expose
         @SerializedName("id")
         var id: Long,
-
 
         @Expose
         @SerializedName("nombre")

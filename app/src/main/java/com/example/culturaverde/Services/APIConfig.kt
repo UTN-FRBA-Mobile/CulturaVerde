@@ -10,7 +10,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 object APIConfig {
 
 
-    val BASE_URL = "http://192.168.0.133:8080/redAgro/"
+    val BASE_URL = "http://192.168.100.87:8080/redAgro/"
 
     private var retrofit: Retrofit? = null
 
@@ -18,7 +18,7 @@ object APIConfig {
         .setLenient()
         .create()
 
-    fun getRetrofitClient(context: Context): Retrofit {
+    fun getRetrofitClient(context: Context? = null): Retrofit {
 
         val okHttpClient = OkHttpClient.Builder().build()
 

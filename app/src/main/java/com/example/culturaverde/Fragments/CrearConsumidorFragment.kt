@@ -1,5 +1,6 @@
 package com.example.culturaverde.Fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Controllers.UsuarioControlador
+import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.CrearConsumidorViewModel
@@ -62,14 +64,22 @@ class CrearConsumidorFragment: Fragment() {
         paramObject.put("telefono", telefonoConsumidor.text.toString())
 
         usuarioControlador.registrarConsumidor(paramObject.toString())
-            .enqueue(object : Callback<Void> {
-                override fun onFailure(call: Call<Void>, t: Throwable) {
+            .enqueue(object : Callback<Usuario> {
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
                     print(t.message)
                     Log.d("Registro erroneo", t.message)
                     Toast.makeText(requireContext(), t.message + "Registro Erroneo!!", Toast.LENGTH_SHORT).show()
                 }
 
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    val sharedPref = activity?.getSharedPreferences(
+                        getString(R.string.user_preference_key), Context.MODE_PRIVATE)
+
+                    with (sharedPref?.edit()) {
+                        val user = response.body()!!
+                        this?.putString("id", user.id.toString())
+                        this?.commit()
+                    }
 
                     Toast.makeText(requireContext(), "Registro exitoso!", Toast.LENGTH_SHORT).show()
                     val action =
