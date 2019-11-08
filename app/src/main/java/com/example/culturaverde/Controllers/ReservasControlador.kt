@@ -17,8 +17,7 @@ interface ReservasControlador {
     @Headers("Content-Type: application/json", "Accept: application/json")
     @PUT("actualizarEstadoReserva")
     fun modificarEstado(@Query("id_reserva") id_reserva:Long,
-                        @Query("id_estado") id_estado:Long ,
-                        @Query("rol") rol: String): Call<String>
-
+                        @Query("id_estado") id_estado:Long): Call<String>
+    //,@Query("rol") rol: String
 
 }

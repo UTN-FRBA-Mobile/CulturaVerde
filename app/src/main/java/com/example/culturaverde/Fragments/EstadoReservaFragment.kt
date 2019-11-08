@@ -160,7 +160,8 @@ class EstadoReservaFragment : Fragment() {
 
         reservasControlador = APIConfig.getRetrofitClient(requireContext()).create(ReservasControlador::class.java)
 
-        reservasControlador.modificarEstado(id_reserva,id_estado, UsuarioGlobal.getUsuario().rol)
+        //, UsuarioGlobal.getUsuario().rol
+        reservasControlador.modificarEstado(id_reserva,id_estado)
             .enqueue(object : retrofit2.Callback<String> {
                 override fun onFailure(call: Call<String>, t: Throwable) {
 
