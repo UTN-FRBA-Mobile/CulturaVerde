@@ -3,6 +3,7 @@ package com.example.culturaverde.Activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.culturaverde.Adapters.ResumenReservasAdapter
@@ -28,14 +29,29 @@ class ResumenReservasActivity : AppCompatActivity() {
         var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
         var comoretira: String? = objetoIntent.getStringExtra("Comoretira")
 
+        var direccion: String? = objetoIntent.getStringExtra("Direccion")
+        var fechaentrega: String? = objetoIntent.getStringExtra("Fechaentrega")
+        var horario: String? = objetoIntent.getStringExtra("Horario")
+
         if (opcion == "1") {
             datosparaelretiropersona.text = "Retira $nombreretira $apellidoretira"
             datospuntoentregaoacuerdo.text = comoretira
+
+            datospuntoentregadireccion.visibility = View.INVISIBLE
+            datospuntoentregafechaentrega.visibility = View.INVISIBLE
+            datospuntoentregahorario.visibility = View.INVISIBLE
         }
         else
         {
             datosparaelretiropersona.text = "Retira $nombreretira $apellidoretira"
             datospuntoentregaoacuerdo.text = comoretira
+            datospuntoentregadireccion.text = direccion
+            datospuntoentregafechaentrega.text = fechaentrega
+            datospuntoentregahorario.text = horario
+
+            datospuntoentregadireccion.visibility = View.VISIBLE
+            datospuntoentregafechaentrega.visibility = View.VISIBLE
+            datospuntoentregahorario.visibility = View.VISIBLE
 
         }
 

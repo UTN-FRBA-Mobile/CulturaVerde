@@ -38,10 +38,19 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
         val objetoIntent: Intent = intent
         var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
+        var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
+        var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
+
+        var idpuntoentrega: String? = objetoIntent.getStringExtra("Idpuntoentrega")
+        var direccioncompleta: String? = objetoIntent.getStringExtra("Direccioncompleta")
+
+        var fechaentregaid: String? = objetoIntent.getStringExtra("Fechaentregaid")
+        var fechaentrega: String? = objetoIntent.getStringExtra("Fechaentrega")
+
+        var horariodesde: String? = objetoIntent.getStringExtra("Horariodesde")
+        var horariohasta: String? = objetoIntent.getStringExtra("Horariohasta")
 
         var idprod: Long = idproductor!!.toLong()
-
-        //puntosentrega_resultados.setOnClickListener(clickListener)
 
         swipeRefreshLayout4.setColorSchemeColors(ContextCompat.getColor(this, R.color.color_verde))
 
@@ -49,36 +58,15 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
         recycler_puntosentrega.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
-        getpuntosdeentrega(idprod)
-
-        /*
-
-        puntosentrega_resultados.view.setOnCli{
-
-            val intent = Intent(this, ElegirPuntoEntregaRetiroActivity::class.java)
-            //intent.putExtra("Idproductor", idproductor)
-
-            startActivity(intent)
-        }*/
-
-
+        getpuntosdeentrega(idprod, idproductor, nombreretira, apellidoretira, idpuntoentrega, direccioncompleta,
+            fechaentregaid, fechaentrega, horariodesde, horariohasta)
 
     }
 
-    /*
-    private val clickListener: View.OnClickListener = View.OnClickListener { view -> when (view.id)
-    { R.id.puntosentrega_resultados -> gotoXScreent()}
-    }
 
-    private fun gotoXScreent() {
-        val intent = Intent(this, ElegirPuntoEntregaRetiroActivity::class.java)
-        //intent.putExtra("Idproductor", idproductor)
 
-        startActivity(intent)
-    }
-*/
-
-    fun getpuntosdeentrega(idprod: Long) {
+    fun getpuntosdeentrega(idprod: Long, idproductor: String?, nombreretira: String?, apellidoretira: String?, idpuntoentrega: String?, direccioncompleta: String?,
+                           fechaentregaid: String?, fechaentrega: String?, horariodesde: String?, horariohasta: String?) {
         puntosEntregaControlador.obtenerpuntosdeentrega(idprod)
             .enqueue(object : Callback<List<PuntosEntrega>> {
                 override fun onFailure(call: Call<List<PuntosEntrega>>, t: Throwable) {
@@ -97,7 +85,7 @@ class BusquedaPuntosEntregaActivity: AppCompatActivity() {
 
                         puntosentrega = response.body()!!
 
-                        puntosEntregaAdapter = PuntosEntregaAdapter(this@BusquedaPuntosEntregaActivity, puntosentrega)
+                        puntosEntregaAdapter = PuntosEntregaAdapter(this@BusquedaPuntosEntregaActivity, puntosentrega, idproductor, nombreretira, apellidoretira, idpuntoentrega, direccioncompleta, fechaentregaid, fechaentrega, horariodesde, horariohasta)
                         recycler_puntosentrega.adapter = puntosEntregaAdapter
                         puntosEntregaAdapter.notifyDataSetChanged()
                     }

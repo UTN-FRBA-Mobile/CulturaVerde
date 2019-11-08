@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/productoModificarFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <!--titulos y subtitulos-->
 
@@ -82,6 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/datosparaelretirotext" />
 
     <!--Texto: Punto de entrega o acuerda con el productor -->
+
     <TextView
         android:id="@+id/datospuntoentregaoacuerdo"
         android:layout_width="0dp"
@@ -99,6 +105,57 @@
         app:layout_constraintTop_toBottomOf="@+id/datosparaelretiropersona" />
 
     <TextView
+        android:id="@+id/datospuntoentregadireccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datospuntoentregaoacuerdo" />
+
+    <TextView
+        android:id="@+id/datospuntoentregafechaentrega"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datospuntoentregadireccion" />
+
+    <TextView
+        android:id="@+id/datospuntoentregahorario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="#00000000"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datospuntoentregafechaentrega" />
+
+    <TextView
         android:id="@+id/datosproductosseleccionadostext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,7 +170,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datospuntoentregaoacuerdo" />
+        app:layout_constraintTop_toBottomOf="@+id/datospuntoentregahorario" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/resumenproductosselect_recyclerView"
@@ -170,4 +227,5 @@
         app:layout_constraintTop_toBottomOf="@+id/totalreserva"
         tools:targetApi="m" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -21,7 +21,7 @@ class BusquedaFechasEntregaActivity : AppCompatActivity() {
 
     private var fechaEntregaControlador: FechaEntregaControlador = APIConfig.getRetrofitClient(this).create(FechaEntregaControlador::class.java)
     private lateinit var fechasEntregaAdapter: FechaEntregaAdapter
-    private var fechaentrega = listOf<FechaEntrega>()
+    private var fechasentrega = listOf<FechaEntrega>()
     var idpunto_entrega = Long
 
 
@@ -32,7 +32,18 @@ class BusquedaFechasEntregaActivity : AppCompatActivity() {
 
 
         val objetoIntent: Intent = intent
+        var idproductor: String? = objetoIntent.getStringExtra("Idproductor")
+        var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
+        var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
+
         var idpuntoentrega: String? = objetoIntent.getStringExtra("Idpuntoentrega")
+        var direccioncompleta: String? = objetoIntent.getStringExtra("Direccioncompleta")
+
+        var fechaentregaid: String? = objetoIntent.getStringExtra("Fechaentregaid")
+        var fechaentrega: String? = objetoIntent.getStringExtra("Fechaentrega")
+
+        var horariodesde: String? = objetoIntent.getStringExtra("Horariodesde")
+        var horariohasta: String? = objetoIntent.getStringExtra("Horariohasta")
 
         var idptoentrega: Long = idpuntoentrega!!.toLong()
 
@@ -42,12 +53,15 @@ class BusquedaFechasEntregaActivity : AppCompatActivity() {
 
         recycler_fechasentrega.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
-        getfechasentrega(idptoentrega)
+        getfechasentrega(idptoentrega, idproductor, nombreretira, apellidoretira, idpuntoentrega, direccioncompleta,
+            fechaentregaid, fechaentrega, horariodesde, horariohasta)
 
     }
 
 
-    fun getfechasentrega(idptoentrega: Long) {
+    fun getfechasentrega(idptoentrega: Long, idproductor: String?, nombreretira: String?, apellidoretira: String?, idpuntoentrega: String?, direccioncompleta: String?,
+                         fechaentregaid: String?, fechaentrega: String?, horariodesde: String?, horariohasta: String?) {
+
         fechaEntregaControlador.obtenerFechasPuntoDeEntrega(idptoentrega)
             .enqueue(object : Callback<List<FechaEntrega>> {
                 override fun onFailure(call: Call<List<FechaEntrega>>, t: Throwable) {
@@ -64,9 +78,9 @@ class BusquedaFechasEntregaActivity : AppCompatActivity() {
 
                     if (response != null) {
 
-                        fechaentrega = response.body()!!
+                        fechasentrega = response.body()!!
 
-                        fechasEntregaAdapter = FechaEntregaAdapter(this@BusquedaFechasEntregaActivity, fechaentrega)
+                        fechasEntregaAdapter = FechaEntregaAdapter(this@BusquedaFechasEntregaActivity, fechasentrega, idproductor, nombreretira, apellidoretira, idpuntoentrega, direccioncompleta, fechaentregaid, fechaentrega, horariodesde, horariohasta)
                         recycler_fechasentrega.adapter = fechasEntregaAdapter
                         fechasEntregaAdapter.notifyDataSetChanged()
                     }

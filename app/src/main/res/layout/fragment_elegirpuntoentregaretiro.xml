@@ -103,9 +103,9 @@
         android:textColor="@android:color/background_dark"
         android:textColorHint="#00000000"
         android:hint="Punto de entrega"
-        android:enabled="false"
         android:textSize="18sp"
         android:visibility="invisible"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxSelectPuntosEntrega" />
