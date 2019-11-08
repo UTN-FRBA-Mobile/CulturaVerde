@@ -118,6 +118,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
             if (checkboxpuntoentrega.isChecked){
                 intent.putExtra("Opcion", "1")
                 intent.putExtra("Comoretira", "Acordas el punto de entrega y la fecha con el productor")
+                startActivity(intent)
             }else {
                 if (direccioncompleta == null) {
                     Toast.makeText(this, "Primero debe elegir un punto de entrega", LENGTH_LONG)
@@ -134,9 +135,11 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
                         var horarioentregahasta: String? = horariohasta
 
                         intent.putExtra("Opcion", "2")
+                        intent.putExtra("id_productor", objetoIntent.getStringExtra("Idproductor"))
+                        intent.putExtra("id_punto_entrega", objetoIntent.getStringExtra("Idpuntoentrega") )
                         intent.putExtra("Comoretira", "Por el punto de entrega elegido:")
                         intent.putExtra("Direccion", direccion)
-                        intent.putExtra("Fechaentrega", "A partir del dia $fechaentrega")
+                        intent.putExtra("Fechaentrega", fechaentrega)
                         intent.putExtra("Horario", "Horario de Atención: desde las $horarioentregadesde hasta las $horarioentregahasta")
                         startActivity(intent)
                     }

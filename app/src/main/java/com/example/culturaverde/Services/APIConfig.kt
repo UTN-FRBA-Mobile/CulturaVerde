@@ -10,7 +10,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 object APIConfig {
 
 
-    val BASE_URL = "http://192.168.100.87:8080/redAgro/"
+    val BASE_URL = "http://192.168.7.246:8080/redAgro/"
 
     private var retrofit: Retrofit? = null
 

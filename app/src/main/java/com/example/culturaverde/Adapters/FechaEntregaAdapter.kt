@@ -70,6 +70,7 @@ class FechaEntregaAdapter (var context: Context, var fechasEntrega: List<FechaEn
                 intent.putExtra("Horariodesde", horariodesde)
                 intent.putExtra("Horariohasta", horariohasta)
 
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 ContextCompat.startActivity(view.context.applicationContext, intent, null)
 
             }

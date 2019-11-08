@@ -67,7 +67,7 @@ class PuntosEntregaAdapter (var context: Context, var puntosEntrega: List<Puntos
                 intent.putExtra("Idpuntoentrega", idpuntoentrega)
                 intent.putExtra("Direccioncompleta", direccioncompleta)
 
-
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(view.context.applicationContext, intent, null)
 
             }
