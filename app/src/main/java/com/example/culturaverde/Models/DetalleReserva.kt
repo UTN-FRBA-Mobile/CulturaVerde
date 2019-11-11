@@ -7,7 +7,7 @@ data class DetalleReserva (
 
     @Expose
     @SerializedName("id_reserva")
-    val id_reserva: Long,
+    val id_reserva: Long?=null,
 
     @Expose
     @SerializedName("id_producto")

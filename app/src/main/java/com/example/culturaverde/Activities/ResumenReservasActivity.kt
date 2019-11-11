@@ -13,16 +13,15 @@ import com.example.culturaverde.Adapters.ResumenReservasAdapter
 import com.example.culturaverde.Classes.ShoppingCart
 import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.ReservasControlador
-import com.example.culturaverde.Models.Consumidor
-import com.example.culturaverde.Models.Productor
-import com.example.culturaverde.Models.PuntosEntrega
-import com.example.culturaverde.Models.Reserva
+import com.example.culturaverde.Models.*
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.busquedafechasentrega_items.*
 import kotlinx.android.synthetic.main.fragment_finalizarreserva.*
 import kotlinx.android.synthetic.main.fragment_resumenreservas.*
 import kotlinx.android.synthetic.main.reservas_item.*
+import org.json.JSONArray
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
@@ -110,55 +109,87 @@ class ResumenReservasActivity : AppCompatActivity() {
         var totalPrice = ShoppingCart.getCart()
             .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.precio!!.toDouble()) }
 
+        var reserva = JSONObject()
 
-        val paramObject = JSONObject()
+        var fecha_hoy = Date()
 
-        var productor_id = ShoppingCart.getCart()[0].product.productor
+        var usuario = ShoppingCart.getCart()[0].product.productor!!.usuario
 
-      //  var reserva = Reserva("",productor_id!!, Consumidor(UsuarioGlobal.getUsuario().id,UsuarioGlobal.getUsuario(),
-       //     PuntosEntrega())
-        
-        paramObject.put("id", "")
-        paramObject.put("productor", productor_id )
-        paramObject.put("consumidor", Consumidor(UsuarioGlobal.getUsuario().id,UsuarioGlobal.getUsuario()))
-        paramObject.put("fecha", "")
-        paramObject.put("punto_entrega", "")
-        paramObject.put("estado_reserva", "")
-        paramObject.put("total_reserva", totalPrice.toString())
-        paramObject.put("persona_retiro", nombreretira + " " + apellidoretira)
-        paramObject.put("forma_retiro", "Acuerda con Productor")
+        var razon_social = ShoppingCart.getCart()[0].product.productor!!.razon_social
+
+        var productor = Productor(id_productor!!.toLong(), usuario, razon_social)
+
+        var consumidor = Consumidor(UsuarioGlobal.getUsuario().id, UsuarioGlobal.getUsuario())
+
+        var productor_json = JSONObject()
+
+        var consumidor_json = JSONObject()
+
+        var punto_entrega_json = JSONObject()
+
+        var estado_reserva_json = JSONObject()
+
+        productor_json.put("id", id_productor!!.toLong())
+      //  productor_json.put("usuario",usuario)
+      //  productor_json.put("razon_social",razon_social)
+
+        consumidor_json.put("id", UsuarioGlobal.getUsuario().id)
+  //      consumidor_json.put("usuario", UsuarioGlobal.getUsuario())
+
+        estado_reserva_json.put("id",1.toLong())
+
+        reserva.put("productor", productor_json)
+        reserva.put("consumidor", consumidor_json)
+        reserva.put("fecha", "")
+        reserva.put("estado_reserva", estado_reserva_json)
+        reserva.put("total_reserva", totalPrice.toString())
+        reserva.put("persona_retiro", nombreretira + " " + apellidoretira)
+        reserva.put("forma_retiro", "Acuerda con Productor")
+        reserva.put("fecha_creacion", java.sql.Date(fecha_hoy.time))
+
 
         if (opcion!!.toInt() === 2) {
 
 
-            val date = SimpleDateFormat("dd-MM-yyyy").parse(fechaentrega)
+            var date = SimpleDateFormat("dd-MM-yyyy").parse(fechaentrega)
 
-            paramObject.put("punto_entrega", id_punto_entrega!!.toLong().toString())
-            paramObject.put("fecha", java.sql.Date(date.time))
-            paramObject.put("forma_retiro", "Por punto de entrega")
+            punto_entrega_json.put("id", id_punto_entrega!!.toLong())
 
-            val detalles_reserva: ArrayList<JSONObject> = arrayListOf()
+            reserva.put("punto_entrega", punto_entrega_json)
+            reserva.put("fecha", java.sql.Date(date.time))
+            reserva.put("forma_retiro", "Por punto de entrega")
 
-            val productos = ShoppingCart.getCart()
+        }else{
+
+            punto_entrega_json.put("id", "")
+            reserva.put("punto_entrega", punto_entrega_json)
+
+
+        }
+
+            var detallesReserva = JSONArray()
+
+
+            var productos = ShoppingCart.getCart()
 
             productos.forEach { product ->
 
-                val producto = JSONObject()
+              //  var producto_reserva = DetalleReserva(null,product.product.id!!.toLong(),product.product,product.quantity,true,product.product.precio!!.toFloat() )
 
-                producto.put("id_reserva", "")
-                producto.put("id_producto", product.product.id)
+                var producto = JSONObject()
+
+                producto.put("id_producto", product.product.id!!.toLong())
                 producto.put("activo", true)
                 producto.put("cantidad", product.quantity)
                 producto.put("precio_por_unidad", product.product.precio)
 
-                detalles_reserva.add(producto)
-
+                detallesReserva.put(producto)
             }
 
-            paramObject.put("detalles_reserva", detalles_reserva)
+            reserva.put("detallesReserva", detallesReserva)
 
 
-            reservasControlador.generarReserva(paramObject.toString())
+            reservasControlador.generarReserva(reserva.toString())
                 .enqueue(object : retrofit2.Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
 
@@ -192,4 +223,3 @@ class ResumenReservasActivity : AppCompatActivity() {
 
     }
 
-}
