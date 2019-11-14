@@ -77,6 +77,8 @@ class ReservasFragment : Fragment() {
                     response: Response<List<Reserva>>
                 ) {
 
+                    swipeRefreshLayout3.setColorSchemeColors(ContextCompat.getColor(requireContext(), R.color.color_verde))
+
                     swipeRefreshLayout3.isRefreshing = false
                     swipeRefreshLayout3.isEnabled = false
 
