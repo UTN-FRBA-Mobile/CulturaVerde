@@ -30,12 +30,12 @@ class FinalizarReservaActivity : AppCompatActivity() {
 
 
         if (checkboxotrapersona.isChecked) {
-            usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
+            usuarioreserva.setText(UsuarioGlobal.getUsuario()!!.usuario)
             nombrereserva.isEnabled = true
             nombrereserva.setText("")
             apellidoreserva.isEnabled = true
             apellidoreserva.setText("")
-            contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
+            contactoreserva.setText(UsuarioGlobal.getUsuario()!!.telefono)
 
         } else {
 
@@ -44,10 +44,10 @@ class FinalizarReservaActivity : AppCompatActivity() {
             apellidoreserva.isEnabled = false
             contactoreserva.isEnabled = false
 
-            usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
-            nombrereserva.setText(UsuarioGlobal.getUsuario().nombre)
-            apellidoreserva.setText(UsuarioGlobal.getUsuario().apellido)
-            contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
+            usuarioreserva.setText(UsuarioGlobal.getUsuario()!!.usuario)
+            nombrereserva.setText(UsuarioGlobal.getUsuario()!!.nombre)
+            apellidoreserva.setText(UsuarioGlobal.getUsuario()!!.apellido)
+            contactoreserva.setText(UsuarioGlobal.getUsuario()!!.telefono)
         }
 
         botonContinuarReserva.setOnClickListener {
@@ -68,13 +68,13 @@ class FinalizarReservaActivity : AppCompatActivity() {
     fun onCheckboxClicked(view: View) {
 
         if (checkboxotrapersona.isChecked) {
-            usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
+            usuarioreserva.setText(UsuarioGlobal.getUsuario()!!.usuario)
 
             nombrereserva.isEnabled = true
             nombrereserva.setText("")
             apellidoreserva.isEnabled = true
             apellidoreserva.setText("")
-            contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
+            contactoreserva.setText(UsuarioGlobal.getUsuario()!!.telefono)
 
         } else {
 
@@ -83,10 +83,10 @@ class FinalizarReservaActivity : AppCompatActivity() {
             apellidoreserva.isEnabled = false
             contactoreserva.isEnabled = false
 
-            usuarioreserva.setText(UsuarioGlobal.getUsuario().usuario)
-            nombrereserva.setText(UsuarioGlobal.getUsuario().nombre)
-            apellidoreserva.setText(UsuarioGlobal.getUsuario().apellido)
-            contactoreserva.setText(UsuarioGlobal.getUsuario().telefono)
+            usuarioreserva.setText(UsuarioGlobal.getUsuario()!!.usuario)
+            nombrereserva.setText(UsuarioGlobal.getUsuario()!!.nombre)
+            apellidoreserva.setText(UsuarioGlobal.getUsuario()!!.apellido)
+            contactoreserva.setText(UsuarioGlobal.getUsuario()!!.telefono)
         }
     }
 

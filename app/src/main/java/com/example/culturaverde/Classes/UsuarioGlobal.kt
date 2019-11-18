@@ -12,7 +12,7 @@ class UsuarioGlobal {
             Paper.book().write("usuario", usuario)
         }
 
-        fun getUsuario(): Usuario {
+        fun getUsuario(): Usuario? {
             return Paper.book().read("usuario")
         }
 

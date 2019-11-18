@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
             .enqueue(object : Callback<Usuario> {
 
                 override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                    Toast.makeText(requireContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Usuario inexistente o contraseña incorrecta", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {

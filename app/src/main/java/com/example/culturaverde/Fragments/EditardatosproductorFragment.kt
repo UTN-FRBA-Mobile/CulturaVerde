@@ -43,10 +43,10 @@ class EditardatosproductorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val nombreProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario().nombre)
-        val apellidoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario().apellido)
+        val nombreProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.nombre)
+        val apellidoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.apellido)
         val fechaNacimientoProductor= SpannableStringBuilder("1982-09-09")
-        val telefonoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario().telefono)
+        val telefonoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.telefono)
 
         //val date = SimpleDateFormat("dd/MM/yyy").format(fechaNacimientoProductor)
 
@@ -77,10 +77,10 @@ class EditardatosproductorFragment : Fragment() {
 
         UsuarioGlobal.guardarUsuario(
             Usuario(
-                UsuarioGlobal.getUsuario().id,editarNombreProductor.text.toString(),
-                editarApellidoProductor.text.toString(),UsuarioGlobal.getUsuario().usuario,
-                UsuarioGlobal.getUsuario().contraseña, java.sql.Date(date.getTime()),
-                UsuarioGlobal.getUsuario().rol,editarTelefonoProductor.text.toString()
+                UsuarioGlobal.getUsuario()!!.id,editarNombreProductor.text.toString(),
+                editarApellidoProductor.text.toString(),UsuarioGlobal.getUsuario()!!.usuario,
+                UsuarioGlobal.getUsuario()!!.contraseña, java.sql.Date(date.getTime()),
+                UsuarioGlobal.getUsuario()!!.rol,editarTelefonoProductor.text.toString()
             )
         )
 

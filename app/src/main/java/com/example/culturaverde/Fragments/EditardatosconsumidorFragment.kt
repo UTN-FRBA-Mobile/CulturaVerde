@@ -43,10 +43,10 @@ class EditardatosconsumidorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val nombreConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario().nombre)
-        val apellidoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario().apellido)
+        val nombreConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.nombre)
+        val apellidoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.apellido)
         val fechaNacimientoConsumidor = SpannableStringBuilder("1982-09-09")
-        val telefonoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario().telefono)
+        val telefonoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.telefono)
 
         nombreUsuario.text = nombreConsumidor
         apellidoUsuario.text = apellidoConsumidor

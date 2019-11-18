@@ -64,7 +64,7 @@ class ProductosProductorFragment : Fragment() {
 
     fun getProductos() {
 
-        productosControlador.getProductos(UsuarioGlobal.getUsuario().id).enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
+        productosControlador.getProductos(UsuarioGlobal.getUsuario()!!.id).enqueue(object : retrofit2.Callback<List<ProductoProductor>> {
             override fun onFailure(call: Call<List<ProductoProductor>>, t: Throwable) {
 
                 Toast.makeText(requireContext(), "Ocurrió un error inesperado, intentá nuevamente", Toast.LENGTH_SHORT).show()

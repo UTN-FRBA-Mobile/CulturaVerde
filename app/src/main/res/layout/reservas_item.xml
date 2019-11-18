@@ -15,19 +15,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_height="440dp"
-        android:weightSum="4"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:weightSum="4">
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/colorAccent"
             android:id="@+id/id_reserva"
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
@@ -35,381 +35,365 @@
             android:layout_marginTop="5dp"
             android:background="@color/lightgray" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="5dp"
-        android:weightSum="3"
-        android:layout_weight="1">
-
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-        <TextView
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/texto_estado"
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:textSize="12sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/estado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
+            android:id="@+id/layout_botones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="left">
+            android:orientation="horizontal"
+            android:weightSum="3">
 
-
-            <TextView
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@android:color/black"
-                android:id="@+id/texto_fecha_creacion"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:textSize="12sp"
-                android:textColor="@android:color/black"
-                android:id="@+id/fecha_creacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/texto_estado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/estado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp">
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="left">
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButtonMostrarDetalle"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:clickable="true"
-                android:layout_marginTop="10dp"
-                app:fabSize="mini"
-                android:tint="@android:color/white"
-                app:srcCompat="@drawable/listblack24dp"
-                app:backgroundTint="@color/color_verde"
-                />
+                <TextView
+                    android:id="@+id/texto_fecha_creacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButtonGeneral"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:clickable="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    app:fabSize="mini"
-                    android:tint="@android:color/white"
-                    app:srcCompat="@drawable/add24" />
+                <TextView
+                    android:id="@+id/fecha_creacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButtonCambioEstado"
-                android:layout_marginStart="5dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                app:fabSize="mini"
-                android:tint="@android:color/white"
-                app:srcCompat="@drawable/editwhite24"
-                app:backgroundTint="@color/color_verde"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floatingActionButtonCalificarProductor"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:clickable="true"
+                        android:tint="@android:color/white"
+                        app:backgroundTint="@color/color_verde"
+                        app:fabSize="mini"
+                        app:srcCompat="@drawable/star24" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floatingActionButtonGeneral"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:clickable="true"
+                        android:tint="@android:color/white"
+                        app:fabSize="mini"
+                        app:srcCompat="@drawable/add24" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floatingActionButtonCambioEstado"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:clickable="true"
+                        android:tint="@android:color/white"
+                        app:backgroundTint="@color/color_verde"
+                        app:fabSize="mini"
+                        app:srcCompat="@drawable/editwhite24" />
 
                 </LinearLayout>
 
 
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
-
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layout_datos_retiro"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="22dp"
             android:orientation="horizontal"
-            android:layout_height="90dp"
-            android:weightSum="3"
-            android:layout_weight="1">
+            android:weightSum="3">
 
 
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:textSize="15sp"
-                    android:textColor="@android:color/black"
                     android:id="@+id/datos_retiro"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textSize="12sp"
-                android:textColor="@android:color/black"
-                android:id="@+id/persona_retiro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:textSize="12sp"
+                    android:id="@+id/persona_retiro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
                     android:id="@+id/direccion_retiro"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
                     android:id="@+id/localidad_retiro"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
                     android:id="@+id/fecha_retiro"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
 
             </LinearLayout>
 
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp">
+                android:orientation="vertical">
 
                 <TextView
-                    android:textSize="15sp"
-                    android:textColor="@android:color/black"
                     android:id="@+id/usuario"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textSize="12sp"
-                android:textColor="@android:color/black"
-                android:id="@+id/nombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-                <TextView
-                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
                     android:id="@+id/apellido"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+                <TextView
                     android:id="@+id/tel"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButtonCalificarProductor"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:layout_gravity="left"
-                    android:layout_marginTop="7dp"
-                    app:fabSize="mini"
-                    android:tint="@android:color/white"
-                    app:srcCompat="@drawable/star24"
-                    app:backgroundTint="@color/color_verde"/>
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
 
             </LinearLayout>
+
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp">
+                android:orientation="vertical">
 
                 <TextView
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
                     android:id="@+id/total_reserva"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textSize="12sp"
-                android:textColor="@android:color/black"
-                android:id="@+id/total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_detalle_reserva"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:weightSum="3"
-        >
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/lightgray" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content"
-            android:layout_weight=".05"
-            >
-
-            <TextView
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/texto_detalle_reserva"
-            android:text="@string/texto_detalle_reserva"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:layout_weight=".05"
-            android:weightSum="5"
-            >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                >
-
-            <TextView
-                android:textStyle="bold"
-                android:textSize="13sp"
-                android:textColor="@android:color/black"
-                android:text="@string/texto_producto"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                >
-
-            <TextView
-                android:textStyle="bold"
-                android:textSize="13sp"
-                android:textColor="@android:color/black"
-                android:text="@string/texto_cantidad"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                >
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="13sp"
+                    android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="@string/texto_precio_unidad"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_detalle_reserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/lightgray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/texto_detalle_reserva"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:gravity="center"
+                    android:text="@string/texto_detalle_reserva"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                >
-            <TextView
-                android:textStyle="bold"
-                android:textSize="13sp"
-                android:textColor="@android:color/black"
-                android:text="@string/texto_subtotal"
-                android:layout_marginTop="5dp"
-                android:gravity="end"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:orientation="horizontal"
+                android:weightSum="5">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="@string/texto_producto"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="@string/texto_cantidad"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="@string/texto_precio_unidad"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="end"
+                        android:text="@string/texto_subtotal"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2.90"
-            android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:id="@+id/recycler_detalle_reserva"
-            android:layout_height="match_parent"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_detalle_reserva"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
 
     </LinearLayout>

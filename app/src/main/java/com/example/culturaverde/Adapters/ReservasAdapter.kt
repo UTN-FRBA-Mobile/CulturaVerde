@@ -58,8 +58,8 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
             var detalleReservasAdapter: DetalleReservaAdapter
 
             itemView.layout_detalle_reserva.setVisibility(View.GONE)
+            itemView.layout_datos_retiro.setVisibility(View.GONE)
             itemView.floatingActionButtonCalificarProductor.hide()
-            itemView.floatingActionButtonMostrarDetalle.hide()
             itemView.floatingActionButtonCambioEstado.hide()
 
             var isOpen:Boolean=false
@@ -96,7 +96,7 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
             }
 
-            if(UsuarioGlobal.getUsuario().rol=="Productor") {
+            if(UsuarioGlobal.getUsuario()!!.rol=="Productor") {
 
                 itemView.usuario.text = "Consumidor"
                 itemView.nombre.text = reserva.consumidor.usuario.nombre
@@ -116,18 +116,6 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
             itemView.total_reserva.text = "Total"
             itemView.total.text = "$${reserva.total_reserva}"
 
-            itemView.floatingActionButtonMostrarDetalle.setOnClickListener { view ->
-
-                if(isOpenDetalle) {
-                    itemView.layout_detalle_reserva.visibility=View.GONE
-                    isOpenDetalle=false
-                }else{
-
-                    itemView.layout_detalle_reserva.setVisibility(View.VISIBLE)
-                    isOpenDetalle=true
-
-                }
-            }
 
             itemView.floatingActionButtonCalificarProductor.setOnClickListener { view ->
 
@@ -141,7 +129,7 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
 
             itemView.floatingActionButtonCambioEstado.setOnClickListener { view ->
 
-                if(UsuarioGlobal.getUsuario().rol=="Productor"){
+                if(UsuarioGlobal.getUsuario()!!.rol=="Productor"){
 
                     ReservaGlobal.guardarReserva(Reserva(reserva.id,reserva.productor,reserva.consumidor,reserva.punto_entrega,
                         reserva.estado_reserva,reserva.fecha,reserva.fecha_creacion,reserva.total_reserva,reserva.forma_retiro,
@@ -167,16 +155,18 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
                 if(isOpen) {
 
                     itemView.floatingActionButtonCalificarProductor.hide()
-                    itemView.floatingActionButtonMostrarDetalle.hide()
                     itemView.floatingActionButtonCambioEstado.hide()
+                    itemView.layout_detalle_reserva.setVisibility(View.GONE)
+                    itemView.layout_datos_retiro.setVisibility(View.GONE)
 
                     isOpen=false
 
                 }else {
 
-                    if(UsuarioGlobal.getUsuario().rol=="Productor"){
+                    itemView.layout_detalle_reserva.setVisibility(View.VISIBLE)
+                    itemView.layout_datos_retiro.setVisibility(View.VISIBLE)
 
-                        itemView.floatingActionButtonMostrarDetalle.show()
+                    if(UsuarioGlobal.getUsuario()!!.rol=="Productor"){
 
                         if(reserva.estado_reserva!!.nombre!="Finalizado" && reserva.estado_reserva!!.nombre!="Cancelado"){
 
@@ -195,14 +185,12 @@ class ReservasAdapter(var context: Context, var reservas: List<Reserva> = arrayL
                         if(reserva.calificacion==null) {
                             itemView.floatingActionButtonCalificarProductor.show()
                         }
-                        itemView.floatingActionButtonMostrarDetalle.show()
 
                         isOpen=true
 
                         return@setOnClickListener
                     }
 
-                    itemView.floatingActionButtonMostrarDetalle.show()
                     itemView.floatingActionButtonCambioEstado.show()
 
                     isOpen=true

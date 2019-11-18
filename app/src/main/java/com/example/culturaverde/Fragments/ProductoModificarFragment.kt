@@ -64,6 +64,7 @@ class ProductoModificarFragment : Fragment() {
         modificarPrecioProducto.text = SpannableStringBuilder(product.precio.toString())
         modificarStockProducto.text  = SpannableStringBuilder(product.stock.toString())
         modificarTituloProducto.text = SpannableStringBuilder(product.titulo.toString())
+        modificarDescripcion.text = SpannableStringBuilder(product.descripcion.toString())
 
         botonModificarProducto.setOnClickListener{
 
@@ -80,12 +81,13 @@ class ProductoModificarFragment : Fragment() {
         val paramObject = JSONObject()
         if ( modificarPrecioProducto.text.toString() != "" &&
             modificarStockProducto.text.toString() != "" &&
-            modificarTituloProducto.text.toString()!= ""
+            modificarTituloProducto.text.toString()!= "" &&
+            modificarDescripcion.text.toString()!= ""
         ) {
             paramObject.put("precio", modificarPrecioProducto.text.toString())
             paramObject.put("stock", modificarStockProducto.text.toString())
             paramObject.put("titulo", modificarTituloProducto.text.toString())
-            paramObject.put("descripcion", product.descripcion)
+            paramObject.put("descripcion", modificarDescripcion.text.toString())
             //paramObject.put("fecha_vencimiento", product.fecha_vencimiento)
             paramObject.put("tiempo_preparacion", product.tiempo_preparacion)
             paramObject.put("contenido", product.contenido)

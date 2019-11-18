@@ -64,7 +64,7 @@ class ReservasFragment : Fragment() {
 
 
     fun getReservas() {
-        reservasControlador.getReservas(UsuarioGlobal.getUsuario().id)
+        reservasControlador.getReservas(UsuarioGlobal.getUsuario()!!.id)
             .enqueue(object : retrofit2.Callback<List<Reserva>> {
                 override fun onFailure(call: Call<List<Reserva>>, t: Throwable) {
 

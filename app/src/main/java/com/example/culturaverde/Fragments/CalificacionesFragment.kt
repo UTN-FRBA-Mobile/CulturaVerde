@@ -57,7 +57,7 @@ class CalificacionesFragment : Fragment() {
     }
 
     fun getCalificaciones() {
-        calificacionesControlador.getCalificaciones(UsuarioGlobal.getUsuario().id)
+        calificacionesControlador.getCalificaciones(UsuarioGlobal.getUsuario()!!.id)
             .enqueue(object : retrofit2.Callback<List<Calificacion>> {
                 override fun onFailure(call: Call<List<Calificacion>>, t: Throwable) {
 

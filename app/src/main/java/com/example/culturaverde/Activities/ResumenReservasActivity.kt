@@ -98,11 +98,8 @@ class ResumenReservasActivity : AppCompatActivity() {
 
         var nombreretira: String? = objetoIntent.getStringExtra("Nombreretira")
         var apellidoretira: String? = objetoIntent.getStringExtra("Apellidoretira")
-        var comoretira: String? = objetoIntent.getStringExtra("Comoretira")
         var opcion: String? = objetoIntent.getStringExtra("Opcion")
-        var direccion: String? = objetoIntent.getStringExtra("Direccion")
         var fechaentrega: String? = objetoIntent.getStringExtra("Fechaentrega")
-        var horario: String? = objetoIntent.getStringExtra("Horario")
         var id_punto_entrega: String? = objetoIntent.getStringExtra("id_punto_entrega")
         var id_productor: String? = objetoIntent.getStringExtra("id_productor")
 
@@ -113,14 +110,6 @@ class ResumenReservasActivity : AppCompatActivity() {
 
         var fecha_hoy = Date()
 
-        var usuario = ShoppingCart.getCart()[0].product.productor!!.usuario
-
-        var razon_social = ShoppingCart.getCart()[0].product.productor!!.razon_social
-
-        var productor = Productor(id_productor!!.toLong(), usuario, razon_social)
-
-        var consumidor = Consumidor(UsuarioGlobal.getUsuario().id, UsuarioGlobal.getUsuario())
-
         var productor_json = JSONObject()
 
         var consumidor_json = JSONObject()
@@ -130,11 +119,8 @@ class ResumenReservasActivity : AppCompatActivity() {
         var estado_reserva_json = JSONObject()
 
         productor_json.put("id", id_productor!!.toLong())
-      //  productor_json.put("usuario",usuario)
-      //  productor_json.put("razon_social",razon_social)
 
-        consumidor_json.put("id", UsuarioGlobal.getUsuario().id)
-  //      consumidor_json.put("usuario", UsuarioGlobal.getUsuario())
+        consumidor_json.put("id", UsuarioGlobal.getUsuario()!!.id)
 
         estado_reserva_json.put("id",1.toLong())
 

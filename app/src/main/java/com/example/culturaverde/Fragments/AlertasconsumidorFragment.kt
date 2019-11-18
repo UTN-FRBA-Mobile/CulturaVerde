@@ -42,14 +42,14 @@ class AlertasconsumidorFragment : Fragment() {
     override fun onActivityCreated( savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val usuario:Usuario=UsuarioGlobal.getUsuario()
+        val usuario:Usuario=UsuarioGlobal.getUsuario()!!
         var alertas:List<AlertaUsuario>
 
         alertasControlador =
             APIConfig.getRetrofitClient(requireContext()).create(AlertasControlador::class.java)
 
 
-        alertasControlador.obtenerConfiguracionAlertas(UsuarioGlobal.getUsuario().id)
+        alertasControlador.obtenerConfiguracionAlertas(UsuarioGlobal.getUsuario()!!.id)
             .enqueue(object : Callback<List<AlertaUsuario>> {
                 override fun onFailure(call: Call<List<AlertaUsuario>>, t: Throwable) {
                     print(t.message)
@@ -91,7 +91,7 @@ class AlertasconsumidorFragment : Fragment() {
 
             alertas_a_guardar.add(paramObject)
 
-            alertasControlador.guardarConfiguracionAlertas(UsuarioGlobal.getUsuario().id,alertas_a_guardar.toString())
+            alertasControlador.guardarConfiguracionAlertas(UsuarioGlobal.getUsuario()!!.id,alertas_a_guardar.toString())
                 .enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
 

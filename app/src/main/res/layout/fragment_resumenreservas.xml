@@ -211,23 +211,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resumenproductosselect_recyclerView"/>
 
-    <Button
-        android:id="@+id/botonFinalizarReserva3"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="50dp"
-        android:background="@color/color_verde"
-        android:text="Finalizar"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/totalreserva"
-        app:layout_constraintTop_toBottomOf="@+id/totalreserva"
-        tools:targetApi="m" />
+        <Button
+            android:id="@+id/botonFinalizarReserva3"
+            style="@android:style/Widget.Material.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="205dp"
+            android:layout_marginRight="205dp"
+            android:layout_marginBottom="50dp"
+            android:background="@color/color_verde"
+            android:text="Finalizar"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/totalreserva"
+            app:layout_constraintTop_toBottomOf="@+id/totalreserva"
+            tools:targetApi="m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

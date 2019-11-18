@@ -77,7 +77,7 @@ class EstadoReservaFragment : Fragment() {
 
         }
 
-        if (UsuarioGlobal.getUsuario().rol == "Consumidor") {
+        if (UsuarioGlobal.getUsuario()!!.rol == "Consumidor") {
 
             view!!.radioButton4.setVisibility(View.VISIBLE)
 
@@ -161,7 +161,7 @@ class EstadoReservaFragment : Fragment() {
         reservasControlador = APIConfig.getRetrofitClient(requireContext()).create(ReservasControlador::class.java)
 
         //, UsuarioGlobal.getUsuario().rol
-        reservasControlador.modificarEstado(id_reserva,id_estado,UsuarioGlobal.getUsuario().rol)
+        reservasControlador.modificarEstado(id_reserva,id_estado,UsuarioGlobal.getUsuario()!!.rol)
             .enqueue(object : retrofit2.Callback<String> {
                 override fun onFailure(call: Call<String>, t: Throwable) {
 

@@ -114,6 +114,7 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
             val intent = Intent(this, ResumenReservasActivity::class.java)
             intent.putExtra("Nombreretira", nombreretira)
             intent.putExtra("Apellidoretira", apellidoretira)
+            intent.putExtra("id_productor", objetoIntent.getStringExtra("Idproductor"))
 
             if (checkboxpuntoentrega.isChecked){
                 intent.putExtra("Opcion", "1")
@@ -135,7 +136,6 @@ class ElegirPuntoEntregaRetiroActivity : AppCompatActivity() {
                         var horarioentregahasta: String? = horariohasta
 
                         intent.putExtra("Opcion", "2")
-                        intent.putExtra("id_productor", objetoIntent.getStringExtra("Idproductor"))
                         intent.putExtra("id_punto_entrega", objetoIntent.getStringExtra("Idpuntoentrega") )
                         intent.putExtra("Comoretira", "Por el punto de entrega elegido:")
                         intent.putExtra("Direccion", direccion)
