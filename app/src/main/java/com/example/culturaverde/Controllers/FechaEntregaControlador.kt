@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface FechaEntregaControlador {
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("fechas_punto_entrega")
+    @GET("redAgro/fechas_punto_entrega")
     fun obtenerFechasPuntoDeEntrega(@Query("id_punto_entrega") id:Long): Call<List<FechaEntrega>>
 
 }

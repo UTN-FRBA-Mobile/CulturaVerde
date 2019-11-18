@@ -10,11 +10,11 @@ import retrofit2.http.Query
 interface PuntosentregaControlador {
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("puntos_entrega_productor")
+    @GET("redAgro/puntos_entrega_productor")
     fun getPuntosentrega(): Call<List<PuntosEntrega>>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("puntos_productor")
+    @GET("redAgro/puntos_productor")
     fun obtenerpuntosdeentrega(@Query("id") id:Long): Call<List<PuntosEntrega>>
 
 

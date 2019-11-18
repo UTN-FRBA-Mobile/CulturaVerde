@@ -7,23 +7,23 @@ import retrofit2.http.*
 interface ProductosControlador {
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("obtenerProductosProductor")
+    @GET("redAgro/obtenerProductosProductor")
     fun getProductos(@Query("id") id:Long): Call<List<ProductoProductor>>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("obtenerProductos")
+    @GET("redAgro/obtenerProductos")
     fun getProductosBusqueda(@Query("busqueda") busqueda:String): Call<List<ProductoProductor>>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @PUT("actualizarEstadoProducto")
+    @PUT("redAgro/actualizarEstadoProducto")
     fun desactivarProductos(@Query("id_producto_productor") id: Long,@Query("activo") activo: Boolean): Call<Void>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("obtenerProductosProductorBusqueda")
+    @GET("redAgro/obtenerProductosProductorBusqueda")
     fun getProductosBusquedaProductor(@Query("id") id:Long): Call<List<ProductoProductor>>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @POST("actualizarProductoProductor")
+    @POST("redAgro/actualizarProductoProductor")
     fun editarDatosProducto(@Body body:String, @Query ("id_producto_productor") id_producto_productor:Long): Call<Void>
 
 }

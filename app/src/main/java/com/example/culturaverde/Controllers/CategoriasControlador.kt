@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface CategoriasControlador {
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("obtener_productos")
+    @GET("redAgro/obtener_productos")
     fun getCategorias(): Call<List<Producto>>
 
 

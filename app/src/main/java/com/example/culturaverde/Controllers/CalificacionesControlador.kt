@@ -7,11 +7,11 @@ import retrofit2.http.*
 interface CalificacionesControlador {
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @POST("guardarCalificacion")
+    @POST("redAgro/guardarCalificacion")
     fun guardarCalificacion(@Query("reserva_id") reserva_id: Long,@Body body:String): Call<Void>
 
     @Headers("Content-Type: application/json", "Accept: application/json")
-    @GET("obtenerCalificaciones")
+    @GET("redAgro/obtenerCalificaciones")
     fun getCalificaciones(@Query("id_productor") id_productor:Long): Call<List<Calificacion>>
 
 
