@@ -42,7 +42,7 @@
     <string name="menu_editardatos_productores">Editar Datos</string>
 
     <!-- Pantalla registrar -->
-    <string name="texto_creacion">Creá tu cuenta en CulturaVerde</string>
+    <string name="texto_creacion">Creá tu cuenta en Cultura Verde</string>
     <string name="texto_tipocreacion">Selecciona un tipo de usuario</string>
     <string name="IngresarNombre">Nombre</string>
     <string name="IngreseApellido">Apellido</string>
@@ -105,7 +105,7 @@
     <string name="botonLmpiar">Limpiar</string>
 
     <!-- Finalizar reserva -->
-    <string name="texto_finalizarreserva">Finalizar la Reserva</string>
+    <string name="texto_finalizarreserva">Finalizar la reserva</string>
     <string name="texto_finalizarreserva_parte1">Confirmá tus datos personales</string>
     <string name="texto_finalizarreserva_parte2">Elegí una forma de retiro</string>
     <string name="texto_finalizarreserva_parte3">Resumen de la reserva</string>
