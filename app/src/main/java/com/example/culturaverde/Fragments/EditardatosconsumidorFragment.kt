@@ -1,5 +1,6 @@
 package com.example.culturaverde.Ui.Editardatosconsumidor
 
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.util.Log
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.culturaverde.Classes.UsuarioGlobal
 import com.example.culturaverde.Controllers.UsuarioControlador
+import com.example.culturaverde.Models.Usuario
 import com.example.culturaverde.R
 import com.example.culturaverde.Services.APIConfig
 import com.example.culturaverde.ViewModels.EditardatosconsumidorViewModel
@@ -21,6 +23,9 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class EditardatosconsumidorFragment : Fragment() {
@@ -45,8 +50,12 @@ class EditardatosconsumidorFragment : Fragment() {
 
         val nombreConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.nombre)
         val apellidoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.apellido)
-        val fechaNacimientoConsumidor = SpannableStringBuilder("1982-09-09")
+
         val telefonoConsumidor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.telefono)
+
+        val date = SimpleDateFormat("dd/MM/yyy").format(UsuarioGlobal.getUsuario()!!.fecha_nacimiento)
+
+        val fechaNacimientoConsumidor= SpannableStringBuilder(date.toString())
 
         nombreUsuario.text = nombreConsumidor
         apellidoUsuario.text = apellidoConsumidor
@@ -70,7 +79,6 @@ class EditardatosconsumidorFragment : Fragment() {
         usuarioControlador =
             APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-        var date = Date()
         val paramObject = JSONObject()
         if ( nombreUsuario.text.toString() != "" &&
             apellidoUsuario.text.toString() != "" &&
@@ -79,10 +87,21 @@ class EditardatosconsumidorFragment : Fragment() {
         ) {
             paramObject.put("nombre", nombreUsuario.text.toString())
             paramObject.put("apellido", apellidoUsuario.text.toString())
+
+            var fecha_parseada1 = fechaNac.text.split("/")
+
+            var dia = fecha_parseada1[0].toString()
+
+            var mes = fecha_parseada1[1].toString()
+
+            var anio = fecha_parseada1[2].toString()
+
+            val date = SimpleDateFormat("dd-MM-yyyy").parse(dia+"-"+mes+"-"+anio)
+
             paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
             paramObject.put("telefono", telefono.text.toString())
 
-            usuarioControlador.editarDatosUsuario(paramObject.toString(), 1)
+            usuarioControlador.editarDatosUsuario(paramObject.toString(), UsuarioGlobal.getUsuario()!!.id.toInt())
                 .enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                         print(t.message)
@@ -105,6 +124,11 @@ class EditardatosconsumidorFragment : Fragment() {
                             "Modificación exitosa!",
                             Toast.LENGTH_SHORT
                         ).show()
+
+                        UsuarioGlobal.guardarUsuario(
+                            Usuario(UsuarioGlobal.getUsuario()!!.id,nombreUsuario.text.toString(),apellidoUsuario.text.toString(),UsuarioGlobal.getUsuario()!!.usuario,
+                                UsuarioGlobal.getUsuario()!!.contraseña, java.sql.Date(date.getTime()),UsuarioGlobal.getUsuario()!!!!.rol,telefono.text.toString())
+                        )
                         /*val action =
                             EditardatosconsumidorFragmentDirections.actionNavEditardatosconsumidoresToNavPrincipalconsumidores()
                         findNavController().navigate(action)

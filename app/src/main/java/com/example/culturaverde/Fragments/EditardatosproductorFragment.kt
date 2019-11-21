@@ -45,10 +45,12 @@ class EditardatosproductorFragment : Fragment() {
 
         val nombreProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.nombre)
         val apellidoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.apellido)
-        val fechaNacimientoProductor= SpannableStringBuilder("1982-09-09")
+
         val telefonoProductor = SpannableStringBuilder(UsuarioGlobal.getUsuario()!!.telefono)
 
-        //val date = SimpleDateFormat("dd/MM/yyy").format(fechaNacimientoProductor)
+        val date = SimpleDateFormat("dd/MM/yyy").format(UsuarioGlobal.getUsuario()!!.fecha_nacimiento)
+
+        val fechaNacimientoProductor= SpannableStringBuilder(date.toString())
 
         editarNombreProductor.text = nombreProductor
         editarApellidoProductor.text = apellidoProductor
@@ -72,17 +74,7 @@ class EditardatosproductorFragment : Fragment() {
         usuarioControlador =
             APIConfig.getRetrofitClient(requireContext()).create(UsuarioControlador::class.java)
 
-        var date = Date()
         val paramObject = JSONObject()
-
-        UsuarioGlobal.guardarUsuario(
-            Usuario(
-                UsuarioGlobal.getUsuario()!!.id,editarNombreProductor.text.toString(),
-                editarApellidoProductor.text.toString(),UsuarioGlobal.getUsuario()!!.usuario,
-                UsuarioGlobal.getUsuario()!!.contraseña, java.sql.Date(date.getTime()),
-                UsuarioGlobal.getUsuario()!!.rol,editarTelefonoProductor.text.toString()
-            )
-        )
 
         if ( editarNombreProductor.text.toString() != "" &&
             editarApellidoProductor.text.toString() != ""&&
@@ -91,10 +83,23 @@ class EditardatosproductorFragment : Fragment() {
             ){
             paramObject.put("nombre", editarNombreProductor.text.toString())
             paramObject.put("apellido", editarApellidoProductor.text.toString())
+
+
+            var fecha_parseada1 = editarFechaNacProductor.text.split("/")
+
+            var dia = fecha_parseada1[0].toString()
+
+            var mes = fecha_parseada1[1].toString()
+
+            var anio = fecha_parseada1[2].toString()
+
+            val date = SimpleDateFormat("dd-MM-yyyy").parse(dia+"-"+mes+"-"+anio)
+
+
             paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
             paramObject.put("telefono", editarTelefonoProductor.text.toString())
 
-            usuarioControlador.editarDatosUsuario(paramObject.toString(), 1)
+            usuarioControlador.editarDatosUsuario(paramObject.toString(), UsuarioGlobal.getUsuario()!!.id.toInt())
                 .enqueue(object : Callback<Void> {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                         print(t.message)
@@ -117,6 +122,11 @@ class EditardatosproductorFragment : Fragment() {
                             "Modificación exitosa!",
                             Toast.LENGTH_SHORT
                         ).show()
+
+                        UsuarioGlobal.guardarUsuario(
+                            Usuario(UsuarioGlobal.getUsuario()!!.id,editarNombreProductor.text.toString(),editarApellidoProductor.text.toString(),UsuarioGlobal.getUsuario()!!.usuario,
+                                UsuarioGlobal.getUsuario()!!.contraseña, java.sql.Date(date.getTime()),UsuarioGlobal.getUsuario()!!!!.rol,editarTelefonoProductor.text.toString())
+                        )
                         /*val action =
                             EditardatosproductorFragmentDirections.actionNavEditardatosproductoresToNavPrincipalproductores()
                         findNavController().navigate(action)
