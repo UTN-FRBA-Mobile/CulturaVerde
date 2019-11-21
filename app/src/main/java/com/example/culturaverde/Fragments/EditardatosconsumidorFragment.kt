@@ -79,9 +79,7 @@ class EditardatosconsumidorFragment : Fragment() {
         ) {
             paramObject.put("nombre", nombreUsuario.text.toString())
             paramObject.put("apellido", apellidoUsuario.text.toString())
-            paramObject.put("fecha_nacimiento", java.sql.Date(fechaNac.toString().toLong()))
-                //.Date(1982,9,9))
-                    //date.getTime())
+            paramObject.put("fecha_nacimiento", java.sql.Date(date.getTime()))
             paramObject.put("telefono", telefono.text.toString())
 
             usuarioControlador.editarDatosUsuario(paramObject.toString(), 1)
