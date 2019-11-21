@@ -12,7 +12,7 @@ class CategoriaProductoGlobal {
             Paper.book().write("categoria", categoria)
         }
 
-        fun getProducto(): Producto {
+        fun getProducto(): Producto? {
             return Paper.book().read("categoria")
         }
 

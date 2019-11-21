@@ -84,7 +84,13 @@ class ResultadoBusqueda : AppCompatActivity() {
 
         var id_productor= ProductorGlobal.getProductor().id
 
-        var busqueda = CategoriaProductoGlobal.getProducto().tipo
+        var busqueda = ""
+
+        if(CategoriaProductoGlobal.getProducto()!=null){
+
+        busqueda = CategoriaProductoGlobal.getProducto()!!.tipo
+
+        }
 
         if (id_productor!!.toInt() != 0) {
 
