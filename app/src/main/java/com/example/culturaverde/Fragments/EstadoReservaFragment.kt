@@ -168,7 +168,7 @@ class EstadoReservaFragment : Fragment() {
 
                     Toast.makeText(
                         requireContext(),
-                        "Ocurrió un error inesperado, intentá nuevamente",
+                        "Tu reserva " + "#${id_reserva}" + " fue actualizada correctamente!",
                         Toast.LENGTH_SHORT
                     ).show()
 

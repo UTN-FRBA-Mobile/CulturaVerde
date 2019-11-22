@@ -167,7 +167,8 @@ class ResumenReservasActivity : AppCompatActivity() {
                 producto.put("id_producto", product.product.id!!.toLong())
                 producto.put("activo", true)
                 producto.put("cantidad", product.quantity)
-                producto.put("precio_por_unidad", product.product.precio)
+
+                producto.put("precio_por_unidad", product.product.precio!!.toFloat())
 
                 detallesReserva.put(producto)
             }
@@ -181,7 +182,7 @@ class ResumenReservasActivity : AppCompatActivity() {
 
                         Toast.makeText(
                             this@ResumenReservasActivity,
-                            "Ocurrió un error inesperado, intentá nuevamente",
+                            "Reserva generada correctamente!",
                             Toast.LENGTH_SHORT
                         ).show()
 

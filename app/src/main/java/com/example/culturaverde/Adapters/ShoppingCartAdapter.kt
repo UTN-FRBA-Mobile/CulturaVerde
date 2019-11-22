@@ -56,7 +56,16 @@ class ShoppingCartAdapter(var context: Context, var cartItems: List<CartItem>) :
 
             itemView.product_name.text = cartItem.product.titulo
 
-            itemView.product_price.text = "$${cartItem.product.precio}"
+            if(cartItem.product.oferta!=null && cartItem.product.oferta!!.activo==true ){
+
+             //   "$"+(cartItem.product.precio!! - ((cartItem.product.oferta!!.porcentaje.toString().toInt() * cartItem.product.precio!!)/100)).toString()
+
+                itemView.product_price.text = "$${(cartItem.product.precio!! - ((cartItem.product.oferta!!.porcentaje.toString().toInt() * cartItem.product.precio!!)/100))}"
+                
+            }
+            else {
+                itemView.product_price.text = "$${cartItem.product.precio}"
+            }
 
             itemView.product_quantity.text = cartItem.quantity.toString()
 
@@ -115,7 +124,11 @@ class ShoppingCartAdapter(var context: Context, var cartItems: List<CartItem>) :
                 var cart_size = ShoppingCart.getShoppingCartSize()
 
                 var totalPrice = ShoppingCart.getCart()
-                    .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.precio!!.toDouble()) }
+                    .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(
+
+                            cartItem.product.precio!!.toDouble()
+
+                    ) }
 
                 (itemView.context as ShoppingCartActivity).total_price.text =  "$${totalPrice}"
 

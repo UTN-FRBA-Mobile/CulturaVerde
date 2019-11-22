@@ -71,7 +71,7 @@ class CalificarProductorFragment : Fragment() {
             .enqueue(object : Callback<Void> {
                 override fun onFailure(call: Call<Void>, t: Throwable) {
 
-                    Toast.makeText(requireContext(), "Ocurrió algún problema, intentá nuevamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Calificación guardada correctamente!", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {

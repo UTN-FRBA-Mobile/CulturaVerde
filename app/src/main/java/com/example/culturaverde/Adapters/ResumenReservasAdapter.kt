@@ -58,7 +58,18 @@ class ResumenReservasAdapter(var context: Context, var cartItems: List<CartItem>
 
             itemView.product_tipounidad.text = cartItem.product.unidad_venta
 
-            itemView.product_price.text = "$${cartItem.product.precio}"
+
+            if(cartItem.product.oferta!=null && cartItem.product.oferta!!.activo==true ){
+
+                //   "$"+(cartItem.product.precio!! - ((cartItem.product.oferta!!.porcentaje.toString().toInt() * cartItem.product.precio!!)/100)).toString()
+
+                itemView.product_price.text = "$${(cartItem.product.precio!! - ((cartItem.product.oferta!!.porcentaje.toString().toInt() * cartItem.product.precio!!)/100))}"
+
+            }else {
+
+                itemView.product_price.text = "$${cartItem.product.precio}"
+
+            }
 
             itemView.product_price_text.text = "por c/u"
 

@@ -78,7 +78,7 @@ class OfertasFragment : Fragment() {
         porcentaje.setOnClickListener {
 
             nuevo_precio.text =
-                "$" + (ProductoGlobal.getProducto().precio!! - ((porcentaje.text.toString().toInt() * ProductoGlobal.getProducto().precio!!) / 100)).toString()
+                "$" + (ProductoGlobal.getProducto().precio!! - ((porcentaje.text.toString().toFloat() * ProductoGlobal.getProducto().precio!!) / 100)).toString()
 
         }
 
