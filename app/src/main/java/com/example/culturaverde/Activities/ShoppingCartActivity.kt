@@ -66,6 +66,21 @@ class ShoppingCartActivity : AppCompatActivity() {
 
     fun actualizarPrecioTotal(){
 
+        var productos_carrito = ShoppingCart.getCart()
+
+        productos_carrito.forEach { p ->
+
+            if(p.product.oferta!=null && p.product.oferta!!.activo==true){
+
+                var nuevo_precio = (p.product.precio!! - ((p.product.oferta!!.porcentaje!!.toInt() * p.product.precio!!) / 100)).toString()
+
+        p.product.precio= nuevo_precio.toFloat()
+
+            }
+
+
+        }
+
         var totalPrice = ShoppingCart.getCart()
             .fold(0.toDouble()) { acc, cartItem -> acc + cartItem.quantity.times(cartItem.product.precio!!.toDouble()) }
 
