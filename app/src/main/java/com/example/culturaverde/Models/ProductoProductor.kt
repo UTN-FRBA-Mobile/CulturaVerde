@@ -24,7 +24,7 @@ data class ProductoProductor (
     var descripcion: String? = null,
 
     @SerializedName("precio")
-    var precio: Int? = null,
+    var precio: Float? = null,
 
     @SerializedName("imagenes")
     var imagenes: List<Photo> = arrayListOf(),

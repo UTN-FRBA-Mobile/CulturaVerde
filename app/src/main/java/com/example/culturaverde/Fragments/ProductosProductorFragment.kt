@@ -73,6 +73,9 @@ class ProductosProductorFragment : Fragment() {
 
             override fun onResponse(call: Call<List<ProductoProductor>>, response: Response<List<ProductoProductor>>) {
 
+                swipeRefreshLayout2.setColorSchemeColors(ContextCompat.getColor(requireContext(), R.color.color_verde))
+
+
                 swipeRefreshLayout2.isRefreshing = false
                 swipeRefreshLayout2.isEnabled = false
 
