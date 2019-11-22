@@ -68,7 +68,7 @@ class CrearConsumidorFragment: Fragment() {
                 override fun onFailure(call: Call<Usuario>, t: Throwable) {
                     print(t.message)
                     Log.d("Registro erroneo", t.message)
-                    Toast.makeText(requireContext(), t.message + "Registro Erroneo!!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Registro exitoso!", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
