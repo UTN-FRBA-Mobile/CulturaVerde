@@ -34,6 +34,6 @@ interface ProductosControlador {
 
     @Multipart
     @POST("redAgro/subir_archivos")
-    fun subirFotos(@Part ("file") multipartFile:RequestBody , @Query ("producto_productor") producto_productor:ProductoProductor): Call<Void>
+    fun subirFotos(@Part  multipartFile:MultipartBody.Part, @Query ("producto_productor") producto_productor:ProductoProductor): Call<Void>
 
 }

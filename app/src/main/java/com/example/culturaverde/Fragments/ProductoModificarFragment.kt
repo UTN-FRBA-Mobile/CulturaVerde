@@ -32,6 +32,7 @@ import android.content.ContentValues
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
+import android.os.FileUtils
 import android.util.Base64
 import androidx.core.content.ContextCompat
 import androidx.core.net.toFile
@@ -250,41 +251,28 @@ class ProductoModificarFragment : Fragment() {
 
         var cant = imagenes.size
 
-         //   val file = uri!!.toFile()
-
         var uri =imagen.uri
 
         var path:String = uri!!.path!!
 
-//var filename:String = path.substring(path.lastIndexOf("/")+1)
-
-      //  var file = filename.substring(0, filename.lastIndexOf("."))
-
         var file = File(path)
-       // val inputStream = contentResolver.openInputStream(Uri.fromFile(file))
-       // val requestFile = RequestBody.create(MediaType.parse("image/jpeg"), getBytes(inputStream))
-       // var body = MultipartBody.Part.createFormData("image", file.name, requestFile)
-
-            // Create a request body with file and image media type
-     var fileReqBody:RequestBody = RequestBody.create(MediaType.parse("image/*"), file)
-     // Create MultipartBody.Part using file request-body,file name and part name
-   //  var part:MultipartBody.Part = MultipartBody.Part.createFormData("upload", file.getName(), fileReqBody)
-
-      //  var data: FormBody
-
-     //  var data = FormData()
-      //      data.append("file", file)
-      //      data.append("name", file.getName())
-
-        var requestBody = MultipartBody.Builder()
-        .setType(MultipartBody.FORM)
-            .addFormDataPart("file","file", fileReqBody)
-        .addFormDataPart("name", file.getName())
-        .build()
 
         var pp:ProductoProductor = ProductoProductor(product.id)
 
-        productosControlador.subirFotos(requestBody,pp)
+        val cr: ContentResolver = requireContext().contentResolver
+
+    // create RequestBody instance from file
+        var requestFile:RequestBody =
+            RequestBody.create(
+                         MediaType.parse(cr.getType(uri)!!),
+                         file
+             )
+
+    // MultipartBody.Part is used to send also the actual file name
+        var body:MultipartBody.Part =
+            MultipartBody.Part.createFormData("file",file.name,requestFile)
+
+        productosControlador.subirFotos(body,pp)
             .enqueue(object : Callback<Void> {
                 override fun onFailure(call: Call<Void>, t: Throwable) {
 
