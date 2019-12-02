@@ -44,12 +44,18 @@ class ModificarProductoAdapter(var context: Context, var imagenes: List<Photo> =
         // This displays the product information for each item
         fun bindProduct(imagen: Photo) {
 
-            val imageBytes = Base64.decode(imagen.image, 0)
-            val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            if (imagen.uri != null) {
 
-            itemView.product_image.setImageBitmap(image)
+                itemView.product_image.setImageURI(imagen.uri)
+
+            } else {
+                val imageBytes = Base64.decode(imagen.image, 0)
+                val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+
+                itemView.product_image.setImageBitmap(image)
+            }
+
         }
-
     }
 
 }

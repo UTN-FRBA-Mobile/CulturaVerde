@@ -32,9 +32,25 @@ import android.content.ContentValues
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
+import android.util.Base64
 import androidx.core.content.ContextCompat
+import androidx.core.net.toFile
+import androidx.core.view.get
+import androidx.core.view.size
 import com.example.culturaverde.Models.Photo
+import kotlinx.android.synthetic.main.product_row_item.*
+import kotlinx.android.synthetic.main.producto_modificar_row_item.*
+import kotlinx.android.synthetic.main.producto_modificar_row_item.product_image
+import kotlinx.android.synthetic.main.producto_modificar_row_item.view.*
 import kotlinx.android.synthetic.main.productos_productor_fragment.*
+import okhttp3.FormBody
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.http.Multipart
+import java.io.File
+import java.io.InputStream
+import java.text.Normalizer
 
 class ProductoModificarFragment : Fragment() {
 
@@ -48,6 +64,8 @@ class ProductoModificarFragment : Fragment() {
     private lateinit var modificarProductoAdapter: ModificarProductoAdapter
     private lateinit var productosControlador: ProductosControlador
     val product: ProductoProductor=ProductoGlobal.getProducto()
+    private var imagenes:ArrayList<Photo> = arrayListOf()
+    var imagenes_adapter:ArrayList<Photo> = arrayListOf()
     private val PERMISSION_CODE = 1000
     private val IMAGE_CAPTURE_CODE = 1001
     var image_uri: Uri? = null
@@ -77,6 +95,8 @@ class ProductoModificarFragment : Fragment() {
         modificarStockProducto.text  = SpannableStringBuilder(product.stock.toString())
         modificarTituloProducto.text = SpannableStringBuilder(product.titulo.toString())
         modificarDescripcion.text = SpannableStringBuilder(product.descripcion.toString())
+
+        imagenes_adapter.addAll(product.imagenes)
 
         botonModificarProducto.setOnClickListener{
 
@@ -145,7 +165,24 @@ class ProductoModificarFragment : Fragment() {
       //  called when image was captured from camera intent
         if (resultCode == Activity.RESULT_OK){
             //set image captured to image view
-            visor.setImageURI(image_uri)
+
+            var cantidad_fotos = visorFotosProducto.size
+
+            var imagen:Photo = Photo()
+
+            imagen.uri = image_uri
+
+       //     imagenes_adapter.addAll(product.imagenes)
+
+            imagenes_adapter.add(imagen)
+
+            imagenes.add(imagen)
+
+            modificarProductoAdapter = ModificarProductoAdapter(requireContext(), imagenes_adapter)
+
+            visorFotosProducto.adapter = modificarProductoAdapter
+            modificarProductoAdapter.notifyDataSetChanged()
+
         }
     }
 
@@ -175,12 +212,25 @@ class ProductoModificarFragment : Fragment() {
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                        Toast.makeText(
                             requireContext(),
-                            "No se ha podido modificar el usuario",
+                            "No se ha podido modificar el producto",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
 
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+                        var cantidad_fotos= visorFotosProducto.size
+
+                        if(cantidad_fotos!=product.imagenes.size){
+
+                            imagenes.forEach { img->
+
+                                subirArchivos(img,product.id!!)
+
+                            }
+
+                        }
+
                         Toast.makeText(
                             requireContext(),
                             "Modificación exitosa!",
@@ -191,4 +241,71 @@ class ProductoModificarFragment : Fragment() {
         }
         else{Toast.makeText(requireContext(),"Debe completar los campos vacíos!",Toast.LENGTH_SHORT).show()}
     }
+
+
+    fun subirArchivos(imagen:Photo, id:Long){
+
+        productosControlador =
+            APIConfig.getRetrofitClient(requireContext()).create(ProductosControlador::class.java)
+
+        var cant = imagenes.size
+
+         //   val file = uri!!.toFile()
+
+        var uri =imagen.uri
+
+        var path:String = uri!!.path!!
+
+//var filename:String = path.substring(path.lastIndexOf("/")+1)
+
+      //  var file = filename.substring(0, filename.lastIndexOf("."))
+
+        var file = File(path)
+       // val inputStream = contentResolver.openInputStream(Uri.fromFile(file))
+       // val requestFile = RequestBody.create(MediaType.parse("image/jpeg"), getBytes(inputStream))
+       // var body = MultipartBody.Part.createFormData("image", file.name, requestFile)
+
+            // Create a request body with file and image media type
+     var fileReqBody:RequestBody = RequestBody.create(MediaType.parse("image/*"), file)
+     // Create MultipartBody.Part using file request-body,file name and part name
+   //  var part:MultipartBody.Part = MultipartBody.Part.createFormData("upload", file.getName(), fileReqBody)
+
+      //  var data: FormBody
+
+     //  var data = FormData()
+      //      data.append("file", file)
+      //      data.append("name", file.getName())
+
+        var requestBody = MultipartBody.Builder()
+        .setType(MultipartBody.FORM)
+            .addFormDataPart("file","file", fileReqBody)
+        .addFormDataPart("name", file.getName())
+        .build()
+
+        var pp:ProductoProductor = ProductoProductor(product.id)
+
+        productosControlador.subirFotos(requestBody,pp)
+            .enqueue(object : Callback<Void> {
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+
+                //    Toast.makeText(
+                  //      requireContext(),
+                 //       "Ocurrió un error inesperado, intente nuevamente",
+                //        Toast.LENGTH_SHORT
+                //    ).show()
+
+
+                }
+
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+
+                }
+            })
+
+    }
+
+
+
 }
+
